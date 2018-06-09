@@ -1,34 +1,15 @@
 <?php
-    include 'ConexionABaseDeDatos.php';
+    include_once 'ConexionABaseDeDatos.php';
+    include_once 'plantillas/documento-inicio.inc.php';
+    include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
  
 $query ="SELECT c.nombre_organizacion, c.numero_fijo, c.numero_movil, c.imagen, c.id_contacto,  r.nombre_region from contactos as c join regiones as r on c.id_region=r.id_region";
 
 $resultado=$con->query($query);
 ?>
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>Lista de contactos</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-    </head>
-
-    <body>
-        
-        <!-- NAVBAR-->
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">   
-                    <a class="navbar-brand" href="#">Agenda Electrónica Oriental</a>
-                </div>
-
-            </div>
-        </nav>
       
-        <div class="container" style="background-color: skyblue; height: 60px; width: 80% ; align-content: center;"><h3>Nombre de categoría</h3></div>
+        <div class="container" style="background-color: skyblue; width: 80% ; align-content: center;"><h3>Nombre de categoría</h3></div>
         
         <div class="container pre-scrollable" style="width: 80%;  background-color: white " >
             <div class="row" style="margin-top: 10px;" >
@@ -70,23 +51,11 @@ $resultado=$con->query($query);
 
         </div>
         
+  <?php
+  include_once 'plantillas/documento-cierre.inc.php';
+  
+  ?>
         
-        <!-- Footer -->
-        <div class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container">
-                <p class="navbar-text pull-left">© 2014 - Site Built By Mr. M.
-                    <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
-                </p>
-
-                <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
-                    <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
-            </div>
-        </div>
-        <!-- Footer -->
-        
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
 
     
 </html>

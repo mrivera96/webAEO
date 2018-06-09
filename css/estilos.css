@@ -87,6 +87,7 @@ section .section-title {
 /* color del footer */
 #footer {
     background: #005662 !important;
+    height: 80px;
 }
 
 /* diseño de los titulos del footer */
@@ -117,6 +118,7 @@ section .section-title {
     padding: 3px 0;
     margin-left:5px;
     font-weight:700;
+    
 }
 /* Footer fin */
 
