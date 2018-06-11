@@ -31,17 +31,11 @@ body {
     color: deepskyblue !important;   
 }
 
-/*color del nombre categorias*/
-h3{
-    color: #2f2f2f;
-    padding: 10PX;
-    text-shadow:-0.1px -0.1px 0.5px #ffffff,0.5px 0.5px 1px #005662;
-}
 
 /*Diseño del nombre categorias*/
 .iluminada:hover{
     color: #005662;
-    text-shadow: 0.5px 0.5px 1px #ffffff;
+  
 }
 
 /*Diseño de la tarjeta de las categorias*/
@@ -51,24 +45,37 @@ h3{
     background: deepskyblue;
     -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
     box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+
+  
+}
+/*tamaño de las cartas de categorias*/
+#tamaño{
+    height: 140px;
+    width: 680px;
+    
+    
 }
 
 /*para el contenedor de las categorias*/
-.container{
-    width: 80%;
-    
-}
+
 /*tamaño de la barra*/
 .navbar-header{
-    height: 70px;
+    height: 60px;
 }
 
-/*Para el contenedor de las tarjetas*/
+/*Para el contenedor de las tarjetas inclulle el tamaño */
 #estilo-contenedor{
+    style-width: 90%;
+    background-color: white;
+   
+    
+}
+
+#estilo-contenedor-textocategoria{
     style-width: 80%;
     background-color: white;
+    margin-top: 3%;
 }
-
 .panel-heading{
     height: 60px;
 }
@@ -83,22 +90,33 @@ section .section-title {
     color: #007b5e;
     margin-bottom: 50px;
     text-transform: uppercase;
+    
 }
 
 /* color del footer */
 #footer {
     background: #005662 !important;
-    height: 80px;
+    height: 50px;
 }
 
 /* diseño de los titulos del footer */
-#footer h2{
-    padding-left: 10px;
-    border-left: 3px solid #eeeeee;
-    padding-bottom: 6px;
-    margin-bottom: 20px;
+#footer span{
+    padding-left:4px;
+    padding-bottom: 4px;
     color:#ffffff;
+  font-size: 13px;
+
 }
+
+#coloayuda{
+    color: #ffffff;
+}
+/* color de los link de email */
+.coloremail:hover{
+  color: orange;
+ text-shadow: 0.5px 0.5px 1px #02550;  
+}
+
 
 /* color de los link de web,desarrolladores,email */
 #footer a {
@@ -106,22 +124,22 @@ section .section-title {
     text-decoration: none !important;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
+     style-width: 80%;
+  
 }
 
-/* animacion de los link de web desarrollo email*/
-#footer ul.quick-links li{
-    padding: 3px 0;
-    -webkit-transition: .5s all ease;
-    -moz-transition: .5s all ease;
-    transition: .5s all ease;
-}
-#footer ul.quick-links li:hover{
-    padding: 3px 0;
-    margin-left:5px;
-    font-weight:700;
-    
-}
+
 /* Footer fin */
+
+/* movimiento del icono de agenda */
+
+.btn-card:hover{
+    transform: translateY(-5px);
+    transition: all 400ms;
+}
+
+
+
 #contenedor_perfiles{
     width: 80%;
     background-color: white;

@@ -2,46 +2,39 @@
 <script src="js/bootstrap.min.js"></script>
 <br>
 <br>
-<!--
-<section id="footer">
-    <div class="container">
-        <div class="row text-center text-xs-center text-sm-left text-md-left">
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h2>Acerca de Aeo</h2>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Web</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>Desarroladores</a></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h2>Descarga la APP</h2>
-                <ul class="list-unstyled quick-links">
-                    <!--LIK DE DESCARGA DE LA APP-->
-          <!--      </ul>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4">
-                <h2>Acerca de Aeo</h2>
-                <ul class="list-unstyled quick-links">
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i>aeo@gmail.com</a></li>
-                    
-                </ul>
-            </div>
-        </div>
-     </div>
-    </div>
--->
-<!-- Footer -->
-        <div class="navbar navbar-default navbar-fixed-bottom" id="footer">
-            <div class="container">
-                <span><a href="acercadeweb.php">Acerca de Aeo</a></span>
 
-                <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
-                    <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
+<!-- Footer -->
+<div class="navbar navbar-default navbar-fixed-bottom" id="footer">
+    <div class="container">
+        <div class="row ">
+            <div  class=" col-xs-6 col-sm-6 col-md-4" >
+                <a  href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
+            </div>
+            <div  class="col-xs-6 col-sm-6 col-md-4" >
+                <a  href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <strong class="opcion coloremail">Descarga la App</strong></a> 
+
+                <ul class="list-unstyled quick-links">
+                          
+            <div class="principal"   
+                </div>
+            
+                    <!--LIK DE DESCARGA DE LA APP-->
+                </ul>
+            </div>
+            <div  class=" col-xs-6 col-sm-6 col-md-4" >
+                <span  class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <strong id="coloayuda">Ayuda y Contacto</strong></a> 
+
+                <ul class="list-unstyled quick-links">
+                    <a  href="#"><span  aria-hidden="true"></span> <strong class="opcion coloremail"><small>aeo@gmail.com</small></strong></a> 
+
+
+                </ul>
             </div>
         </div>
-        <!-- Footer -->
-        
-    
+    </div>
+
+
+
 </body>
 </html>  
 
