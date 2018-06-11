@@ -1,5 +1,5 @@
 <?php
-$titulo = 'Acerca de Web AEO';
+$titulo = 'Acerca de....';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
