@@ -142,3 +142,7 @@ section .section-title {
     color: white;
 }
 
+.btn-buscar{
+    background: #005662;
+    color:#ffffff ;
+}
