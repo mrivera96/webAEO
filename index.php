@@ -30,7 +30,7 @@ crossorigin="anonymous"></script>
             var categorias = JSON.parse(data);
             for (var i in categorias){
             $("#fila").append('<div class = "col-sm-6 col-md-4">' +
-                    '<a href="listaDeContactos.php?nombre_categoria=Emergencia"> <div  class="thumbnail" >' +
+                    '<a href="listaDeContactos.php?id_categoria='+categorias[i].id_categoria+'&&nombre_categoria='+categorias[i].nombre_categoria+'"> <div  class="thumbnail" >' +
                     '<div  class="panel-heading" >' +
                     '<span aria-hidden="true"></span> <strong>' + categorias[i].nombre_categoria + '</strong>' +
                     '<h6>' + categorias[i].coun + ' Contactos</h6>' +
