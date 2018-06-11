@@ -1,61 +1,55 @@
 <?php
-    include_once 'ConexionABaseDeDatos.php';
+    
     include_once 'plantillas/documento-inicio.inc.php';
     include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
- 
-$query ="SELECT c.nombre_organizacion, c.numero_fijo, c.numero_movil, c.imagen, c.id_contacto,  r.nombre_region from contactos as c join regiones as r on c.id_region=r.id_region";
-
-$resultado=$con->query($query);
 ?>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
       
-        <div class="container" style="background-color: skyblue; width: 80% ; align-content: center;"><h3>Nombre de categoría</h3></div>
-        
-        <div class="container pre-scrollable" style="width: 80%;  background-color: white " >
-            <div class="row" style="margin-top: 10px;" >
+  <div id="encabezado_lista_contactos" class="container responsive"  ><h4 id="nombreCategoria">Nombre de categoría</h4></div>
+  <br/>
 
-                <?php
-                while ($row = mysqli_fetch_array($resultado)) {
-                   
-                   $salida=' <div class = "col-md-12">'.
-                    '<div class = "media">'.
-                    '<div class = "media-left">'.
-                    '<a href = "#">';
-                   if($row['imagen']!==""){
-                       $salida = $salida . '<img class="img-circle" src="'.$row['imagen'].'" style="width:150px; height:150px;">';
-                   }else{
-                       $salida = $salida . '<img class="img-circle" src="https://cdn.icon-icons.com/icons2/510/PNG/512/ios7-contact_icon-icons.com_50286.png" style="width:150px; height:150px;">';
-                   }
-                   $salida = $salida . 
-                    '</a>'.
-                    '</div>'.
-                    '<div class = "media-body">'.
-                    '<h2 class = "media-heading">'.$row['nombre_organizacion'].'</h2>';
-                   if($row['numero_fijo']!==""){
-                       $salida = $salida . '<h3>'.$row['numero_fijo'].'</h3>';
-                   }else{
-                       $salida = $salida . '<h3>'.$row['numero_movil'].'</h3>';
-                   }
-                    $salida = $salida.
-                    '<h3>'.$row['nombre_region'].'</h3>'.
-                    '<hr/>'.
-                    '</div>'.
-                    '</div>'.
-                    '</div>';
-                   echo $salida;
+  <div class="container responsive" id="contenedor_perfiles">
+      <div class="row" style="margin-top: 10px;" id="fila">
+         <script>
+            $(document).on("ready", function(){ loadData(); });
+                var loadData = function(){
+                          $.ajax({
+                              type:"GET",
+                              url:"listarPerfiles.php",
+                              data: {'id_categoria':'3'}
+                            }).done(function(data){
+
+                                var perfiles = JSON.parse(data);
+                                for (var i in perfiles){
+                                    $("#fila").append('<a href="#"><div class = "col-md-12">' +
+                                              '<div class="media">' +
+                                              '<div class="media-left">' +
+                                              '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ perfiles[i].imagen+'> ' +
+                                              '</div>' +
+                                              '<div class="media-body">' +
+                                              '<h3 class = "media-heading">' + perfiles[i].nombre_organizacion + '</h3>' +
+                                              '<p>' + perfiles[i].numero_fijo + '</p>' +
+                                              '<p>' + perfiles[i].nombre_region + '</p>' +
+                                                  '</div>' +
+                                                  '</div>' +
+                                                  '<hr/>'+
+                                                  '</div></a>'
+                                                  );
+                                }
+                            });
                 }
-                ?>
-                
+              
+          </script> 
+          
+         
+          
+      </div>                    
+  </div>
 
-            </div>
-
-        </div>
-        
-  <?php
-  include_once 'plantillas/documento-cierre.inc.php';
-  
-  ?>
-        
-
-    
-</html>
+<?php
+    include_once 'plantillas/documento-cierre.inc.php';
+?>
