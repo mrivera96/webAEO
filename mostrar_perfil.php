@@ -10,7 +10,7 @@ $query ="SELECT imagen,nombre_organizacion,numero_fijo,numero_movil,e_mail,direc
 $resultado=$con->query($query);
  
  while($row=mysqli_fetch_array($resultado)){
-		$result["imagen"]=base64_encode($row['imagen']);
+		$result["imagen"]=($row['imagen']);
 			$result["nombre_organizacion"]=$row['nombre_organizacion'];
 				$result["numero_fijo"]=$row['numero_fijo'];
 					$result["numero_movil"]=$row['numero_movil'];
@@ -21,7 +21,7 @@ $resultado=$con->query($query);
 										$result["longitud"]=$row['longitud'];
 			
 			
-	$flag['perfilOrganizacion'][]=$result;
+	$flag[]=$result;
 }
  
 print(json_encode($flag));
