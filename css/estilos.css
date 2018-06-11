@@ -146,3 +146,47 @@ section .section-title {
     background: #005662;
     color:#ffffff ;
 }
+/*Estilos de PerfilOrganizacionSheyli*/
+
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*Nombre de Perfil Organizacion ,color de fondo y color de titulo*/
+    .tituloPO{
+    	font-family:Euphemia;
+    }
+    .nombreOrganizacion{
+    	background:#005662;
+    }
+    .colorNombreOrganizacion{
+    	color:#fff;
+    }
+
+    .bordeTitulo{
+		border-radius: 15px;
+	}
+
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*Tamanio de Imagen de la Organizacion*/
+    .tamanioImagenPO{
+    	width: 100%; 
+    	max-height: 340px;
+    }
+     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+    /*encabezados de cada uno de los datos de perfil*/
+	.encabezadoPerfil{
+		font-family:Euphemia;
+		/*padding-left: 1em;*/
+	}
+
+	/*datos de perfil*/
+	.contenidoPerfil{
+		font-family:Euphemia;
+		/*padding-left: 1em;*/
+	}
+
+ 	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*tamanio de panel*/
+	.panelTexto{
+		height: 500px;
+		background:#FFF;
+	}
