@@ -33,7 +33,7 @@
 <!-- Footer -->
         <div class="navbar navbar-default navbar-fixed-bottom" id="footer">
             <div class="container">
-                <span>Acerca de Aeo</span>
+                <span><a href="acercadeweb.php">Acerca de Aeo</a></span>
 
                 <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
                     <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
