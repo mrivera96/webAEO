@@ -3,12 +3,13 @@
 <br>
 <br>
 
+
 <!-- Footer -->
 <div class="navbar navbar-default navbar-fixed-bottom" id="footer">
     <div class="container">
         <div class="row ">
             <div  class=" col-xs-6 col-sm-6 col-md-4" >
-                <a  href="#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
+                <a  href="acercadeweb.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
             </div>
             <div  class="col-xs-6 col-sm-6 col-md-4" >
                 <a  href="#"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <strong class="opcion coloremail">Descarga la App</strong></a> 
