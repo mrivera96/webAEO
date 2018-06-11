@@ -15,6 +15,7 @@ crossorigin="anonymous"></script>
     <h3><strong>Categorias</strong></h3> 
 </div>
 
+
 <!--Contenedor de tarjetas-->
 
 <div     id="estilo-contenedor" class="container "  >

@@ -11,7 +11,11 @@ while($row =$resultado->fetch_assoc()){
 	$flag[]=$row;
 }
 
+
 print (json_encode($flag));
+
+
+
 
 
 $con->close();
