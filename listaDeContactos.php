@@ -9,7 +9,7 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
       
-  <div id="encabezado_lista_contactos" class="container responsive"  ><h4 id="nombreCategoria">Nombre de categoría</h4></div>
+  <div id="encabezado_lista_contactos" class="container responsive"><h4 id="nombreCategoria"><?php echo $_GET['nombre_categoria'] ?></h4></div>
   <br/>
 
   <div class="container responsive" id="contenedor_perfiles">
@@ -20,12 +20,12 @@
                           $.ajax({
                               type:"GET",
                               url:"listarPerfiles.php",
-                              data: {'id_categoria':'3'}
+                              data: {'id_categoria':<?php echo $_GET['id_categoria']?>}
                             }).done(function(data){
 
                                 var perfiles = JSON.parse(data);
                                 for (var i in perfiles){
-                                    $("#fila").append('<a href="#"><div class = "col-md-12">' +
+                                    $("#fila").append('<a href="PerfilOrganizacion.php?id_contacto='+perfiles[i].id_contacto+'"><div class = "col-md-12">' +
                                               '<div class="media">' +
                                               '<div class="media-left">' +
                                               '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ perfiles[i].imagen+'> ' +
