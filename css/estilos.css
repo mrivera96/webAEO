@@ -170,9 +170,6 @@ section .section-title {
 
     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 	/*Nombre de Perfil Organizacion ,color de fondo y color de titulo*/
-    .tituloPO{
-    	font-family:Euphemia;
-    }
     .nombreOrganizacion{
     	background:#005662;
     }
@@ -181,44 +178,35 @@ section .section-title {
     }
 
     .bordeTitulo{
-		border-radius: 15px;
-	}
-
+        height: 60px; 
+        vertical-align:middle;
+        border-radius: 8px;
+    }
     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 	/*Tamanio de Imagen de la Organizacion*/
     .tamanioImagenPO{
     	width: 100%; 
     	max-height: 340px;
     }
-     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+ /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*tamanio de panel*/
+    .panelTexto{ 
+	height: 500px;
+	background:#FFF;
+    }  
+        
+        
+        
+    #encabezado_contactos
+    {
+        height: 60px; 
+        width: 84% ; 
+        vertical-align:middle;
 
-    /*encabezados de cada uno de los datos de perfil*/
-	.encabezadoPerfil{
-		font-family:Euphemia;
-		/*padding-left: 1em;*/
-	}
-
-	/*datos de perfil*/
-	.contenidoPerfil{
-		font-family:Euphemia;
-		/*padding-left: 1em;*/
-	}
-
- 	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-	/*tamanio de panel*/
-	.panelTexto{
-		height: 500px;
-		background:#FFF;
-	}
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        border-radius: 8px;
+    } 
+ 
+     
+#contenedor_contactosPerfiles{
+    width: 86%;
+}

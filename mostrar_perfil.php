@@ -2,8 +2,8 @@
  
 include 'ConexionABaseDeDatos.php';
 
- if(isset($_GET["id_contacto"])){
- $id_contacto=$_GET['id_contacto'];
+ if(isset($_POST["id_contacto"])){
+ $id_contacto=$_POST['id_contacto'];
 }
 
 $query ="SELECT imagen,nombre_organizacion,numero_fijo,numero_movil,e_mail,direccion,descripcion_organizacion,latitud,longitud FROM contactos WHERE id_contacto='{$id_contacto}'";
