@@ -9,10 +9,12 @@
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
 
-  <div id="encabezado_lista_contactos" class="container responsive"   class="form-control"><br><h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4></div>
+  <div id="encabezado_resultado" class="container responsive">
+      <br><h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4>
+  </div>
   <br/>
 
-  <div class="container responsive" id="contenedor_perfiles">
+  <div class="container responsive" id="contenedor_resultado">
       <div class="row" style="margin-top: 10px;" id="fila">
          <script>
             $(document).on("ready", function(){ loadData(); });
