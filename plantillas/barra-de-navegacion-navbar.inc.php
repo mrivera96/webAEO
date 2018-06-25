@@ -14,7 +14,7 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li> <a id="colorIniciosecion" href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <strong>Iniciar Seción</strong></a></li>
+                <li> <a id="colorIniciosecion" href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <strong>Iniciar Sesión</strong></a></li>
                 <li> <a id="colorIniciosecion" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Registro</strong></a></li>
 
 
