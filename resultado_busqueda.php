@@ -24,17 +24,30 @@
                               url:"buscar.php",
                               data: {'busqueda':'<?php echo $_GET['busqueda']?>','region':"<?php echo $_GET['region']?>",'categoria':"<?php echo $_GET['categoria']?>"}
                             }).done(function(data){
-
+                                     
                                 var perfiles = JSON.parse(data);
+                                var imagen;
+                                var telefono;
+                                
                                 for (var i in perfiles){
+                                    if(perfiles[i].imagen!=""){
+                                        imagen=perfiles[i].imagen;
+                                    }else{
+                                        imagen="https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                                    };
+                                    if(perfiles[i].numero_fijo!=""){
+                                        telefono=perfiles[i].numero_fijo;
+                                    }else{
+                                        telefono=perfiles[i].numero_movil;
+                                    };
                                     $("#fila").append('<a href="PerfilOrganizacion.php?id_contacto='+perfiles[i].id_contacto+'"><div class = "col-md-12">' +
                                               '<div class="media">' +
                                               '<div class="media-left">' +
-                                              '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ perfiles[i].imagen+'> ' +
+                                              '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ imagen+'> ' +
                                               '</div>' +
                                               '<div class="media-body">' +
                                               '<h3 class = "media-heading">' + perfiles[i].nombre_organizacion + '</h3>' +
-                                              '<p>' + perfiles[i].numero_fijo + '</p>' +
+                                             '<p>' + telefono + '</p>' +
                                               '<p>' + perfiles[i].nombre_region + '</p>' +
                                                   '</div>' +
                                                   '</div>' +
