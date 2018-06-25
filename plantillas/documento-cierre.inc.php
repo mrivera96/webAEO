@@ -3,12 +3,11 @@
 <br>
 <br>
 
-
 <!-- Footer -->
 <div class="navbar navbar-default navbar-fixed-bottom" id="footer">
     <div class="container">
-        <div class="row ">
-            <div  class=" col-xs-6 col-sm-6 col-md-4" >
+        <div class="row text-center text-xs-center text-sm-left text-md-left ">
+            <div  class="col-xs-6 col-sm-6 col-md-4" >
                 <a  href="acercadeweb.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
             </div>
             <div  class="col-xs-6 col-sm-6 col-md-4" >
@@ -22,7 +21,7 @@
                     <!--LIK DE DESCARGA DE LA APP-->
                 </ul>
             </div>
-            <div  class=" col-xs-6 col-sm-6 col-md-4" >
+            <div  class="col-xs-6 col-sm-6 col-md-4" >
                 <span  class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <strong id="coloayuda">Ayuda y Contacto</strong></a> 
 
                 <ul class="list-unstyled quick-links">
@@ -33,12 +32,6 @@
             </div>
         </div>
     </div>
-
-    
-    
-    
-    
-    
 </body>
 </html>  
 
