@@ -44,19 +44,18 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                         }
                     });
                 }
-
-
             </script>
         </div> 
     </div>   
 </div>
 </div>
 
-
-
 <a  href="formulario_registro.php" class="float">
     <i class="glyphicon glyphicon-plus my-float"></i>
 </a>
+
+
+
 
 
 <?php
