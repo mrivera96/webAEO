@@ -251,7 +251,10 @@ section .section-title {
     border-radius: 8px;
 }
 #contenedor_resultado{
-    width: 86%;
+     width: 84%;
+    background-color: white;
+    background-size: 70.7%;
+    border-radius: 8px;
 }
 
 /* form starting stylings ------------------------------- */
