@@ -7,7 +7,7 @@
     src="js/jquery-2.2.4.min.js"
     ></script> 
   <br/>
-      
+      <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
   <div id="encabezado_lista_contactos" class="container"><h4 id="nombreCategoria"><?php echo $_GET['nombre_categoria'] ?></h4></div>
   
 
