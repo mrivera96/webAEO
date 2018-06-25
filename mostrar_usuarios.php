@@ -3,10 +3,13 @@
 $titulo = 'Usuarios';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+
+
 ?>
 
 <script
     src="js/jquery_sin_datos.min.js"
+    
 ></script> 
 
 
@@ -41,19 +44,20 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                         }
                     });
                 }
-
-
             </script>
         </div> 
     </div>   
 </div>
 </div>
 
-
-
 <a  href="formulario_registro.php" class="float">
     <i class="glyphicon glyphicon-plus my-float"></i>
 </a>
+
+
+
+
+
 
 
 <?php
