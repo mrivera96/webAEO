@@ -25,7 +25,7 @@
                 <span  class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <strong id="coloayuda">Ayuda y Contacto</strong></a> 
 
                 <ul class="list-unstyled quick-links">
-                    <a  href="#"><span  aria-hidden="true"></span> <strong class="opcion coloremail"><small>aeo@gmail.com</small></strong></a> 
+                    <a  href="cerrarSessionLogin.php"><span  aria-hidden="true"></span> <strong class="opcion coloremail"><small>aeo@gmail.com</small></strong></a> 
 
 
                 </ul>

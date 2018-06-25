@@ -1,9 +1,9 @@
 <?php
 $titulo = 'Agenda Electrónica Oriental';
 include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-include_once 'plantillas/buscador.inc.php';
-
+//include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once 'plantillas/buscador.inc.php';   
+    
 ?>
 <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
