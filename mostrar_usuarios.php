@@ -3,10 +3,12 @@
 $titulo = 'Usuarios';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+
 ?>
 
 <script
     src="js/jquery_sin_datos.min.js"
+    
 ></script> 
 
 
