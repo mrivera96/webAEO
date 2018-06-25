@@ -18,7 +18,6 @@
                 <li> <a id="colorIniciosecion" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Registro</strong></a></li>
 
 
-
                     <!--va iniciar secion o registrarce -->
             </ul>
         </div> 
