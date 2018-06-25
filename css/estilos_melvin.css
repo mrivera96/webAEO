@@ -1,0 +1,376 @@
+
+body {
+    background-image:  url('../imagenes/fondo.png');
+}
+
+/*color de los paneles de cada tarjeta*/
+.panel-heading{
+    background-color:  #005662!important;
+    color: white !important ;
+}
+
+/*colo de la barra superior*/
+.navbar{
+    background-color: #005662; 
+}
+
+/*Diseño de los componetes de la barra superior*/
+.navbar-brand:link, .navbar-brand:visited{
+    color: white !important;
+
+}
+.navbar-brand:hover, .navbar-brand:active{
+    color: deepskyblue !important;
+}
+
+#navbar li a:link, #navbar li a:visited{
+    color: white !important;
+}
+
+#navbar li a:hover, #navbar li a:active{
+    color: deepskyblue !important;   
+}
+
+
+/*Diseño del nombre categorias*/
+.iluminada:hover{
+    color: #005662;
+  
+}
+
+/*Diseño de la tarjeta de las categorias*/
+.thumbnail{
+    margin: 10px;
+    padding: 0px;
+    background: deepskyblue;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+    box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
+
+  
+}
+/*tamaño de las cartas de categorias*/
+#tamaño{
+    height: 140px;
+    width: 680px;
+    
+    
+}
+
+/*para el contenedor de las categorias*/
+
+/*tamaño de la barra*/
+.navbar-header{
+    height: 60px;
+}
+
+/*Para el contenedor de las tarjetas inclulle el tamaño */
+#estilo-contenedor{
+    style-width: 90%;
+    background-color: white;
+    
+    
+      }
+
+#estilo-contenedor-textocategoria{
+    style-width: 80%;
+    background-color: white;
+    margin-top: 3%;
+}
+
+
+.panel-heading{
+    height: 60px;
+}
+/* Footer  inicio*/
+/* espacio del texto con la barra */
+section {
+    padding: 20px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    
+}
+
+/* color del footer */
+#footer {
+    background: #005662 !important;
+    height: 50px;
+}
+
+/* diseño de los titulos del footer */
+#footer span{
+    padding-left:4px;
+    padding-bottom: 4px;
+    color:#ffffff;
+  font-size: 13px;
+
+}
+
+#coloayuda{
+    color: #ffffff;
+}
+/* color de los link de email */
+.coloremail:hover{
+  color: orange;
+ text-shadow: 0.5px 0.5px 1px #02550;  
+}
+
+
+/* color de los link de web,desarrolladores,email */
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+     style-width: 80%;
+  
+}
+
+
+/* Footer fin */
+
+/* movimiento del icono de agenda */
+
+.btn-card:hover{
+    transform: translateY(-5px);
+    transition: all 400ms;
+}
+
+
+
+#contenedor_perfiles{
+   
+    background-color: white;
+    border-radius: 8px;
+    
+}
+
+#encabezado_lista_contactos{
+    background-color: #005662; 
+     
+    margin-top:auto;
+            margin-bottom:auto;
+            text-align:center;
+    border-radius: 8px;
+}
+
+#nombreCategoria{
+    color: white;
+}
+
+.btn-buscar{
+    background: #005662;
+    color:#ffffff ;
+}
+/*Estilos de PerfilOrganizacionSheyli*/
+
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*Nombre de Perfil Organizacion ,color de fondo y color de titulo*/
+    .tituloPO{
+    	font-family:Euphemia;
+    }
+    .nombreOrganizacion{
+    	background:#005662;
+    }
+    .colorNombreOrganizacion{
+    	color:#fff;
+    }
+
+    .bordeTitulo{
+		border-radius: 15px;
+	}
+
+    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*Tamanio de Imagen de la Organizacion*/
+    .tamanioImagenPO{
+    	width: 100%; 
+    	max-height: 340px;
+    }
+     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+    /*encabezados de cada uno de los datos de perfil*/
+	.encabezadoPerfil{
+		font-family:Euphemia;
+		/*padding-left: 1em;*/
+	}
+
+	/*datos de perfil*/
+	.contenidoPerfil{
+		font-family:Euphemia;
+		/*padding-left: 1em;*/
+	}
+
+ 	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/*tamanio de panel*/
+	.panelTexto{
+		height: 500px;
+		background:#FFF;
+	}
+        .enlaces_de_listas_contactos:link, .enlaces_de_listas_contactos:visited{
+            color: black;
+        }
+        
+        /*Estilo Material*/
+        .group            { 
+            position:relative; 
+            margin-bottom:45px; 
+        }
+        input               {
+            font-size:18px;
+            padding:10px 10px 10px 5px;
+            display:block;
+            width:100%;
+            border:none;
+            border-bottom:1px solid #757575;
+        }
+        input:focus         { outline:none; }
+
+        /* LABEL ======================================= */
+        label                {
+            color:#999; 
+            font-size:18px;
+            font-weight:normal;
+            position:absolute;
+            pointer-events:none;
+            left:5px;
+            top:10px;
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+        }
+
+        /* active state */
+        input:focus ~ label, input:valid ~ label        {
+            top:-20px;
+            font-size:14px;
+            color:#005662;
+        }
+
+        /* BOTTOM BARS ================================= */
+        .bar    { position:relative; display:block; width:100%; }
+        .bar:before, .bar:after     {
+            content:'';
+            height:2px; 
+            width:0;
+            bottom:1px; 
+            position:absolute;
+            background:#005662; 
+            transition:0.2s ease all; 
+            -moz-transition:0.2s ease all; 
+            -webkit-transition:0.2s ease all;
+        }
+        .bar:before {
+            left:50%;
+        }
+        .bar:after {
+            right:50%; 
+        }
+
+        /* active state */
+        input:focus ~ .bar:before, input:focus ~ .bar:after {
+            width:50%;
+        }
+
+        /* HIGHLIGHTER ================================== */
+        .highlight {
+            position:absolute;
+            height:60%; 
+            width:100px; 
+            top:25%; 
+            left:0;
+            pointer-events:none;
+            opacity:0.5;
+        }
+
+        /* active state */
+        input:focus ~ .highlight {
+            -webkit-animation:inputHighlighter 0.3s ease;
+            -moz-animation:inputHighlighter 0.3s ease;
+            animation:inputHighlighter 0.3s ease;
+        }
+
+        /* ANIMATIONS ================ */
+        @-webkit-keyframes inputHighlighter {
+            from { background:#005662; }
+            to    { width:0; background:transparent; }
+        }
+        @-moz-keyframes inputHighlighter {
+            from { background:#005662; }
+            to    { width:0; background:transparent; }
+        }
+        @keyframes inputHighlighter {
+            from { background:#005662; }
+            to    { width:0; background:transparent; }
+        }  
+        
+        .circle-img {
+            width: 130px;
+            height: 130px;
+            overflow: hidden;
+        }
+
+        .circle-img img {
+            height: 100%;
+            transform: translateX(-50%);
+            margin-left: 50%;
+        }
+        
+        .oculto {
+            width:0; 
+            height:0; 
+            border:0; 
+            border:none;
+        }
+        
+
+        .float{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:60px;
+            right:40px;
+            background-color:#005662;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+
+        }
+        .floatfoto{
+            position: absolute;
+            top: 85%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            font-size: 16px;
+            cursor: pointer;
+            width:60px;
+            height:60px;
+            bottom:1050px;
+            right:350px;
+            background-color:#005662;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999 !important;
+
+        }
+
+        .my-float{
+            margin-top:22px !important;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

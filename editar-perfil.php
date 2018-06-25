@@ -2,7 +2,7 @@
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
-
+<head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
 <div class="container">
     <br/>
     <div class="row">
@@ -21,7 +21,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">   
-                            <input type="text" required name="nomborg_rec" id="nombreOrg">
+                            <input  type="text" required name="nomborg_rec" id="nombreOrg">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-credit-card"></span> Nombre de Organización</label>
@@ -29,7 +29,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
                         <div class="group">
 
-                            <input type="tel" id="numtelOrg" name="numtel_rec">
+                            <input class="input" type="tel" id="numtelOrg" name="numtel_rec">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-earphone"></span> Número fijo</label>
@@ -37,15 +37,15 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">
-                            <input type="tel" id="numcelOrg" name="numcel_rec">
+                            <input class="input" type="tel" id="numcelOrg" name="numcel_rec">
                             <span class="highlight"></span>
-                            <span class="bar"></span>
+                            <span class="barn"></span>
                             <label><span class="glyphicon glyphicon-phone"></span> Número móvil</label>
                         </div>
 
 
                         <div class="group">      
-                            <input type="text" required id="dirOrg" name="direccion_rec">
+                            <input class="input" type="text" required id="dirOrg" name="direccion_rec">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-transfer"></span> Dirección</label>
@@ -53,7 +53,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">
-                            <input type="email" id="emailOrg" name="email_rec">
+                            <input class="input" type="email" id="emailOrg" name="email_rec">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-envelope"></span> e-mail</label>
@@ -62,7 +62,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">    
-                            <input type="text" required id="descOrg" name="desc_rec">
+                            <input class="input" type="text" required id="descOrg" name="desc_rec">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-align-left"></span> Descripción de la organización</label>
@@ -71,7 +71,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">     
-                            <input type="text" id="latOrg" required name="lat_rec" >
+                            <input class="input" type="text" id="latOrg" required name="lat_rec" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Latitud</label>
@@ -79,7 +79,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
                         <div class="group">   
-                            <input type="text" id="longOrg" required name="longitud_rec">
+                            <input class="input" type="text" id="longOrg" required name="longitud_rec">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>

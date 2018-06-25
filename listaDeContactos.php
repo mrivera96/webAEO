@@ -14,6 +14,8 @@
   <div class="container responsive" id="contenedor_perfiles">
       <div class="row" style="margin-top: 10px;" id="fila">
          <script>
+             
+             
             $(document).on("ready", function(){ loadData(); });
                 var loadData = function(){
                           $.ajax({
