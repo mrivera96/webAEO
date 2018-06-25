@@ -174,21 +174,9 @@ section .section-title {
 
 
 
-#contenedor_perfiles{
-    width: 80%;
-    background-color: white;
-    background-size: 70.7%;
-    border-radius: 8px;
-}
 
-#encabezado_lista_contactos{
-    background-color: #005662; 
-    height: 60px; 
-    width: 80% ; 
-    vertical-align:middle;
-    
-    border-radius: 8px;
-}
+
+
 
 #nombreCategoria{
     color: white;
