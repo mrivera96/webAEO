@@ -210,3 +210,14 @@ section .section-title {
 #contenedor_contactosPerfiles{
     width: 86%;
 }
+#encabezado_resultado{
+     background-color: #005662; 
+    height: 60px; 
+    width: 84% ; 
+    vertical-align:middle;
+    
+    border-radius: 8px;
+}
+#contenedor_resultado{
+    width: 86%;
+}
