@@ -7,7 +7,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
  session_start();
  if (isset($_SESSION['user_id'])) {
-    header('Location: /webaeo');
+    header('Location: /webaeo/mostrar_usuarios.php');
   }
   require 'database.php';
   if (!empty($_POST['nombre_usuario']) && !empty($_POST['password'])) {
@@ -18,7 +18,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
     $message = '';
     if (count($results) > 0 && ($_POST['password'] == $results['contrasena']) ) {
       $_SESSION['user_id'] = $results['id_usuario'];
-      header("Location: /webaeo");
+      header("Location: /webaeo/mostrar_usuarios.php");
     } else {
       $message = 'Usuario o Contraseña incorrectas desde login';
     }

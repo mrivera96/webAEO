@@ -1,3 +1,8 @@
+<?php
+$titulo = 'Agenda Electrónica Oriental';
+include_once 'plantillas/documento-inicio.inc.php'; 
+    
+?>
 <nav class="navbar navbar-default ">
     <div class="container">
         <div class="navbar-header">
@@ -14,13 +19,12 @@
         
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                               <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
-
+               
                 <li id="boton" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                     <ul id="despliege"class="dropdown-menu" role="menu">
                         <li><a href="mostrar_usuarios.php"><img src="imagenes/administracioncuenta.jpg" height="15"></img> <strong>Administración de Cuenta</strong></a></li>
-                        <li><a href="administracion-de-perfiles.php"><img src="imagenes/administracionperfil.jpg" height="15"></img> <strong>Administración de Perfil</strong></a></li>
+                        <li><a href="#"><img src="imagenes/administracionperfil.jpg" height="15"></img> <strong>Administración de Perfil</strong></a></li>
                     </ul>
                 </li>
                 <!--va iniciar secion o registrarce -->
@@ -29,3 +33,7 @@
     </div>   
     
 </nav>
+<?php
+
+include_once 'plantillas/documento-cierre.inc.php';
+?>
