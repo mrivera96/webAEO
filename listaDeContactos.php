@@ -1,16 +1,15 @@
-<?php
-    
+<?php  
     include_once 'plantillas/documento-inicio.inc.php';
     include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-
+    include_once 'plantillas/buscador.inc.php';
 ?>
 <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-      
-  <div id="encabezado_lista_contactos" class="container responsive"><h4 id="nombreCategoria"><?php echo $_GET['nombre_categoria'] ?></h4></div>
+    src="js/jquery-2.2.4.min.js"
+    ></script> 
   <br/>
+      
+  <div id="encabezado_lista_contactos" class="container"><h4 id="nombreCategoria"><?php echo $_GET['nombre_categoria'] ?></h4></div>
+  
 
   <div class="container responsive" id="contenedor_perfiles">
       <div class="row" style="margin-top: 10px;" id="fila">
@@ -24,15 +23,28 @@
                             }).done(function(data){
 
                                 var perfiles = JSON.parse(data);
+                                var imagen;
+                                var telefono;
+                                
                                 for (var i in perfiles){
-                                    $("#fila").append('<a href="PerfilOrganizacion.php?id_contacto='+perfiles[i].id_contacto+'"><div class = "col-md-12">' +
-                                              '<div class="media">' +
+                                    if(perfiles[i].imagen!=""){
+                                        imagen=perfiles[i].imagen;
+                                    }else{
+                                        imagen="https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                                    };
+                                    if(perfiles[i].numero_fijo!=""){
+                                        telefono=perfiles[i].numero_fijo;
+                                    }else{
+                                        telefono=perfiles[i].numero_movil;
+                                    };
+                                    $("#fila").append('<a class="enlaces_de_listas_contactos" href="PerfilOrganizacion.php?id_contacto='+perfiles[i].id_contacto+'"><div class = "col-md-4 col-sm-6">' +
+                                              '<div class="media-list">' +
                                               '<div class="media-left">' +
-                                              '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ perfiles[i].imagen+'> ' +
+                                              '<img  class="media-object img-circle circle-img" src='+imagen+'> ' +
                                               '</div>' +
                                               '<div class="media-body">' +
-                                              '<h3 class = "media-heading">' + perfiles[i].nombre_organizacion + '</h3>' +
-                                              '<p>' + perfiles[i].numero_fijo + '</p>' +
+                                              '<h4 class = "media-heading">' + perfiles[i].nombre_organizacion + '</h4>' +
+                                              '<p>' + telefono + '</p>' +
                                               '<p>' + perfiles[i].nombre_region + '</p>' +
                                                   '</div>' +
                                                   '</div>' +
@@ -44,9 +56,7 @@
                 }
               
           </script> 
-          
-         
-          
+             
       </div>                    
   </div>
 
