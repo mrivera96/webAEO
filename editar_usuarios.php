@@ -17,7 +17,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 40px">
                     <h3 class="panel-title">
-                        Edición de Cuenta 
+                       <span class="glyphicon glyphicon-edit"></span>  Edición de Cuenta 
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -47,8 +47,10 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                     <span class="bar"></span>
                     <label >Contraseña</label>
                 </div>
-                <button type="submit"  name="Submit"   class="btn btn-primary btn-lg btn-block" >Editar</button>
-                <button type="button" id="id_eliminar"  class="btn btn-default btn-lg btn-block"   >Eliminar</button>
+
+                <button  class="form-control" type="submit"  name="Submit" style="width:100%; background-color:#005662; color:white;"> <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
+                <br>
+                <button class="form-control btn btn-danger " type="button" id="id_eliminar" style="width:100%;  color:white;"> <span class="glyphicon glyphicon-trash"></span>  Eliminar Usuario</button>
             </form>
 
                 </div>
@@ -63,7 +65,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
     });
     var loadData = function ()
     {
-        console.log("vamos pues");
+        
         $.ajax({
             type: "GET",
             url: "Mostar_Los_Usuarios_Editados.php",
