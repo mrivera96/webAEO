@@ -17,7 +17,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
             <div class="panel panel-default">
                 <div class="panel-heading" style="height: 40px">
                     <h3 class="panel-title">
-                        Formulario de Registro
+                      <span class="glyphicon glyphicon-pencil"></span>  Formulario de Registro
                     </h3>
                 </div>
                 <div class="panel-body">
@@ -50,7 +50,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                 <select name="rol" class="form-control" id="id_rol_usuario">
                 </select>
                 <br>
-                <button  type="submit"  name="Submit"   class="btn btn-primary btn-lg btn-block" >Registrar</button>
+                <button class="form-control" type="submit"  name="Submit"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
 
 
