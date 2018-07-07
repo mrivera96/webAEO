@@ -19,9 +19,10 @@
             $(document).on("ready", function(){ loadData(); });
                 var loadData = function(){
                           $.ajax({
-                              type:"GET",
+                              
+                              type:"get",
                               url:"listarPerfiles.php",
-                              data: {'id_categoria':<?php echo $_GET['id_categoria']?>}
+                              data: {'categoria':<?php echo $_GET['id_categoria']?>}
                             }).done(function(data){
 
                                 var perfiles = JSON.parse(data);

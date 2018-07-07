@@ -1,16 +1,17 @@
 <?php
  
 include 'ConexionABaseDeDatos.php';
-if(isset($_GET["id_contacto"])){
- $id_contacto=$_GET['id_contacto'];
-}
-
+if(isset($_GET["contacto"])){
+ $id_contacto=$_GET['contacto'];
+  
+$query ="SELECT * FROM contactos where id_contacto=?";
+$resultado=$con->prepare($query);
+    $resultado -> bind_param("i",$id_contacto);
+    $resultado->execute();
+    $resul=$resultado->get_result();
  
-$query ="SELECT * FROM contactos where id_contacto='{$id_contacto}'";
-$resultado=$con->query($query);
  
- 
- while($row=mysqli_fetch_array($resultado)){
+ while($row=mysqli_fetch_array($resul)){
 	$result["id_contacto"]=$row['id_contacto'];
 	$result["nombre_organizacion"]=$row['nombre_organizacion'];
 	$result["numero_fijo"]=$row['numero_fijo'];
@@ -26,8 +27,15 @@ $resultado=$con->query($query);
 	$flag['perfiles'][]=$result;
 }
  
+if(isset($flag)){
+    print(json_encode($flag));
+} else {
+    print 'No hay resultados';
+}
 
-print(json_encode($flag));
+}else{print 'No se recibieron variables';}
+
+
 $con->close();
  
 ?>

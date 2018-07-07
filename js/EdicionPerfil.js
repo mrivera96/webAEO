@@ -17,11 +17,11 @@ function $_GET(param) {
 var loadData = function(){
     
     
-    var id_contacto = $_GET('id_contacto');
+    var id_contacto = $_GET('contacto');
     $.ajax({
          type:"GET",
          url:"consultarDatosDePerfilParaEditar.php",
-         data: {'id_contacto':id_contacto} 
+         data: {'contacto':id_contacto} 
     }).done(function(data){
 
         var perfiles = JSON.parse(data);
@@ -43,7 +43,7 @@ var loadData = function(){
             $("#emailOrg").attr("value", perfiles["perfiles"][i].e_mail);
             $("#descOrg").attr("value", perfiles["perfiles"][i].descripcion_organizacion);
             $("#latOrg").attr("value", perfiles["perfiles"][i].latitud);
-            $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);
+            $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);       
         }
 
         $.ajax({
@@ -53,7 +53,7 @@ var loadData = function(){
             var regiones = JSON.parse(data);
 
             for (var i in regiones) {
-                $("#region").append('<option >' + regiones[i].id_region +' - ' + regiones[i].nombre_region + '</option>');
+                $("#region").append('<option class="form-control" value="' + regiones[i].id_region +'">' + regiones[i].nombre_region + '</option>');
             }
         });
 
@@ -64,7 +64,7 @@ var loadData = function(){
             var categorias = JSON.parse(data);
 
             for (var i in categorias) {
-                $("#categoria").append('<option >' + categorias[i].id_categoria +' - ' + categorias[i].nombre_categoria + '</option>');
+                $("#categoria").append('<option class="form-control" value="'+ categorias[i].id_categoria + '">'+ categorias[i].nombre_categoria + '</option>');
             }
         });
 
@@ -72,16 +72,13 @@ var loadData = function(){
 
 };
 
-$("#formularioEditar").submit(function () {
-        alert('Perfil actualizado con éxito');
-        window.location.href = 'administracion-de-perfiles.php';
-});
+
 
 document.getElementById("eliminar").onclick = function () {
-        myFunction()
+        eliminarPerfil()
     };
     
-    function myFunction() {
+    function eliminarPerfil() {
         $.ajax({
             type: "GET",
             url: "eliminarPerfil.php",
@@ -90,5 +87,5 @@ document.getElementById("eliminar").onclick = function () {
         alert('Perfil eliminado');
         window.location.href = 'administracion-de-perfiles.php';
     }
-
+    
 

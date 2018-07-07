@@ -1,8 +1,21 @@
 <?php
  
  include 'ConexionABaseDeDatos.php';
- 
-        $nomborg_rec=$_POST['nomborg_rec'];
+ if(isset($_POST['nomborg_rec'])    &&
+    isset($_POST['numtel_rec'])     &&
+    isset($_POST['numcel_rec'])     &&
+    isset($_POST['direccion_rec'])  &&
+    isset($_POST['email_rec'])      &&
+    isset($_POST['desc_rec'])       &&
+    isset($_POST['id_categoria'])   &&
+    isset($_POST['lat_rec'])        &&
+    isset($_POST['longitud_rec'])   &&
+    isset($_POST['id_region'])      &&
+    isset($_POST['imagen'])         &&
+    isset($_POST['nombre_imagen'])  &&
+    isset($_POST['id_usuario'])){
+     
+      $nomborg_rec=$_POST['nomborg_rec'];
         $numtel_rec=$_POST['numtel_rec'];
         $numcel_rec=$_POST['numcel_rec'];
         $direccion_rec=$_POST['direccion_rec'];
@@ -48,21 +61,25 @@
             id_estado,
             imagen)
             VALUES(
-                '{$nomborg_rec}', 
-                '{$numtel_rec}', 
-                '{$numcel_rec}', 
-                '{$direccion_rec}',
-                '{$desc_rec}',
-                '{$email_rec}', 
-                '{$id_categoria}', 
-                '{$lat_rec}', 
-                '{$longitud_rec}', 
-                '{$id_region}', 
-                '{$id_usuario}',
+                ?, 
+                ?, 
+                ?, 
+                ?,
+                ?,
+                ?, 
+                ?, 
+                ?, 
+                ?, 
+                ?, 
+                ?,
                 2,
-                '".mysqli_real_escape_string($con,$url)."')";
+                ?)";
+        $resultado=$con->prepare($query_search);
+            $resultado->bind_param("ssssssiddiis",$nomborg_rec,$numtel_rec,$numcel_rec,$direccion_rec,$desc_rec,$email_rec,
+                    $id_categoria,$lat_rec,$longitud_rec,$id_region,$id_usuario,mysqli_real_escape_string($con,$url));
+            $resultado->execute();
     }else{
-        $query_search="INSERT INTO contactos(
+        $query_search = "INSERT INTO contactos(
             nombre_organizacion,
             numero_fijo,
             numero_movil,
@@ -77,23 +94,28 @@
             id_estado
             )
             VALUES(
-                '{$nomborg_rec}', 
-                '{$numtel_rec}', 
-                '{$numcel_rec}', 
-                '{$direccion_rec}',
-                '{$desc_rec}',
-                '{$email_rec}', 
-                '{$id_categoria}', 
-                '{$lat_rec}', 
-                '{$longitud_rec}', 
-                '{$id_region}', 
-                '{$id_usuario}',
+                ?, 
+                ?, 
+                ?, 
+                ?,
+                ?,
+                ?, 
+                ?, 
+                ?, 
+                ?, 
+                ?, 
+                ?,
                 2)";
+        $resultado = $con->prepare($query_search);
+        $resultado->bind_param("ssssssiddii", $nomborg_rec, $numtel_rec, $numcel_rec, 
+                $direccion_rec, $desc_rec, $email_rec, $id_categoria, $lat_rec, $longitud_rec, $id_region, $id_usuario);
+        $resultado->execute();
     }
  
-$query_exec =mysqli_query($con,$query_search);
-
-
+    }else{
+        print json_encode('ERROR Revise los parametros de su request.');
+    }
+       
 $con->close();
  
 ?>

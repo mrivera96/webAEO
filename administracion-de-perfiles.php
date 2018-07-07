@@ -41,7 +41,7 @@
   <div id="encabezado_lista_contactos" class="container"><h4 style="color: white">Administración de Perfiles Activos</h4></div>
   
 
-  <div class="container responsive" id="contenedor_perfiles">
+  <div class="container" id="contenedor_perfiles">
       <div class="row" style="margin-top: 10px;" id="fila">
           
              

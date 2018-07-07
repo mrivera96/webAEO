@@ -27,7 +27,7 @@ var loadData = function(){
             var regiones = JSON.parse(data);
 
             for (var i in regiones) {
-                $("#region").append('<option >' + regiones[i].id_region +' - ' + regiones[i].nombre_region + '</option>');
+                $("#region").append('<option value="' + regiones[i].id_region +'">' + regiones[i].nombre_region + '</option>');
             }
         });
 
@@ -38,7 +38,7 @@ var loadData = function(){
             var categorias = JSON.parse(data);
 
             for (var i in categorias) {
-                $("#categoria").append('<option >' + categorias[i].id_categoria +' - ' + categorias[i].nombre_categoria + '</option>');
+                $("#categoria").append('<option value="' + categorias[i].id_categoria +' "> ' + categorias[i].nombre_categoria + '</option>');
             }
         });
         $.ajax({
@@ -48,15 +48,11 @@ var loadData = function(){
             var usuarios = JSON.parse(data);
 
             for (var i in usuarios) {
-                $("#usuario").append('<option >' + usuarios[i].id_usuario +' - ' + usuarios[i].nombre_usuario + '</option>');
+                $("#usuario").append('<option value="' + usuarios[i].id_usuario +'">' + usuarios[i].nombre_usuario + '</option>');
             }
         }); 
 
 };
-$("#formularioCrear").submit(function () {
-        alert('Perfil creado con éxito');
-        window.location.href = 'administracion-de-perfiles.php';
-    });
 
 
 

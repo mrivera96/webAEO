@@ -3,9 +3,9 @@ $(document).on("ready", function () {
 });
 var loadData = function () {
     $.ajax({
-        type: "GET",
+        type: "post",
         url: "consultarPerfilesParaAdministracionPerfiles.php",
-        data: {'id_estado': '2'}
+        data: {'estado': '2'}
     }).done(function (data) {
 
         var perfiles = JSON.parse(data);
@@ -21,7 +21,7 @@ var loadData = function () {
             ;
 
             $("#fila").append(
-                    '<a class="enlaces_de_listas_contactos" href="editar-perfil.php?id_contacto=' + perfiles[i].id_contacto + '"><div class = "col-md-4 col-sm-6">' +
+                    '<a class="enlaces_de_listas_contactos" href="editar-perfil.php?contacto=' + perfiles[i].id_contacto + '"><div class = "col-md-4 col-sm-6">' +
                         '<div class="media">' +
                             '<div class="media-left">' +
                             '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle circle-img" src=' + imagen + '> ' +

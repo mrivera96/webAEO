@@ -3,9 +3,9 @@ $(document).on("ready", function () {
 });
 var loadData = function () {
     $.ajax({
-        type: "GET",
+        type: "post",
         url: "consultarPerfilesParaAdministracionPerfiles.php",
-        data: {'id_estado': '4'},
+        data: {'estado': '4'},
         success:function (data){
         if(data!=="No hay resultados"){
             var perfiles = JSON.parse(data);

@@ -162,82 +162,31 @@ section .section-title {
     color: white;
 }
 
-.btn-buscar{
-    background: #005662;
-    color:#ffffff ;
-}
-/*Estilos de PerfilOrganizacionSheyli*/
-
-    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-	/*Nombre de Perfil Organizacion ,color de fondo y color de titulo*/
-    .tituloPO{
-    	font-family:Euphemia;
-    }
-    .nombreOrganizacion{
-    	background:#005662;
-    }
-    .colorNombreOrganizacion{
-    	color:#fff;
-    }
-
-    .bordeTitulo{
-		border-radius: 15px;
-	}
-
-    /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-	/*Tamanio de Imagen de la Organizacion*/
-    .tamanioImagenPO{
-    	width: 100%; 
-    	max-height: 340px;
-    }
-     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
-    /*encabezados de cada uno de los datos de perfil*/
-	.encabezadoPerfil{
-		font-family:Euphemia;
-		/*padding-left: 1em;*/
-	}
-
-	/*datos de perfil*/
-	.contenidoPerfil{
-		font-family:Euphemia;
-		/*padding-left: 1em;*/
-	}
-
- 	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-	/*tamanio de panel*/
-	.panelTexto{
-		height: 500px;
-		background:#FFF;
-	}
-        .enlaces_de_listas_contactos:link, .enlaces_de_listas_contactos:visited{
-            color: black;
-        }
         
         /*Estilo Material*/
         .group            { 
-            position:relative; 
-            margin-bottom:45px; 
+            position:relative !important; 
+            margin-bottom:45px !important; 
         }
         input               {
-            font-size:18px;
-            padding:10px 10px 10px 5px;
-            display:block;
-            width:100%;
-            border:none;
-            border-bottom:1px solid #757575;
+            font-size:18px !important;
+            padding:10px 10px 10px 5px !important;
+            display:block !important;
+            width:100% !important;
+            border:none !important;
+            border-bottom:1px solid #757575 !important;
         }
         input:focus         { outline:none; }
 
         /* LABEL ======================================= */
         label                {
-            color:#999; 
-            font-size:18px;
-            font-weight:normal;
-            position:absolute;
-            pointer-events:none;
-            left:5px;
-            top:10px;
+            color:#999 !important; 
+            font-size:18px !important;
+            font-weight:normal !important;
+            position:absolute !important;
+            pointer-events:none !important;
+            left:5px !important;
+            top:10px !important;
             transition:0.2s ease all; 
             -moz-transition:0.2s ease all; 
             -webkit-transition:0.2s ease all;
@@ -245,9 +194,9 @@ section .section-title {
 
         /* active state */
         input:focus ~ label, input:valid ~ label        {
-            top:-20px;
-            font-size:14px;
-            color:#005662;
+            top:-20px !important;
+            font-size:14px !important;
+            color:#005662 !important;
         }
 
         /* BOTTOM BARS ================================= */
@@ -272,18 +221,18 @@ section .section-title {
 
         /* active state */
         input:focus ~ .bar:before, input:focus ~ .bar:after {
-            width:50%;
+            width:50% !important;
         }
 
         /* HIGHLIGHTER ================================== */
         .highlight {
-            position:absolute;
-            height:60%; 
-            width:100px; 
-            top:25%; 
-            left:0;
-            pointer-events:none;
-            opacity:0.5;
+            position:absolute !important;
+            height:60% !important; 
+            width:100px !important; 
+            top:25% !important; 
+            left:0 !important;
+            pointer-events:none !important;
+            opacity:0.5 !important;
         }
 
         /* active state */
