@@ -5,9 +5,8 @@
     include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
 <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+    src="js/jquery-2.2.4.min.js"
+ ></script>
 
   <div id="encabezado_resultado" class="container responsive">
       <br><h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4>
@@ -20,7 +19,7 @@
             $(document).on("ready", function(){ loadData(); });
                 var loadData = function(){
                           $.ajax({
-                              type:"POST",
+                              type:"GET",
                               url:"buscar.php",
                               data: {'busqueda':'<?php echo $_GET['busqueda']?>','region':"<?php echo $_GET['region']?>",'categoria':"<?php echo $_GET['categoria']?>"}
                             }).done(function(data){

@@ -5,9 +5,8 @@ include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
 <script
-    src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-crossorigin="anonymous"></script>
+    src="/js/jquery-2.2.4.min.js"
+></script>
 
 <div  class="container">
     <div class="row">
