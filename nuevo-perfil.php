@@ -115,7 +115,7 @@ include_once 'plantillas/documento-inicio.inc.php';
                         </div>
 
                         <h5>Región</h5>
-                        <select class="form-control" id="region" name="id_region" ></select>
+                        <select class="form-control" id="region" name="id_region"></select>
 
                         <h5>Categoría</h5>
                         <select class="form-control" id="categoria" name="id_categoria"></select>
@@ -169,7 +169,7 @@ include_once 'plantillas/documento-inicio.inc.php';
         if(document.formularioCrear.email_rec.value===""){
 
         }else{
-            if(!document.formularioCrear.email_rec.value.includes("@") && !document.formularioCrear.email_rec.value.includes(".")){
+            if(!document.formularioCrear.email_rec.value.includes("@") || !document.formularioCrear.email_rec.value.includes(".")){
                 error_mail=true;
                 alert('Ingrese un e-mail válido.');
                 document.formularioCrear.email_rec.focus();
