@@ -7,10 +7,9 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 ?>
 
-<script
-    src="js/jquery-2.2.4.min.js"
-    
-></script> 
+<script src="js/jquery-2.2.4.min.js"></script> 
+<link href="css/estilos_alan.css" rel="stylesheet">
+
 
 
 <div  id="contenedor_usuarios"class="container">
@@ -19,7 +18,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
             <div class="panel-heading" style="height: 40px">
                 <div class="coll">
                     <h3 class="panel-title">
-                        Usuarios 
+                     <span class="glyphicon glyphicon-user"></span>  Usuarios 
                     </h3>
                 </div>
             </div>
@@ -53,10 +52,6 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 <a  href="formulario_registro.php" class="float">
     <i class="glyphicon glyphicon-plus my-float"></i>
 </a>
-
-
-
-
 
 
 

@@ -3,14 +3,31 @@
 
  
 $query="select nombre_categoria, id_categoria from categorias";
-$resultado=$con->query($query);
+$resultado=$con->prepare($query);
+$resultado->execute();
 
- while($row =$resultado->fetch_assoc()) {
+
+ $result=$resultado->get_result();
  
-	$flag[] = $row;
+
+ 
+while($row =$result->fetch_assoc()){
+            
+	$flag[]=$row;
 }
+if( isset($flag)){
+    print (json_encode($flag));
+  
+}else {
+   print (json_encode('No se recivieron las variables'));
  
-print(json_encode($flag));
-$con->close();
+}
+  $con->close();
  
-?>  
+ 
+
+ 
+?>
+
+
+

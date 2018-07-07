@@ -3,6 +3,7 @@ $titulo = 'Acerca de....';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
+<link href="css/estilos_alan.css" rel="stylesheet">
 
 <div class="container" style="max-width: 90rem;">
     <div class="panel panel-default">
