@@ -14,7 +14,7 @@ include_once 'plantillas/documento-inicio.inc.php';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button> 
-            <a  href="index.php"><img class="btn-card" src="imagenes/proyecto_nuevo_icono_aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
+            <a  href="index.php"><img class="btn-card" src="imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
             <a class="navbar-brand" href="#"><strong>Agenda Electrónica Oriental</strong></a> 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -26,7 +26,7 @@ include_once 'plantillas/documento-inicio.inc.php';
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                     <ul id="despliege" class="dropdown-menu" role="menu">
                         <li><a href="mostrar_usuarios.php"><img src="imagenes/administracioncuenta.jpg" height="15"> <strong>Administración de Cuenta</strong></a></li>
-                        <li><a href="administracion-de-perfiles.php"><img src="imagenes/administracionperfil.jpg" height="15"> </a></li>
+                        <li><a href="administracion-de-perfiles.php"><img src="imagenes/administracionperfil.jpg" height="15"> Administración de Perfiles</a></li>
                     </ul>
                 </li>
            
