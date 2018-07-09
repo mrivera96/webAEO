@@ -1,3 +1,6 @@
+<?php
+ session_start();
+?>
 <nav class="navbar navbar-default ">
     <div class="container">
         <div class="navbar-header">
@@ -14,11 +17,34 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li> <a id="colorIniciosecion" href="login.php"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <strong>Iniciar Sesión</strong></a></li>
-                <!--<li> <a id="colorIniciosecion" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <strong>Registro</strong></a></li>-->
+                 <?php
+                if (isset($_SESSION['user_id'])) {
+                    if (($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
+                        ?>
+                        <!--   header('Location: /webaeo/contactosUsuario.php');
+                        } else if (($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
+                            header('Location: /webaeo/mostrar_usuarios.php'); -->
+                          <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Panel de Control </strong></a></li>
+                          <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
+                          ?>
+                        <?php
+                    } else {
+                        ?>
+                         <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Panel de Control</strong></a></li>
+                         <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
+                        <?php
+                        $message = 'Usuario o Contraseña incorrectas desde la sesion';
+                    }
+                    ?>
 
-
-                    <!--va iniciar secion o registrarce -->
+                    <?php
+                } else {
+                    ?>
+                    <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Iniciar Sesión</strong></a></li>
+                    <li> <a id = "colorIniciosecion" href = "registrarCuentaUsuario.php"><span class = "glyphicon glyphicon-plus" aria-hidden = "true"></span> <strong>Registrarse</strong></a></li>
+                <?php
+                }
+                ?>   <!--va iniciar secion o registrarce -->
             </ul>
         </div> 
     </div>   

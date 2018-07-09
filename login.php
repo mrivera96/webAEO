@@ -5,22 +5,36 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
 
- session_start();
+ //session_start();
  if (isset($_SESSION['user_id'])) {
-    header('Location: /webaeo/mostrar_usuarios.php');
+    if(($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)){
+        header('Location: /webaeo/contactosUsuario.php');
+    } else if(($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)){
+        header('Location: /webaeo/mostrar_usuarios.php');
+    } else {
+        $message = 'Usuario o Contraseña incorrectas ';
+    }
+    
   }
   require 'database.php';
   if (!empty($_POST['nombre_usuario']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id_usuario, nombre_usuario, contrasena FROM usuarios WHERE nombre_usuario = :nombre_usuario');
-    $records->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
+     $records = $conn->prepare('SELECT id_usuario, nombre_usuario, contrasena,rol,estado_usuario FROM usuarios WHERE nombre_usuario = :nombre_usuario'); $records->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
     $message = '';
-    if (count($results) > 0 && ($_POST['password'] == $results['contrasena']) ) {
+   if (count($results) > 0 && ($_POST['password'] == $results['contrasena']) ) {
       $_SESSION['user_id'] = $results['id_usuario'];
-      header("Location: /webaeo/mostrar_usuarios.php");
+      $_SESSION['normal'] = $results['rol'];
+      $_SESSION['actividad'] = $results['estado_usuario'];
+      if($results['rol'] == 2 && $results['estado_usuario']== 1){
+           header('Location: /webaeo/contactosUsuario.php');
+      }
+       if($results['rol'] == 1 && $results['estado_usuario']== 1){
+          header("Location: /webaeo/mostrar_usuarios.php");
+      }
+ 
     } else {
-      $message = 'Usuario o Contraseña incorrectas desde login';
+      $message = 'Usuario o Contraseña incorrectas ';
     }
   }
 

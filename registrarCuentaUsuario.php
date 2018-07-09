@@ -8,7 +8,7 @@ require 'database.php';
 $message = "";
 $stmt = "";
 if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_POST['nombre_propio']) && !empty($_POST['correo'])) {
-    $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,1,1)";
+    $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,2,1)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
 

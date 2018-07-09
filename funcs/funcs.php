@@ -136,8 +136,8 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo) {
     $mail->HOST = 'smtp.gmail.com';
     $mail->Port = '587';
 
-    $mail->Username = 'shessag@gmail.com';
-    $mail->Password = 'shessasanchez';
+    $mail->Username = '';
+    $mail->Password = '';
 
     $mail->setFrom('shessag@gmail.com', 'aeo');
     $mail->addAddress($email, $nombre);
