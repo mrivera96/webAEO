@@ -177,7 +177,7 @@ section .section-title {
 #encabezado_contactos
 {
     height: 60px; 
-    width: 84% ; 
+    width: 85% ; 
     vertical-align:middle;
 
     border-radius: 8px;
@@ -190,7 +190,7 @@ section .section-title {
 #encabezado_resultado{
     background-color: #005662; 
     height: 60px; 
-    width: 84% ; 
+    width: 86% ; 
     vertical-align:middle;
 
     border-radius: 8px;

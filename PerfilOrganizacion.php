@@ -21,7 +21,7 @@ crossorigin="anonymous"></script>
 <!--Contenedor de imagen de perfil -->
 <div class="container " id="contenedor_contactosPerfiles">
 
-    <div class="row" style="margin-top: 10px;" id="filaPorg">
+    <div class="row" style="margin-top: 5px;" id="filaPorg">
 
     </div>
 
@@ -34,7 +34,7 @@ crossorigin="anonymous"></script>
     var loadData = function ()
     {
         $.ajax({
-            type: "POST",
+            type: "get",
             url: "mostrar_perfil.php",
             data: {'id_contacto':<?php echo $_GET['id_contacto'] ?>}
         }).done(function (data)
@@ -51,7 +51,7 @@ crossorigin="anonymous"></script>
             for (var i in informacionContacto)
             {
                 $("#titulo").append(
-                        '<div class="col-md-12 nombreOrganizacion bordeTitulo">' +
+                        '<div class="col-md-12  col-sm-14 nombreOrganizacion bordeTitulo">' +
                         '<h3 class="colorNombreOrganizacion" align="center">' + informacionContacto[i].nombre_organizacion + '</h3>' +
                         '</div>'
                         );
