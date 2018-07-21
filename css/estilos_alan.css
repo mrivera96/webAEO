@@ -5,7 +5,6 @@
 }
 
 
-
 /*Diseño de la tarjeta de las categorias*/
 #panel_default{
     
@@ -40,11 +39,26 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
+/*colo de la plantilla de los usuarios del panel de control*/
+#colorUsuarios{
+    color: black;
+    padding-left: 10px;
+    font-size: 13px;
+}
+
+/*colo de la plantilla de los usuarios del panel de control*/
+#colortipUsuario{
+    color:#999;
+    padding-left: 10px;
+    font-size: 12px;
+}
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Para el contenedor de las tarjetas inclulle el tamaño */
 #estilo-contenedor{
+                margin-bottom:auto;
+
     style-width: 90%;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -178,3 +192,10 @@ body{
 .panel-body >form{
     padding-top: 15px
 }
+  .oculto {
+            width:0; 
+            height:0; 
+            border:0; 
+            border:none;
+        }
+        
