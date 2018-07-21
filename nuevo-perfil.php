@@ -159,7 +159,8 @@ include_once 'plantillas/documento-inicio.inc.php';
 
                            </script> 
                            <body onload="initialize()">
-                               <div id="map_canvas" style="width:1110px; height:200px"></div><br> 
+                               <div id="map_canvas" style="width:100%; height:200px"></div><br> 
+          
                     </body
 
                         <h5>Región</h5>
