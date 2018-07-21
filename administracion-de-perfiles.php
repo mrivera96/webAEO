@@ -1,6 +1,7 @@
 <?php  
-    include_once 'plantillas/documento-inicio.inc.php'
-    
+    $titulo="Administración de Perfiles";
+   include_once 'plantillas/documento-inicio.inc.php' ;
+ 
 ?>
 <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
   
