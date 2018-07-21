@@ -111,7 +111,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                     '<div class="modal-dialog" role="document">' +
                     '<div class="modal-content">' +
                     '<div class="modal-header">' +
-                    '<h5 class="modal-title">Error al actualizar el usario</h5>' +
+                    '<h5 class="modal-title">Error al actualizar el usuario</h5>' +
                     '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
                     '<span aria-hidden="true">&times;</span>' +
                     '</button>' +
