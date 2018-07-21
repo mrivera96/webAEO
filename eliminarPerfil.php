@@ -2,8 +2,8 @@
  include 'ConexionABaseDeDatos.php';
 
 
- if(isset($_GET["id_contacto"])){
- $id_contacto=$_GET['id_contacto'];
+ if(isset($_GET["contacto"])){
+ $id_contacto=$_GET['contacto'];
  
   
 $update="update contactos SET id_estado=4 where id_contacto=?";
