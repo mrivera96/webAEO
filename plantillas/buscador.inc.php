@@ -8,12 +8,12 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
     src="/js/jquery-2.2.4.min.js"
 ></script>
 
-<div  class="container">
-    <div class="row">
+<div  class="container" style="padding:0px;">
+     <div class="row">
         <div class="col-md-12">
             <div class="row">
                  <form role="form" method="get" action="resultado_busqueda.php" >
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <br>
                                 <div class="form-group">
                        
@@ -48,7 +48,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                         </select>
                     </div>
 
-                    <div class="col-md-1">
+                    <div class="col-md-2">
 
                         <br>
                         <button type="submit" class="form-control btn btn-primary btn-buscar">Buscar</button>
@@ -56,8 +56,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                     </div>
                     <br>
                 </form>
-
-            </div>
         </div>
+      </div>
     </div>
 </div>
