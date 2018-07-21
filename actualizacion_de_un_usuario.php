@@ -10,8 +10,9 @@ if (isset($_POST["id_usuario"]) && isset($_POST["nombre_usuario"]) && isset($_PO
     $nombre_usua = $_POST['nombre_usuario'];
     $nombre_pro = $_POST['nombre_propio'];
     $corr = $_POST['correo'];
-    $contra = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 
+     /* $contra = $_POST['contrasena'];*/
+$contra = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 
     $query_search = "update usuarios SET nombre_usuario=?,nombre_propio=?,correo=?,contrasena=? where id_usuario=?";
 

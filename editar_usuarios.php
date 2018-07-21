@@ -47,7 +47,27 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
                         <button  type="button" onclick="validarFormulario()" id="btn" class="form-control"  name="Submit" style="width:100%; background-color:#005662; color:white;"> <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
                         <br>
-                        <button class="form-control btn btn-danger " type="button" id="id_eliminar" style="width:100%;  color:white;"> <span class="glyphicon glyphicon-trash"></span>  Eliminar Usuario</button>
+                        <button class="form-control btn btn-danger " data-toggle="modal"  data-target="#Modal" type="button"  style="width:100%;  color:white;"> <span class="glyphicon glyphicon-trash"></span>  Eliminar Usuario</button>
+
+                        <div class="modal" id="Modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Eliminar Usuario</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Eliminará el usuario¿Desea continuar?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="id_eliminar" class="btn btn-primary">Sí, borrar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
 
                 </div>
@@ -56,6 +76,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
     </div>
 
 </div>
+
 
 <script>
 
@@ -107,7 +128,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                 )
         {
             document.formulario_editar.submit();
-            alert('Usuario insertado con exito ');
+            alert('Usuario Actualizado con exito');
             windown.location.href = 'mostrar_usuarios.php';
             return;
         }
@@ -143,7 +164,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                 $("#nombre_usuario").attr('value', editar[i].nombre_usuario);
                 $("#nombre_propio").attr('value', editar[i].nombre_propio);
                 $("#correo").attr('value', editar[i].correo);
-                $("#contrasena").attr('value', editar[i].contrasena);
+              //  $("#contrasena").attr('value', editar[i].contrasena);
                 $("#id_usuario").attr('value', editar[i].id_usuario);
             }
         });
@@ -160,8 +181,8 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
     document.getElementById("id_eliminar").onclick = function () {
         myFunction()
     };
-    function myFunction() {
-
+   
+ function myFunction() {
         $.ajax({
             type: "POST",
             url: "eliminacion_de_un_usuario.php",

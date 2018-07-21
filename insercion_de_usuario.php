@@ -2,6 +2,7 @@
 
 include 'ConexionABaseDeDatos.php';
 $flag = array();
+ 
 
 if (isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) && isset($_POST["contrasena"]) && isset($_POST["rol"])) {
     $nombre_usuario = $_POST['nombre_usuario'];

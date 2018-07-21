@@ -47,6 +47,13 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                             <span class="bar"></span>
                             <label >Contraseña</label>
                         </div>
+                        
+                         <div class="group">
+                            <input id="contrasena1" type="password" required name="contrasena1" >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Repite la Contraseña</label>
+                        </div>
 
                         <select name="rol" class="form-control" id="id_rol_usuario">
                         </select>
@@ -75,6 +82,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
         var error_nomPropio = false;
         var error_correo = false;
         var error_contrasena = false;
+          var error_contrasena1 = false;
 
         if (document.formulario.nombre_usuario.value === "") {
             error_nomUsuario = true;
@@ -127,11 +135,27 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
             document.formulario.contrasena.focus();
             return;
         }
+        
+          if (document.formulario.contrasena1.value === "") {
+            error_contrasena = true;
+            alert("Porfavor repita su contraseña");
+            document.formulario.contrasena.focus();
+            return;
+        }else{
+            if(document.formulario.contrasena.value !== document.formulario.contrasena1.value  ){
+              error_contrasena1 = true;
+              
+               alert("Ambas contraseñas deben de coincidir..");
+            document.formulario.contrasena1.focus();
+           
+            }
+        }
 
         if (error_nomUsuario === false &&
                 error_nomPropio === false &&
                 error_correo === false &&
-                error_contrasena === false
+                error_contrasena === false &&
+                 error_contrasena1 === false
                 )
         {
             document.formulario.submit();

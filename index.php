@@ -9,14 +9,16 @@ include_once 'plantillas/buscador.inc.php';
 <link href="css/estilos_alan.css" rel="stylesheet">
 
 
-<div id="estilo-contenedor-textocategoria"  class="container">
+<div id="estilo-contenedor-textocategoria"  class="container" >
     <h3><strong>Categorias</strong></h3> 
 </div>
 
 
 <!--Contenedor de tarjetas-->
 
-<div     id="estilo-contenedor" class="container "  >
+
+
+<div     id="estilo-contenedor" class="container"  >
     <div class="row" style="margin-top: 10px;" id="fila"  >
         <script>
             $(document).on("ready", function () {
