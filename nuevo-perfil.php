@@ -96,11 +96,10 @@ include_once 'plantillas/documento-inicio.inc.php';
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-align-left"></span> Descripción de la organización</label>
                         </div>
-
-
-
+                        
+           
                         <div class="group">     
-                            <input type="text" id="latOrg" required name="lat_rec" >
+                            <input  type="text" id="latOrg" required name="lat_rec" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Latitud</label>
@@ -113,6 +112,55 @@ include_once 'plantillas/documento-inicio.inc.php';
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>
                         </div>
+                        <div
+                        <h5>Ingrese su Ubicación</h5>
+                        </div>
+                         <script type="text/javascript" 
+                            src="https://maps.google.com/maps/api/js?sensor=false"> 
+                        </script> 
+
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
+                         type="text/javascript"></script>
+  
+                            <script type="text/javascript"> 
+                           function getCoords(marker){ 
+                               $("#latOrg").attr("value",marker.getPosition().lat()); 
+                                 $("#longOrg").attr("value",marker.getPosition().lng()); 
+                                
+                           } 
+                           function initialize() { 
+                               var myLatlng = new google.maps.LatLng(14.041458, -86.568061);
+
+
+
+                               var myOptions = { 
+                                   zoom: 15, 
+                                   center: myLatlng, 
+                                   mapTypeId: google.maps.MapTypeId.satelite, 
+                               } 
+                               var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
+
+                              marker = new google.maps.Marker({ 
+                                     position: myLatlng, 
+                                     draggable: true,
+                                     title:'danli',
+                               }); 
+                               google.maps.event.addListener(marker, "dragend", function() {
+
+                                               getCoords(marker); 
+
+                               }); 
+
+                                 marker.setMap(map); 
+                               getCoords(marker); 
+
+
+                             } 
+
+                           </script> 
+                           <body onload="initialize()">
+                               <div id="map_canvas" style="width:1110px; height:200px"></div><br> 
+                    </body
 
                         <h5>Región</h5>
                         <select class="form-control" id="region" name="id_region"></select>
@@ -145,6 +193,8 @@ include_once 'plantillas/documento-inicio.inc.php';
 
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/nuevoPerfil.js"></script>
+
+
 
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
