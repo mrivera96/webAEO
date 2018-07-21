@@ -193,3 +193,10 @@ body{
 .panel-body >form{
     padding-top: 15px
 }
+  .oculto {
+            width:0; 
+            height:0; 
+            border:0; 
+            border:none;
+        }
+        

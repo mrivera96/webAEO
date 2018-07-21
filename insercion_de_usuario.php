@@ -17,7 +17,7 @@ $insert = "INSERT INTO usuarios(nombre_usuario,nombre_propio,correo,contrasena,r
 $resultado_insert = $con->prepare($insert);
 $resultado_insert->bind_param("ssssi",$nombre_usuario, $nombre_propio, $correo, $contrasena, $rol);
 $resultado_insert->execute();
-header("Location:mostrar_usuarios.php?nombre_usuario=" . $nombre_usuario);
+
 
 }else{
         print (json_encode('No se recivieron las variables'));

@@ -19,7 +19,7 @@ $contra = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
     $resultado = $con->prepare($query_search);
     $resultado->bind_param("ssssi", $nombre_usua, $nombre_pro, $corr, $contra, $id_usua);
     $resultado->execute();
-    header("Location:mostrar_usuarios.php?id_usuario=" . $id_usuario);
+
 } else {
     print (json_encode('No se recivieron las variables'));
 }
