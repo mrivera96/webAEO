@@ -1,4 +1,5 @@
 <?php
+
 $titulo = 'Formulario de Registro';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
@@ -22,7 +23,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form name="formulario" role="form" id="editar_usuarios"  method="post"tyle="padding-top: 15px"action="insercion_de_usuario.php"  >
+                    <form name="formulario" role="form" id="editar_usuarios"  method="post"tyle="padding-top: 15px"action="insercion_de_usuario.php" target="formDestination" >
                         <div class="group">
                             <input  id="nombre_usuario" type="text" required name="nombre_usuario">
                             <span class="highlight"></span>
@@ -48,13 +49,40 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                             <label >Contraseña</label>
                         </div>
 
+                        <div class="group">
+                            <input id="contrasena1" type="password" required name="contrasena1" >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Repite la Contraseña</label>
+                        </div>
+                        <iframe class="oculto"  name="formDestination"></iframe>
                         <select name="rol" class="form-control" id="id_rol_usuario">
                         </select>
                         <br>
                         <button type="button" onclick="validarFormulario()" id="btn" class="form-control"   name="Submit"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
 
+                        <div class="modal" id="Modal1" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Inserción de Usuario</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>El Usuario se ha ingresado con éxito.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" onClick="javascript:(function () {
+                                                    window.location.href = 'mostrar_usuarios.php';
+                                                })()">Aceptar</button>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
 
                 </div>
@@ -68,75 +96,116 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 
 <script>
+    function mostrarError(componente, error) {
+
+        $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<h5 class="modal-title">Error al ingresar un usuario</h5>' +
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                '<span aria-hidden="true">&times;</span>' +
+                '</button>' +
+                '</div>' +
+                ' <div class="modal-body">' +
+                '<p>' + error + '</p>' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+        $("#Modal3").modal("show");
+        $('#Modal3').on('hidden.bs.modal', function () {
+            componente.focus();
+            $("#Modal3").detach();
+        });
+
+    }
 
     function validarFormulario() {
-          
+
         var error_nomUsuario = false;
         var error_nomPropio = false;
         var error_correo = false;
         var error_contrasena = false;
+        var error_contrasena1 = false;
 
         if (document.formulario.nombre_usuario.value === "") {
             error_nomUsuario = true;
-            alert("Debe ingresar un nombre de usuario");
-            document.formulario.nombre_usuario.focus();
+            mostrarError(document.formulario.nombre_usuario, "Debe ingresar un nombre de usuario.");
             return;
         } /*else {
          var usuario ;
-            $.ajax({
-                type: "GET",
-                url: "verificar_usuario.php"
-            }).done(function (data) {
-                if (data = 1) {
-                  usuario=1;
-
-                }
-            });
-              if(usuario=1){
-                  error_nomUsuario = true;
-                   alert("Este nombre de usuario ya esta en uso");
-                   
-              }
-                   
-        }*/
+         $.ajax({
+         type: "GET",
+         url: "verificar_usuario.php"
+         }).done(function (data) {
+         if (data = 1) {
+         usuario=1;
+         
+         }
+         });
+         if(usuario=1){
+         error_nomUsuario = true;
+         alert("Este nombre de usuario ya esta en uso");
+         
+         }
+         
+         }*/
 
 
         if (document.formulario.nombre_propio.value === "") {
             error_nomPropio = true;
-            alert("Debe ingresar un nombre propio");
-            document.formulario.nombre_propio.focus();
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.nombre_propio, "Debe ingresar un nombre propio");
             return;
         }
         if (document.formulario.correo.value === "") {
             error_correo = true;
-            alert("Debe ingresar un correo");
-            document.formulario.correo.focus();
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.correo, "Debe ingresar un correo");
             return;
         } else {
             if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
                 error_correo = true;
-                alert("Debes colocar una \"Dirección de Email\" válida");
-                document.formulario.correo.focus(); //Esto recorna el cursor al campo "Email"
+                $("#Modal3").modal("show");
+                mostrarError(document.formulario.correo, "Debes colocar una \"Dirección de Email\" válida");
                 return;
             }
         }
 
         if (document.formulario.contrasena.value === "") {
             error_contrasena = true;
-            alert("Debe ingresar una contraseña");
-            document.formulario.contrasena.focus();
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.contrasena, "Debe ingresar una contraseña");
             return;
+        }
+
+        if (document.formulario.contrasena1.value === "") {
+            error_contrasena = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.contrasena1, "Porfavor repita su contraseña");
+            return;
+        } else {
+            if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
+                error_contrasena1 = true;
+                $("#Modal3").modal("show");
+                mostrarError(document.formulario.contrasena1, "Ambas contraseñas deben de coincidir..");
+
+
+            }
         }
 
         if (error_nomUsuario === false &&
                 error_nomPropio === false &&
                 error_correo === false &&
-                error_contrasena === false
-                )
-        {
+                error_contrasena === false &&
+                error_contrasena1 === false) {
             document.formulario.submit();
-            alert('Usuario insertado con exito ');
-            windown.location.href = 'mostrar_usuarios.php';
+            $("#Modal1").modal('show');
+
             return;
 
 
@@ -149,33 +218,9 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 </script>
 
 
-<script>
-
-
-    var id_usuario = $_GET('id_usuario');
 
 
 
-
-    $("#editar_usuarios").submit(function () {
-
-        alert('Usuario Insertado Con exito');
-        window.location.href = 'mostrar_usuarios.php';
-
-
-    });
-</script>
-
-
-<script>
-
-    $.ajax({
-        type: "GET",
-        url: "verificar_usuario.php"
-                data: {'nombre_usuario':<?php echo $_GET['nombre_usuario'] ?>}
-
-    })
-</script>
 <script>
 
     $.ajax({
@@ -192,5 +237,6 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 
 <?php
+
 include_once 'plantillas/documento-cierre.inc.php';
 ?>

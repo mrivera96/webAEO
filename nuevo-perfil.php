@@ -1,6 +1,7 @@
 <?php
+session_start();
 include_once 'plantillas/documento-inicio.inc.php';
-
+if (isset($_SESSION['user_id'])) {
 ?>
 <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
 
@@ -96,11 +97,10 @@ include_once 'plantillas/documento-inicio.inc.php';
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-align-left"></span> Descripción de la organización</label>
                         </div>
-
-
-
+                        
+           
                         <div class="group">     
-                            <input type="text" id="latOrg" required name="lat_rec" >
+                            <input  type="text" id="latOrg" required name="lat_rec" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Latitud</label>
@@ -113,6 +113,56 @@ include_once 'plantillas/documento-inicio.inc.php';
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>
                         </div>
+                        
+                        <h5>Ingrese su Ubicación</h5>
+                        
+                         <script type="text/javascript" 
+                            src="https://maps.google.com/maps/api/js?sensor=false"> 
+                        </script> 
+
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
+                         type="text/javascript"></script>
+  
+                            <script type="text/javascript"> 
+                           function getCoords(marker){ 
+                               $("#latOrg").attr("value",marker.getPosition().lat()); 
+                                 $("#longOrg").attr("value",marker.getPosition().lng()); 
+                                
+                           } 
+                           function initialize() { 
+                               var myLatlng = new google.maps.LatLng(14.041458, -86.568061);
+
+
+
+                               var myOptions = { 
+                                   zoom: 15, 
+                                   center: myLatlng, 
+                                   mapTypeId: google.maps.MapTypeId.satelite, 
+                               } 
+                               var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
+
+                              marker = new google.maps.Marker({ 
+                                     position: myLatlng, 
+                                     draggable: true,
+                                     title:'danli',
+                               }); 
+                               google.maps.event.addListener(marker, "dragend", function() {
+
+                                               getCoords(marker); 
+
+                               }); 
+
+                                 marker.setMap(map); 
+                               getCoords(marker); 
+
+
+                             } 
+
+                           </script> 
+                           <body onload="initialize()">
+                               <div id="map_canvas" style="width:100%; height:200px"></div><br> 
+          
+                    </body
 
                         <h5>Región</h5>
                         <select class="form-control" id="region" name="id_region"></select>
@@ -125,8 +175,27 @@ include_once 'plantillas/documento-inicio.inc.php';
                         <input type="hidden" name="imagen" value=""/>
                         <input type="hidden" name="nombre_imagen" value=""/>
                         <iframe class="oculto"  name="formDestination"></iframe>
-                        <button class="form-control" name="guardar" id="guardar" onClick="validarFormulario()" type="button" style="background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
-   
+                        <button class="form-control" name="guardar" id="guardar"  type="button" style="background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
+                     
+                        <div class="modal" id="Modal1" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Crear Perfil</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>El Perfil se ha creado con éxito.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" onClick="javascript:(function(){window.location.href = 'administracion-de-perfiles.php';})()">Aceptar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
 
                 </div>
@@ -145,112 +214,15 @@ include_once 'plantillas/documento-inicio.inc.php';
 
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/nuevoPerfil.js"></script>
-<script type="text/javascript">
-   
-    
-    function validarFormulario(){
-        var error_nomb=false;
-        var error_tel=false; 
-        var  error_cel=false; 
-        var error_mail=false; 
-        var error_desc=false;
-        var error_dir=false;
-        var error_reg=false;
-        var error_cat=false;
-        
-        
-        if(document.formularioCrear.nomborg_rec.value===""){
-            error_nomb=true;
-            alert('Debe ingresar un nombre de organización.');
-            document.formularioCrear.nomborg_rec.focus();
-            return;
-        }
-        
-        if(document.formularioCrear.email_rec.value===""){
 
-        }else{
-            if(!document.formularioCrear.email_rec.value.includes("@") || !document.formularioCrear.email_rec.value.includes(".")){
-                error_mail=true;
-                alert('Ingrese un e-mail válido.');
-                document.formularioCrear.email_rec.focus();
-                return;
-            }
-        }
 
-        
-        if(document.formularioCrear.numtel_rec.value===""){
-            if(document.formularioCrear.numcel_rec.value===""){
-                error_tel=true;
-                alert('Debe ingresar al menos un número telefónico.');
-                document.formularioCrear.numtel_rec.focus();
-                return;
-            }
-        }else{
-            if(document.formularioCrear.numtel_rec.value.length < 8 || !document.formularioCrear.numtel_rec.value.startsWith("2") || document.formularioCrear.numtel_rec.value.length>8){
-                error_tel=true;
-                alert('El número telefónico ingresado no es válido.');
-                document.formularioCrear.numtel_rec.focus();
-                return;
-            }
-        }
 
-        if(document.formularioCrear.numcel_rec.value===""){
-            if(document.formularioCrear.numtel_rec.value===""){
-                error_cel=true;
-                alert('Debe ingresar al menos un número telefónico.');
-                document.formularioCrear.numcel_rec.focus();
-                return;
-            }
-        }else{
-            if(document.formularioCrear.numcel_rec.value.length<8 || document.formularioCrear.numcel_rec.value.length>8){
-                error_cel=true;
-                alert('El número telefónico ingresado no es válido.');
-                document.formularioCrear.numcel_rec.focus();
-                return;
-            }
-        }
-
-        if(document.formularioCrear.direccion_rec.value===""){
-            error_dir=true;
-            alert('Debe ingresar la dirección de la organización.');
-            document.formularioEditar.direccion_rec.focus();
-            return;
-        }
-        if(document.formularioCrear.desc_rec.value===""){
-            error_desc=true;
-            alert('Debe escribir una descripción de la organización.');
-            document.formularioCrear.desc_rec.focus();
-            return;
-        }
-        if(document.formularioCrear.id_region.value < 3 && document.formularioCrear.id_region.value > 4){
-            error_reg=true;
-            alert('La región seleccionada no existe.');
-            document.formularioCrear.id_region.focus();
-            return;
-        }
-        if(document.formularioCrear.id_categoria.value < 1 && document.formularioCrear.id_categoria.value > 11 ){
-            error_cat=true;
-            alert('La categoría seleccionada no existe.');
-            document.formularioCrear.id_categoria.focus();
-            return;
-        }
-        
-        if(error_nomb   ===false && 
-           error_tel    ===false &&
-           error_cel    ===false &&
-           error_dir    ===false &&
-           error_mail   ===false &&
-           error_desc   ===false &&
-           error_reg    ===false &&
-           error_cat    ===false){
-                document.formularioCrear.submit();
-                alert('Perfil creado con éxito');
-                window.location.href = 'administracion-de-perfiles.php';
-                return;
-        }
-    }
-    
-</script>
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
+?>
+
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
 ?>
