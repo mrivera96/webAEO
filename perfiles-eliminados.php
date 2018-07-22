@@ -1,6 +1,7 @@
 <?php  
-    include_once 'plantillas/documento-inicio.inc.php'
-    
+session_start();
+    include_once 'plantillas/documento-inicio.inc.php';
+    if (isset($_SESSION['user_id'])) {
 ?>
 
   <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
@@ -43,6 +44,11 @@
   
 <?php
     include_once 'plantillas/documento-cierre.inc.php';
+?>
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
 ?>
 
 

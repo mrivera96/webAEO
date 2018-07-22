@@ -143,7 +143,7 @@ function validarFormulario(){
         }else{
             if(!document.formularioEditar.email_rec.value.includes("@") || !document.formularioEditar.email_rec.value.includes(".")){
                 error_mail=true;
-                $("#Modal3").modal("show");
+                
                 mostrarError(document.formularioEditar.email_rec,"Ingrese un e-mail válido.");
                 return;
             }
@@ -153,14 +153,14 @@ function validarFormulario(){
         if(document.formularioEditar.numtel_rec.value===""){
             if(document.formularioEditar.numcel_rec.value===""){
                 error_tel=true;
-                $("#Modal3").modal("show");
+                
                 mostrarError(document.formularioEditar.numtel_rec,"Debe ingresar al menos un número telefónico.");
                 return;
             }
         }else{
             if(document.formularioEditar.numtel_rec.value.length < 8 || !document.formularioEditar.numtel_rec.value.startsWith("2") || document.formularioEditar.numtel_rec.value.length>8){
                 error_tel=true;
-                $("#Modal3").modal("show");
+                
                 mostrarError(document.formularioEditar.numtel_rec,"El número telefónico ingresado no es válido.");
                 return;
             }
@@ -169,7 +169,7 @@ function validarFormulario(){
         if(document.formularioEditar.numcel_rec.value===""){
             if(document.formularioEditar.numtel_rec.value===""){
                 error_cel=true;
-                $("#Modal3").modal("show");
+               
                 mostrarError(document.formularioEditar.numcel_rec,"Debe ingresar al menos un número telefónico.");
                 return;
             }
@@ -184,13 +184,13 @@ function validarFormulario(){
 
         if(document.formularioEditar.direccion_rec.value===""){
             error_dir=true;
-            $("#Modal3").modal("show");
+          
             mostrarError(document.formularioEditar.direccion_rec,"Debe ingresar la dirección de la organización.");
             return;
         }
         if(document.formularioEditar.desc_rec.value===""){
             error_desc=true;
-            $("#Modal3").modal("show");
+           
             mostrarError(document.formularioEditar.desc_rec,"Debe escribir una descripción de la organización.");
             return;
         }

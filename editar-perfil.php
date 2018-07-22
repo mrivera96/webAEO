@@ -1,6 +1,8 @@
 <?php
+
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+if (isset($_SESSION['user_id'])) {
 ?>
 <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
 <div class="container">
@@ -155,4 +157,9 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
+?>
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
 ?>

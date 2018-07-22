@@ -1,6 +1,7 @@
 <?php
+session_start();
 include_once 'plantillas/documento-inicio.inc.php';
-
+if (isset($_SESSION['user_id'])) {
 ?>
 <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
 
@@ -112,9 +113,9 @@ include_once 'plantillas/documento-inicio.inc.php';
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>
                         </div>
-                        <div
+                        
                         <h5>Ingrese su Ubicación</h5>
-                        </div>
+                        
                          <script type="text/javascript" 
                             src="https://maps.google.com/maps/api/js?sensor=false"> 
                         </script> 
@@ -175,7 +176,26 @@ include_once 'plantillas/documento-inicio.inc.php';
                         <input type="hidden" name="nombre_imagen" value=""/>
                         <iframe class="oculto"  name="formDestination"></iframe>
                         <button class="form-control" name="guardar" id="guardar"  type="button" style="background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
-   
+                     
+                        <div class="modal" id="Modal1" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Crear Perfil</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>El Perfil se ha creado con éxito.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" onClick="javascript:(function(){window.location.href = 'administracion-de-perfiles.php';})()">Aceptar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
 
                 </div>
@@ -199,4 +219,10 @@ include_once 'plantillas/documento-inicio.inc.php';
 
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
+?>
+
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
 ?>
