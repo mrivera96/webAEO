@@ -4,22 +4,23 @@ include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 include_once 'plantillas/buscador.inc.php';
 ?>
+<head>
+    <link href="css/estilos_melvin.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+</head>
 
-<script
-    src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-crossorigin="anonymous"></script>
+<script src="js/jquery-2.2.4.min.js"></script>
 
 
 <!--Contenedor Titulo de La organizacion-->
-<div id="encabezado_contactos" class="container responsive" >
+<div id="encabezado_lista_contactos" class="container responsive" >
     <div class="row" id="titulo">
 
     </div>
 </div><br/>
 
 <!--Contenedor de imagen de perfil -->
-<div class="container " id="contenedor_contactosPerfiles">
+<div class="container" style="padding:0px;">
 
     <div class="row" style="margin-top: 5px;" id="filaPorg">
 
@@ -120,6 +121,13 @@ crossorigin="anonymous"></script>
         });
     }
 </script>	
+
+ <div class="container"> 
+      
+      <a href="mapa.php" class="float">  
+          <i class="glyphicon glyphicon-map-marker my-float"></i>
+      </a>
+  </div>
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
 ?>
