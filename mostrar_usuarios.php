@@ -12,6 +12,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 
 
+
 <div  id="contenedor_usuarios"class="container">
     <div class="row"  id="fila"  >
         <div class="panel panel-default">
@@ -36,7 +37,8 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                         var usuarios = JSON.parse(data);
                         for (var i in usuarios) {
                             $("#fila").append('</div>' +
-                                    '<a href="editar_usuarios.php?id_usuario=' + usuarios[i].id_usuario + '"><h3 id="colorUsuarios"data-toggle="modal" data-target="#ventana" ><strong>' + usuarios[i].nombre_usuario + '</strong></h3></a>' +
+                                    '<a href="editar_usuarios.php?id_usuario=' + usuarios[i].id_usuario + '"><h3 id="colorUsuarios" ><strong>' + usuarios[i].nombre_usuario + '</strong></h3></a>' +
+                                    '<a href="editar_usuarios.php?id_usuario=' + usuarios[i].id_usuario + '"><h4 id="colortipUsuario"><strong>' + usuarios[i].descripcion_rol+ '</strong></h4></a>' +
                                     '</button>' +
                                     '<hr id="disUsusarios">'
                                     );

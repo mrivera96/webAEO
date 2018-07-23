@@ -42,12 +42,7 @@ body {
 
 
 
-/*colo de la plantilla de los usuarios del panel de control*/
-#colorUsuarios{
-    color: black;
-    padding-left: 10px;
-    font-size: 13px;
-}
+
 
 
 /*color cuando se despliege la opcion de panel de control*/
@@ -124,7 +119,6 @@ section .section-title {
 
 }
 
-
 /* Footer fin */
 
 /* movimiento del icono de agenda */
@@ -176,8 +170,7 @@ section .section-title {
 
 #encabezado_contactos
 {
-    height: 60px; 
-    width: 85% ; 
+    height: 10px; 
     vertical-align:middle;
 
     border-radius: 8px;
@@ -188,16 +181,14 @@ section .section-title {
     width: 86%;
 }
 #encabezado_resultado{
-    background-color: #005662; 
-    height: 60px; 
-    width: 86% ; 
-    vertical-align:middle;
-
+ background-color: #005662; 
+     
+    margin-top:auto;
+            margin-bottom:auto;
+            text-align:center;
     border-radius: 8px;
 }
 #contenedor_resultado{
-    width: 84%;
-    background-color: white;
-    background-size: 70.7%;
+     background-color: white;
     border-radius: 8px;
 }

@@ -1,7 +1,7 @@
 <?php
  
  include 'ConexionABaseDeDatos.php';
- if(isset($_POST['id_contacto'])    &&
+ if(isset($_POST['contacto'])    &&
     isset($_POST['nomborg_rec'])    &&
     isset($_POST['numtel_rec'])     &&
     isset($_POST['numcel_rec'])     &&
@@ -15,7 +15,7 @@
     isset($_POST['imagen'])         &&
     isset($_POST['nombre_imagen'])){
      
-        $id_contacto=$_POST['id_contacto'];
+        $id_contacto=$_POST['contacto'];
         $nomborg_rec=$_POST['nomborg_rec'];
         $numtel_rec=$_POST['numtel_rec'];
         $numcel_rec=$_POST['numcel_rec'];

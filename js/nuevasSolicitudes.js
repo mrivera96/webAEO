@@ -49,8 +49,8 @@ var loadData = function () {
                                             '<p>¿Qué desea hacer con esta solicitud?</p>'+
                                         '</div>'+
                                         '<div class="modal-footer">'+
-                                            '<button type="button" id="aceptar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'aceptarSolicitud.php\',data: {\'id_contacto\':'+perfiles[i].id_contacto+'},success:function(){alert(\'Solicitud aceptada\');window.location.href = \'nuevas-solicitudes.php\';}}); })()" class="btn btn-primary">Aceptar</button>'+
-                                            '<button type="button" id="rechazar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'rechazarSolicitud.php\',data: {\'id_contacto\':'+perfiles[i].id_contacto+'},success:function(){alert(\'Solicitud rechazada\');window.location.href = \'nuevas-solicitudes.php\';}}); })()" class="btn btn-secondary">Rechazar</button>'+
+                                            '<button type="button" id="aceptar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'aceptarSolicitud.php\',data: {\'id_contacto\':'+perfiles[i].id_contacto+'},success:function(){window.location.href = \'nuevas-solicitudes.php\';}}); })()" class="btn btn-primary">Aceptar</button>'+
+                                            '<button type="button" id="rechazar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'rechazarSolicitud.php\',data: {\'id_contacto\':'+perfiles[i].id_contacto+'},success:function(){window.location.href = \'nuevas-solicitudes.php\';}}); })()" class="btn btn-secondary">Rechazar</button>'+
 
                                         '</div>'+
                                     '</div>'+
@@ -73,9 +73,3 @@ var loadData = function () {
     }
     });
 };
-
-   
-    
-    
-    
-
