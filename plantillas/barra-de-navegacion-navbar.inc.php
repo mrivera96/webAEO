@@ -26,7 +26,7 @@
                             header('Location: /webaeo/mostrar_usuarios.php'); -->
                           <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Panel de Control </strong></a></li>
                           <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
-                          ?>
+                          
                         <?php
                     } else {
                         ?>
