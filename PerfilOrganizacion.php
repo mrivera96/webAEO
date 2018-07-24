@@ -117,16 +117,18 @@ include_once 'plantillas/buscador.inc.php';
                         '<h4><strong><strong><span class="glyphicon glyphicon-align-left"></span>&nbspDescripción:</strong></h4>' +
                         '<h5>' + descripcion + '</h5>'
                         );
+                
+                 /************************************************************************************************/
+                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?id_contacto='+informacionContacto[i].id_contacto+'">' +
+                                    '<i class="glyphicon glyphicon-map-marker my-float"></i>'+' </a>'
+                 );
             }
         });
     }
 </script>	
 
- <div class="container"> 
+<div class="container" id="ubicacion"> 
       
-      <a href="mapa.php" class="float">  
-          <i class="glyphicon glyphicon-map-marker my-float"></i>
-      </a>
   </div>
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
