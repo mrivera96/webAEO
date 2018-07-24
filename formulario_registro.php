@@ -1,9 +1,13 @@
 <?php
 
 $titulo = 'Formulario de Registro';
+session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+ if (isset($_SESSION['user_id'])) {
+
 ?>
+
 
 <script src="js/jquery-2.2.4.min.js"></script> 
 <link href="css/estilos_alan.css" rel="stylesheet">
@@ -66,13 +70,13 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Inserción de Usuario</h5>
+                                        <h5 class="modal-title"><span class="glyphicon glyphicon-user"></span> Crear Usuario</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>El Usuario se ha ingresado con éxito.</p>
+                                        <p>El Usuario se ha creado con éxito.</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" onClick="javascript:(function () {
@@ -102,7 +106,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                 '<div class="modal-dialog" role="document">' +
                 '<div class="modal-content">' +
                 '<div class="modal-header">' +
-                '<h5 class="modal-title">Error al ingresar un usuario</h5>' +
+                '<h5 class="modal-title"><span class="glyphicon glyphicon-remove-circle"></span> Error al ingresar un usuario.</h5>' +
                 '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
                 '<span aria-hidden="true">&times;</span>' +
                 '</button>' +
@@ -240,3 +244,8 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 include_once 'plantillas/documento-cierre.inc.php';
 ?>
+
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
