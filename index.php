@@ -9,7 +9,7 @@ include_once 'plantillas/buscador.inc.php';
 <link href="css/estilos_alan.css" rel="stylesheet">
 
 
-<div id="estilo-contenedor-textocategoria"  class="container" >
+<div id="estilo-contenedor-textocategoria"  class="container"  >
     <h3><strong>Categorias</strong></h3> 
 </div>
 
