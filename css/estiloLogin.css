@@ -38,3 +38,17 @@ header a {
   color: #333;
 }
 
+.nuevoContacto{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:60px;
+            right:40px;
+            background-color:#005662;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+
+        }
+ 

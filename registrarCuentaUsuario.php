@@ -15,8 +15,8 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
 
     $stmt->bindParam(':nombre_propio', $_POST['nombre_propio']);
 
-    //$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $password = ($_POST['password']);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = ($password);
     $stmt->bindParam(':contrasena', $password);
 
     $stmt->bindParam(':correo', $_POST['correo']);
@@ -46,12 +46,12 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
 <h1>Registrarse</h1>
 <form action="registrarCuentaUsuario.php" method="post">
 
-    <input name="nombre_propio" type="text" placeholder="Ingrese su Nombre" >
-    <input name="nombre_usuario" type="text" placeholder="Ingrese Nombre de Usuario">
-    <input name="password" type="password" placeholder="Ingrese su Contraseña">
+    <input name="nombre_propio" required type="text" placeholder="Ingrese su Nombre" >
+    <input name="nombre_usuario" required type="text" placeholder="Ingrese Nombre de Usuario">
+    <input name="password" required type="password" placeholder="Ingrese su Contraseña">
    <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->
 
-    <input name="correo" type="email" placeholder="Ingrese su correo">
+    <input name="correo" type="email" required placeholder="Ingrese su correo">
     <br>
     <br>
 
