@@ -1,7 +1,10 @@
 <?php
 $titulo = 'Edición de Cuenta';
+session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+ if (isset($_SESSION['user_id'])) {
+
 ?>
 
 <script src="js/jquery-2.2.4.min.js"></script> 
@@ -75,7 +78,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Actualizar Usuario</h5>
+                                        <h5 class="modal-title"><span class="glyphicon glyphicon-user"></span> Actualizar Usuario.</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -205,7 +208,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
         $.ajax({
             type: "GET",
             url: "Mostar_Los_Usuarios_Editados.php",
-            data: {'id_usuario':<?php echo $_GET['id_usuario'] ?>}
+            data: {'id_usuario':<?php echo $_GET['usuario'] ?>}
         }).done(function (data)
         {
             console.log(data);
@@ -238,7 +241,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
         $.ajax({
             type: "POST",
             url: "eliminacion_de_un_usuario.php",
-            data: {'id_usuario':<?php echo $_GET['id_usuario'] ?>}
+            data: {'id_usuario':<?php echo $_GET['usuario'] ?>}
         });
        
         window.location.href = 'mostrar_usuarios.php';
@@ -250,3 +253,8 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
 ?>
+
+<?php
+   } else {
+       header('Location: /webaeo');
+    }
