@@ -7,7 +7,10 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 require 'database.php';
 $message = "";
 $stmt = "";
-if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_POST['nombre_propio']) && !empty($_POST['correo'])) {
+if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_POST['nombre_propio']) && !empty($_POST['correo']) && !empty($_POST['password2'])) {
+   if($_POST['password'] == $_POST['password2']){
+       
+   
     $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,2,1)";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
@@ -23,10 +26,13 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
 
     if ($stmt->execute()) {
         
-        $message = 'Su usuario de a creado con exito';
+        $message = 'Su usuario se a creado con exito';
         header('Location: /webaeo/login.php');
     } else {
         $message = 'no de a creado su usuardio';
+    }
+    } else {
+        $message = 'las contraseñas no son iguales';
     }
 }
 ?>
@@ -49,8 +55,8 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
     <input name="nombre_propio" required type="text" placeholder="Ingrese su Nombre" >
     <input name="nombre_usuario" required type="text" placeholder="Ingrese Nombre de Usuario">
     <input name="password" required type="password" placeholder="Ingrese su Contraseña">
+    <input name="password2" required type="password" placeholder="Confirmar su Contraseña">
    <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->
-
     <input name="correo" type="email" required placeholder="Ingrese su correo">
     <br>
     <br>
