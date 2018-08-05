@@ -5,10 +5,17 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
 
 <script src="js/jquery-2.2.4.min.js"></script>
+<link href="css/estilos_alan.css" rel="stylesheet">
 
-<div id="encabezado_resultado" class="container responsive">
-    <h4 class="text-center" id="nombreCategoria">Ubicación</h4>
-</div>
+ <div id="estilo-contenedor-textocategoria"class="container">
+    <div class="row"  id="fila"  >
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px">
+                <div class="coll">
+                    <h3 class="panel-title">
+                        <center><strong>Ubicación</strong></center>
+                    </h3>
+                </div>
 <br/>
 <div class="container responsive" id="contenedor_resultado"> 
     <br>
@@ -85,7 +92,11 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                         }
                     });
                 }
-    </script>	
+    </script>
+     </div>
+  </div>
+    </div>
+  </div>
     <body >
         <div id="map_canvas" style="width:100%; height:435px"></div><br> 
 
