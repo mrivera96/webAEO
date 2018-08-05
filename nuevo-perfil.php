@@ -169,6 +169,7 @@ if (isset($_SESSION['user_id'])) {
 
                         <h5>Categoría</h5>
                         <select class="form-control" id="categoria" name="id_categoria"></select>
+                        
                         <h5>Usuario</h5>
                         <select class="form-control" id="usuario" name="id_usuario"></select>
                         <br>   
