@@ -8,10 +8,20 @@ include_once 'plantillas/buscador.inc.php';
 <script src="js/jquery-2.2.4.min.js" ></script> 
 <link href="css/estilos_alan.css" rel="stylesheet">
 
+<div id="estilo-contenedor-textocategoria"class="container">
+    <div class="row"  id="fila"  >
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px">
+                <div class="coll">
+                    <h3 class="panel-title">
+                        <center><strong>Categorías</strong></center>
+                    </h3>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 
-<div id="estilo-contenedor-textocategoria"  class="container"  >
-    <h3><strong>Categorias</strong></h3> 
-</div>
 
 
 <!--Contenedor de tarjetas-->

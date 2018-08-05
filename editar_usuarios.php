@@ -25,7 +25,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 
                         <div class="group">
-                            <input  id="nombre_usuario" type="text" required name="nombre_usuario">
+                            <input  id="nombre_usuario" type="text" onkeyup="escribiendoUsuario()" required name="nombre_usuario">
                             <input id="id_usuario" type="hidden" name="id_usuario"  >
                             <span class="highlight"></span>
                             <span class="bar"></span>
@@ -38,7 +38,7 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                             <label>Nombre Propio</label>
                         </div>
                         <div class="group">
-                            <input id="correo" type="email" required="" name="correo">
+                            <input id="correo" type="email" required="" onkeyup="escribiendoEmail()" name="correo">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Correo</label>
@@ -107,6 +107,40 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
 
 <script>
 
+  function escribiendoUsuario(){
+            $.ajax({
+                    type: "GET",
+
+                    url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+                }).done(function (data) {
+                    console.log(data);
+                    if (data == 1) {  
+                        $('#nombre_usuario').css("color", "red").$('mitooltip').tooltip();
+                        
+                    }
+
+                    
+                    else
+                        $('#nombre_usuario').css("color", "black");
+                });
+        }
+        
+           function escribiendoEmail(){
+            $.ajax({
+                    type: "GET",
+
+                    url: "verificar_email.php?correo=" + $('#correo').val(),
+                }).done(function (data) {
+                    console.log(data);
+                    if (data == 1) {  
+                        $('#correo').css("color", "red");
+                    }
+
+                    
+                    else
+                        $('#correo').css("color", "black");
+                });
+        }
     function validarFormulario() {
         function mostrarError(componente, error) {
 
