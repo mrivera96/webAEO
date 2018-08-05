@@ -35,7 +35,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                     $.ajax({
                         type: "get",
                         url: "mostrar_perfil.php",
-                        data: {'id_contacto':<?php echo $_GET['id_contacto'] ?>}
+                        data: {'id_contacto':<?php echo $_GET['numct'] ?>}
                     }).done(function (data)
                     {
                         var coordenadas = JSON.parse(data);
