@@ -9,7 +9,7 @@
  ></script>
 
   <div id="encabezado_resultado" class="container responsive">
-      <br><h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4>
+   <h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4>
   </div>
   <br/>
 
