@@ -119,7 +119,7 @@ include_once 'plantillas/buscador.inc.php';
                         );
                 
                  /************************************************************************************************/
-                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?id_contacto='+informacionContacto[i].id_contacto+'">' +
+                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?numct='+informacionContacto[i].id_contacto+'">' +
                                     '<i class="glyphicon glyphicon-map-marker my-float"></i>'+' </a>'
                  );
             }
