@@ -141,9 +141,6 @@ section .section-title {
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Nombre de Perfil Organizacion ,color de fondo y color de titulo*/
-.nombreOrganizacion{
-    background:#005662;
-}
 .colorNombreOrganizacion{
     color:#fff;
 }
