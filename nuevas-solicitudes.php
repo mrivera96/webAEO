@@ -35,7 +35,44 @@
 
   <div class="container responsive" id="contenedor_perfiles">
       <div class="row" style="margin-top: 10px;" id="fila">
-         
+          <div class="modal" id="Modal" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Gestión de Solicitud</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p>Solicitud aceptada</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" id="aceptar" onclick="javascript:(function() { window.location.href = 'nuevas-solicitudes.php';})()" class="btn btn-primary">Aceptar</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div> 
+              <div class="modal" id="Modal1" tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Gestión de Solicitud</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>
+                          <div class="modal-body">
+                              <p>Solicitud rechazada</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" id="aceptar" onclick="javascript:(function() { window.location.href = 'nuevas-solicitudes.php';})()" class="btn btn-primary">Aceptar</button>
+
+                          </div>
+                      </div>
+                  </div>
+              </div> 
              
       </div>                    
   </div>

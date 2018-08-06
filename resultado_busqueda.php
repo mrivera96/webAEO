@@ -7,10 +7,21 @@
 <script
     src="js/jquery-2.2.4.min.js"
  ></script>
+     <link href="css/estilos_alan.css" rel="stylesheet">
 
-  <div id="encabezado_resultado" class="container responsive">
-      <br><h4 class="text-center" id="nombreCategoria">Resultado de búsqueda</h4>
-  </div>
+
+ <div id="estilo-contenedor-textocategoria"class="container">
+    <div class="row"  id="fila"  >
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height: 40px">
+                <div class="coll">
+                    <h3 class="panel-title">
+                        <center><strong>Resultado de búsqueda</strong></center>
+                    </h3>
+                </div>
+            
+            
+      
   <br/>
 
   <div class="container responsive" id="contenedor_resultado">
@@ -58,9 +69,12 @@
                 }
              
           </script>
-      </div>                    
+      </div>   
+      </div>
   </div>
-
+  </div>
+    </div>
+  </div>
 <?php
     include_once 'plantillas/documento-cierre.inc.php';
 ?>

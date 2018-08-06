@@ -3,8 +3,23 @@
 include 'ConexionABaseDeDatos.php';
 $flag = array();
  
+/*if(isset($_POST["nombre_usuario"])===""){
+   // echo 'el usuario no puede estar vacio';
+    print (json_encode('el usuario no puede estar vacio'));  
+}else if(isset($_POST["nombre_propio"])===""){
+        print (json_encode('el nombre propio no puede estar vacio'));   
+}else if(isset($_POST["correo"])===""){   
+    print (json_encode('el correo no puede estar vacio')); 
+}else if(isset($_POST["contrasena"])===""){
+    print (json_encode('la contraseña no puede estar vacio'));    
+}else if(isset($_POST["rol"])===""){
+    print (json_encode('el rol no puede estar vacio'));  
+}else*/
 
 if (isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) && isset($_POST["contrasena"]) && isset($_POST["rol"])) {
+
+    
+
     $nombre_usuario = $_POST['nombre_usuario'];
     $nombre_propio = $_POST['nombre_propio'];
     $correo = $_POST['correo'];

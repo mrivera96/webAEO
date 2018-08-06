@@ -24,7 +24,7 @@ if (isset($_SESSION['user_id'])) {
                 
                 
                 <li id="boton" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                     <ul id="despliege" class="dropdown-menu" role="menu">
                         <li><a href="mostrar_usuarios.php"><img src="imagenes/administracioncuenta.jpg" height="15"> <strong>Administración de Cuenta</strong></a></li>
                         <li><a href="administracion-de-perfiles.php"><img src="imagenes/administracionperfil.jpg" height="15"> Administración de Perfiles</a></li>
@@ -169,6 +169,7 @@ if (isset($_SESSION['user_id'])) {
 
                         <h5>Categoría</h5>
                         <select class="form-control" id="categoria" name="id_categoria"></select>
+                        
                         <h5>Usuario</h5>
                         <select class="form-control" id="usuario" name="id_usuario"></select>
                         <br>   

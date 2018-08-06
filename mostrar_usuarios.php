@@ -31,8 +31,9 @@ include_once 'plantillas/navbar_panel_de_control.inc.php';
                 });
                 var loadData = function () {
                     $.ajax({
-                        type: "GET",
-                        url: "ConsultarTodosLosUsuarios.php"
+                        type: "POST",
+                        url: "ConsultarTodosLosUsuarios.php",
+                        data: {'estado_usuario': '1'}
                     }).done(function (data) {
                         var usuarios = JSON.parse(data);
                         for (var i in usuarios) {
