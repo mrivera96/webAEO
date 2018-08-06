@@ -1,8 +1,8 @@
 <?php
 $titulo = 'Edición de Cuenta';
-session_start();
+//session_start();
 include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/navbar_panel_de_control.inc.php';
+include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id'])) {
     ?>
 
