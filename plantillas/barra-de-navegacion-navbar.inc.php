@@ -24,13 +24,13 @@
                         <!--   header('Location: /webaeo/contactosUsuario.php');
                         } else if (($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
                             header('Location: /webaeo/mostrar_usuarios.php'); -->
-                          <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Panel de Control </strong></a></li>
+                          <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control </strong></a></li>
                           <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
                           
                         <?php
                     } else {
                         ?>
-                         <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Panel de Control</strong></a></li>
+                         <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control</strong></a></li>
                          <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
                         <?php
                         $message = 'Usuario o Contraseña incorrectas desde la sesion';

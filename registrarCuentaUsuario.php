@@ -29,7 +29,7 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
         $message = 'Su usuario se a creado con exito';
         header('Location: /webaeo/login.php');
     } else {
-        $message = 'no de a creado su usuardio';
+        $message = 'no de a creado su usuario';
     }
     } else {
         $message = 'las contraseñas no son iguales';
@@ -53,7 +53,7 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
 <form action="registrarCuentaUsuario.php" method="post">
 
     <input name="nombre_propio" required type="text" placeholder="Ingrese su Nombre" >
-    <input name="nombre_usuario" required type="text" placeholder="Ingrese Nombre de Usuario">
+    <input name="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text" placeholder="Ingrese Nombre de Usuario">
     <input name="password" required type="password" placeholder="Ingrese su Contraseña">
     <input name="password2" required type="password" placeholder="Confirmar su Contraseña">
    <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->

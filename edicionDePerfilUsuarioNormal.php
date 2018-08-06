@@ -4,7 +4,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id'])) {
     ?>
     <head>
-        <link href="css/estiloLogin.css" rel="stylesheet">
+        <link href="css/nuevoperfil.css" rel="stylesheet">
         <link href="css/estilos_melvin.css" rel="stylesheet">
     </head>
     <div class="container">
@@ -139,8 +139,8 @@ if (isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
-                                                            window.location.href = 'contactosUsuario.php';
-                                                        })()">Aceptar</button>
+                                                        window.location.href = 'contactosUsuario.php';
+                                                    })()">Aceptar</button>
 
                                         </div>
                                     </div>
@@ -157,117 +157,114 @@ if (isset($_SESSION['user_id'])) {
 
     <script src="js/jquery-2.2.4.min.js"></script>
     <script>
-                                                $(document).on("ready", function () {
-                                                    loadData();
-                                                });
-                                                function $_GET(param) {
-                                                    var vars = {};
-                                                    window.location.href.replace(location.hash, '').replace(
-                                                            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-                                                            function (m, key, value) { // callback
-                                                                vars[key] = value !== undefined ? value : '';
-                                                            }
-                                                    );
+     $(document).on("ready", function () {
+       loadData();
+      });
+      function $_GET(param) {
+      var vars = {};
+      window.location.href.replace(location.hash, '').replace(
+     /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+        function (m, key, value) { // callback
+        vars[key] = value !== undefined ? value : '';
+          }
+         );
 
-                                                    if (param) {
-                                                        return vars[param] ? vars[param] : null;
-                                                    }
-                                                    return vars;
-                                                }
-                                                var loadData = function () {
-                                                    $.ajax({
-                                                        type: "GET",
-                                                        url: "consultarRegiones.php"
-                                                    }).done(function (data) {
-                                                        var regiones = JSON.parse(data);
+       if (param) {
+       return vars[param] ? vars[param] : null;
+       }
+     return vars;
+       }
+       var loadData = function () {
+        $.ajax({
+        type: "GET",
+         url: "consultarRegiones.php"
+         }).done(function (data) {
+        var regiones = JSON.parse(data);
 
-                                                        for (var i in regiones) {
-                                                            $("#region").append('<option class="form-control" value="' + regiones[i].id_region + '">' + regiones[i].nombre_region + ' </option>');
-                                                        }
-                                                    });
-                                                    $.ajax({
-                                                        type: "GET",
-                                                        url: "consultarCategorias.php"
-                                                    }).done(function (data) {
-                                                        var categorias = JSON.parse(data);
-                                                        for (var i in categorias) {
-                                                            $("#categoria").append('<option class="form-control" value="' + categorias[i].id_categoria + '">' + categorias[i].nombre_categoria + '</option>');
-                                                        }
-                                                    });
-                                                    var id_contacto = $_GET('contacto');
-                                                    $.ajax({
-                                                        type: "GET",
-                                                        url: "consultarDatosDePerfilParaEditar.php",
-                                                        data: {'contacto': id_contacto}
-                                                    }).done(function (data) {
+         for (var i in regiones) {
+           $("#region").append('<option class="form-control" value="' + regiones[i].id_region + '">' + regiones[i].nombre_region + ' </option>');
+            }
+            });
+            $.ajax({
+             type: "GET",
+             url: "consultarCategorias.php"
+              }).done(function (data) {
+             var categorias = JSON.parse(data);
+           for (var i in categorias) {
+           $("#categoria").append('<option class="form-control" value="' + categorias[i].id_categoria + '">' + categorias[i].nombre_categoria + '</option>');
+            }
+            });
+            var id_contacto = $_GET('contacto');
+          $.ajax({
+           type: "GET",
+            url: "consultarDatosDePerfilParaEditar.php",
+             data: {'contacto': id_contacto}
+                }).done(function (data) {
 
-                                                        var perfiles = JSON.parse(data);
-                                                        var imagen;
-                                                        for (var i in perfiles["perfiles"]) {
-                                                            if (perfiles["perfiles"][i].imagen !== "") {
-                                                                imagen = perfiles["perfiles"][i].imagen;
-                                                            } else {
-                                                                imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
-                                                            }
-                                                            ;
-                                                            $("#imganenOrg").attr("src", imagen);
-                                                            $("#nombreOrg").attr("value", perfiles["perfiles"][i].nombre_organizacion);
-                                                            $("#numtelOrg").attr("value", perfiles["perfiles"][i].numero_fijo);
-                                                            $("#numcelOrg").attr("value", perfiles["perfiles"][i].numero_movil);
-                                                            $("#dirOrg").attr("value", perfiles["perfiles"][i].direccion);
-                                                            $("#emailOrg").attr("value", perfiles["perfiles"][i].e_mail);
-                                                            $("#descOrg").attr("value", perfiles["perfiles"][i].descripcion_organizacion);
-                                                            $("#latOrg").attr("value", perfiles["perfiles"][i].latitud);
-                                                            $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);
-                                                            $("#region option[value=" + perfiles["perfiles"][i].id_region + "]").attr("selected", true);
-                                                            $("#categoria option[value=" + perfiles["perfiles"][i].id_categoria + "]").attr("selected", true);
-                                                        }
+              var perfiles = JSON.parse(data);
+            var imagen;
+             for (var i in perfiles["perfiles"]) {
+            if (perfiles["perfiles"][i].imagen !== "") {
+             imagen = perfiles["perfiles"][i].imagen;
+                } else {
+            imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+             };
+            $("#imganenOrg").attr("src", imagen);
+            $("#nombreOrg").attr("value", perfiles["perfiles"][i].nombre_organizacion);
+             $("#numtelOrg").attr("value", perfiles["perfiles"][i].numero_fijo);
+            $("#numcelOrg").attr("value", perfiles["perfiles"][i].numero_movil);
+            $("#dirOrg").attr("value", perfiles["perfiles"][i].direccion);
+             $("#emailOrg").attr("value", perfiles["perfiles"][i].e_mail);
+              $("#descOrg").attr("value", perfiles["perfiles"][i].descripcion_organizacion);
+             $("#latOrg").attr("value", perfiles["perfiles"][i].latitud);
+            $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);
+            $("#region option[value=" + perfiles["perfiles"][i].id_region + "]").attr("selected", true);
+            $("#categoria option[value=" + perfiles["perfiles"][i].id_categoria + "]").attr("selected", true);
+            }
 
-
-
-                                                    });
-                                                };
-                                                document.getElementById("eliminar").onclick = function () {
-                                                    eliminarPerfil();
-                                                };
-                                                function eliminarPerfil() {
-                                                    $.ajax({
-                                                        type: "GET",
-                                                        url: "eliminarPerfil.php",
-                                                        data: {'contacto': $_GET('contacto')}
-                                                    });
-                                                    window.location.href = 'contactosUsuario.php';
+         });
+            };
+         document.getElementById("eliminar").onclick = function () {
+          eliminarPerfil();
+         };
+        function eliminarPerfil() {
+            $.ajax({
+            type: "GET",
+            url: "eliminarPerfil.php",
+             data: {'contacto': $_GET('contacto')}
+           });
+            window.location.href = 'contactosUsuario.php';
                                                 }
 
-                                                document.getElementById("guardar").onclick = function () {
-                                                    validarFormulario();
-                                                };
-                                                function mostrarError(componente, error) {
+            document.getElementById("guardar").onclick = function () {
+            validarFormulario();
+            };
+             function mostrarError(componente, error) {
 
-                                                    $("#formularioEditar").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
-                                                            '<div class="modal-dialog" role="document">' +
-                                                            '<div class="modal-content">' +
-                                                            '<div class="modal-header">' +
-                                                            '<h5 class="modal-title">Error al actualizar el perfil</h5>' +
-                                                            '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
-                                                            '<span aria-hidden="true">&times;</span>' +
-                                                            '</button>' +
-                                                            '</div>' +
-                                                            ' <div class="modal-body">' +
-                                                            '<p>' + error + '</p>' +
-                                                            '</div>' +
-                                                            '<div class="modal-footer">' +
-                                                            '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
-                                                            '</div>' +
-                                                            '</div>' +
-                                                            '</div>' +
-                                                            '</div>');
-                                                    $("#Modal3").modal("show");
-                                                    $('#Modal3').on('hidden.bs.modal', function () {
-                                                        componente.focus();
-                                                        $("#Modal3").detach();
-                                                    });
-                                                }
+            $("#formularioEditar").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                 '<div class="modal-dialog" role="document">' +
+                   '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<h5 class="modal-title">Error al actualizar el perfil</h5>' +
+                 '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                 '<span aria-hidden="true">&times;</span>' +
+                  '</button>' +
+                '</div>' +
+                 ' <div class="modal-body">' +
+                  '<p>' + error + '</p>' +
+                '</div>' +
+                  '<div class="modal-footer">' +
+                 '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
+                 '</div>' +
+                   '</div>' +
+                    '</div>' +
+                 '</div>');
+                    $("#Modal3").modal("show");
+                     $('#Modal3').on('hidden.bs.modal', function () {
+                         componente.focus();
+                         $("#Modal3").detach();
+                       });
+                      }
 
                                                 function validarFormulario() {
                                                     var error_nomb = false;
@@ -278,7 +275,7 @@ if (isset($_SESSION['user_id'])) {
                                                     var error_dir = false;
                                                     var error_reg = false;
                                                     var error_cat = false;
-                                                    if (document.formularioEditar.nomborg_rec.value === "") {
+                                                    if (document.formularioEditar.nomborg_rec.value === "" ) {
                                                         error_nomb = true;
                                                         mostrarError(document.formularioEditar.nomborg_rec, "Debe ingresar un nombre de organización.");
                                                         return;

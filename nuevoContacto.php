@@ -1,11 +1,12 @@
 <?php
+$titulo = 'Formulario Registro'; 
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id'])) {
     
 ?>
 <head>
-    <link href="css/estiloLogin.css" rel="stylesheet">
+    <link href="css/nuevoperfil.css" rel="stylesheet">
     <link href="css/estilos_melvin.css" rel="stylesheet">
 </head>
 
@@ -138,10 +139,10 @@ if (isset($_SESSION['user_id'])) {
           
                     </body
 
-                        <h5>Región</h5>
+                    <h5 class="region">Región establecdido</h5>
                         <select class="form-control" id="region" name="id_region"></select>
 
-                        <h5>Categoría</h5>
+                        <h5 class="categoria">Categoría</h5>
                         <select class="form-control" id="categoria" name="id_categoria"></select>
                         
                         <br>   
@@ -254,7 +255,7 @@ function validarFormulario(){
         var error_cat=false;
         
         
-         if(document.formularioCrear.nomborg_rec.value===""){
+         if(document.formularioCrear.nomborg_rec.value==="" ){
             error_nomb=true;                  
             mostrarError(document.formularioCrear.nomborg_rec,"Debe ingresar un nombre de organización.");
             return;
@@ -329,14 +330,7 @@ function validarFormulario(){
             return;
         }
         
-        if(error_nomb   ===false && 
-           error_tel    ===false &&
-           error_cel    ===false &&
-           error_dir    ===false &&
-           error_mail   ===false &&
-           error_desc   ===false &&
-           error_reg    ===false &&
-           error_cat    ===false){
+        if(error_nomb   ===false && error_tel    ===false && error_cel    ===false && error_dir    ===false && error_mail   ===false && error_desc   ===false && error_reg    ===false &&  error_cat    ===false){
                 document.formularioCrear.submit();
                 $("#Modal1").modal('show');
                 

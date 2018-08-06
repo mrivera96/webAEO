@@ -3,6 +3,13 @@ body{
 	padding: 0;
 	text-align: center;
 }
+.region{ 
+margin-right: 0px; 
+} 
+
+.categoria{ 
+margin-left: 0px; 
+} 
 input[type="text"], input[type="password"],input[type="email"]{
   outline: none;
   padding: 20px;
