@@ -299,7 +299,7 @@ if (isset($_SESSION['user_id'])) {
                 data: {'id_usuario':<?php echo $_GET['usuario'] ?>}
             });
 
-            window.location.href = 'mostrar_usuarios.php';
+            window.location.href = 'cerrarSessionLogin.php';
         }
     </script>
 

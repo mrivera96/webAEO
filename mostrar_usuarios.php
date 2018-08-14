@@ -4,6 +4,7 @@ $titulo = 'Usuarios';
 session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+
 if (isset($_SESSION['user_id'])) {
     ?>
 

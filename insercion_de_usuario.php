@@ -11,30 +11,30 @@ $error_contrasena = false;
 
 if (!isset($_POST['nombre_usuario']) || empty($_POST['nombre_usuario'])) {
     $error_nomUsuario = true;
-    print json_encode('Debe ingresar un nombre de usuario.');
+    print json_encode(ERROR10);
     return;
 }
 if (!isset($_POST['nombre_propio']) || empty($_POST['nombre_propio'])) {
     $error_nomPropio = true;
-    print json_encode('Debe ingresar un nombre propio.');
+    print json_encode(ERROR11);
     return;
 }
 
 if (!isset($_POST['correo']) || empty($_POST['correo'])) {
     $error_correo = true;
-    print json_encode('Debe ingresar un correo.');
+    print json_encode(ERROR12);
     return;
 } else {
     if (strpos($_POST['correo'], "@") === false || strpos($_POST['correo'], ".") === false) {
         $error_correo = true;
-        print json_encode("e-mail incorrecto.");
+        print json_encode(ERROR4);
         return;
     }
 }
 
 if (!isset($_POST['contrasena']) || empty($_POST['contrasena'])) {
     $error_contrasena = true;
-    print json_encode('Debe ingresar una contraseña.');
+    print json_encode(ERROR17);
     return;
 }
 

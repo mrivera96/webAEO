@@ -1,7 +1,7 @@
 <?php
 $titulo = 'Agenda Electrónica Oriental';
 include_once 'plantillas/documento-inicio.inc.php';
-//include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 include_once 'plantillas/buscador.inc.php';   
 
 ?>
