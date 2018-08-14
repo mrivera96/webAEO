@@ -1,5 +1,5 @@
 <?php
-
+$titulo="Edición de Perfil";
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id'])) {

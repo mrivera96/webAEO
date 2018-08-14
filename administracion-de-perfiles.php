@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="nuevas-solicitudes.php"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Nuevas Solicitudes</a></li>
-                        <li><a href="solicitudes-rechazadas.php"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Solicitudes Rechazadas</a></li>
+                        <li><a href="solicitudes-rechazadas.php"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Solicitudes Rechazadas</a></li>
                         <li><a href="perfiles-eliminados.php"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Perfiles Eliminados</a></li>
                         <li id="boton" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
@@ -42,20 +42,35 @@
 
         </nav>
 
-        <div id="encabezado_lista_contactos" class="container"><h4 style="color: white">Administración de Perfiles Activos</h4></div>
+        
 
+            <div id="encabezado_contactos_activos" class="container">
+                <div class="col-md-9 col-sm-9 col-xs-9">
+                    
+                    <h4 style="color: white"><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i> Perfiles Activos</h4>
+                    
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-3 ">   
 
+                    <div class="inner-addon right-addon">
+                        <i class="glyphicon glyphicon-search"></i>      
+                        <input type="search" class="form-control" id="search">
+                    </div>                                                       
+                </div>
+            </div> 
+        
         <div class="container" id="contenedor_perfiles">
-            <div class="row" style="margin-top: 10px;" id="fila">
+                
+                <div class="row" style="margin-top: 10px;" id="fila">
+                       
 
+                </div>  
 
-            </div>  
+                <a href="nuevo-perfil.php" class="float">  
+                    <i class="glyphicon glyphicon-plus my-float"></i>
+                </a>
 
-            <a href="nuevo-perfil.php" class="float">  
-                <i class="glyphicon glyphicon-plus my-float"></i>
-            </a>
-
-        </div>
+            </div>
 
         <script src="js/jquery-2.2.4.min.js"></script>                
         <script src="js/administracionPerfiles.js"></script> 

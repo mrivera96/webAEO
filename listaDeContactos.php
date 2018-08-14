@@ -3,8 +3,9 @@
     include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
     include_once 'plantillas/buscador.inc.php';
 ?>
-<script src="js/jquery-2.2.4.min.js"></script> 
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script> 
 <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
+
   <div id="encabezado_lista_contactos" class="container"><h4 id="nombreCategoria"><?php echo $_GET['nombre_categoria'] ?></h4></div>
   
 
@@ -19,7 +20,7 @@
                               
                               type:"get",
                               url:"listarPerfiles.php",
-                              data: {'categoria':<?php echo $_GET['id_categoria']?>}
+                              data: {'ctg':<?php echo $_GET['id_categoria']?>}
                             }).done(function(data){
 
                                 var perfiles = JSON.parse(data);
@@ -37,7 +38,7 @@
                                     }else{
                                         telefono=perfiles[i].numero_movil;
                                     };
-                                    $("#fila").append('<a class="enlaces_de_listas_contactos" href="PerfilOrganizacion.php?id_contacto='+perfiles[i].id_contacto+'"><div class = "col-md-4 col-sm-6">' +
+                                    $("#fila").append('<a class="enlaces_de_listas_contactos" href="PerfilOrganizacion.php?cto='+perfiles[i].id_contacto+'"><div class = "col-md-4 col-sm-6">' +
                                               '<div class="media-list">' +
                                               '<div class="media-left">' +
                                               '<img  class="media-object img-circle circle-img" src='+imagen+'> ' +
