@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id'])) {
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <form name="formulario" role="form" id="editar_usuarios"  method="post"tyle="padding-top: 15px"action="insercion_de_usuario.php" target="formDestination" >
+                        <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insercion_de_usuario.php" target="formDestination" >
                             <div class="group">
                                 <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="nombre_usuario">
                                 <span class="highlight"></span>
@@ -99,16 +99,16 @@ if (isset($_SESSION['user_id'])) {
 
 
     <script>
-/*
-        function mostrarErrorto(componente, error) {
-            $("#editar_usuarios").append(' <div class="tooltip-inner" role="tooltip" id="tooltips" data-toggle="tooltip"  title=' + error + '>' +
-                    '</div>');
-            $("#tooltips").tooltip('toggle');
-            $('#tooltips').on('hidden.bs.tooltip', function () {
-                 componente.focus();
-                $("#tooltips").detach();
-            });
-        }*/
+        /*
+         function mostrarErrorto(componente, error) {
+         $("#editar_usuarios").append(' <div class="tooltip-inner" role="tooltip" id="tooltips" data-toggle="tooltip"  title=' + error + '>' +
+         '</div>');
+         $("#tooltips").tooltip('toggle');
+         $('#tooltips').on('hidden.bs.tooltip', function () {
+         componente.focus();
+         $("#tooltips").detach();
+         });
+         }*/
         function mostrarError(componente, error) {
 
             $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
@@ -146,15 +146,20 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#nombre_usuario').css("color", "red");
-                    mostrarErrorto(document.formulario.nombre_usuario, "error no .");
+                    // mostrarErrorto(document.formulario.nombre_usuario, "error no .");
+                    mostrarError(document.formulario.nombre_usuario, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
+                 
+
 
                 } else
                     $('#nombre_usuario').css("color", "black");
+                // mostrarError(document.formulario.nombre_usuario, "Nombre de usuario valido.");
+
 
             });
         }
-        
-         function escribiendoEmail() {
+
+        function escribiendoEmail() {
             $.ajax({
                 type: "GET",
 
@@ -163,7 +168,9 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#correo').css("color", "red");
-                    mostrarErrorto(document.formulario.correo, "error no .");
+                    mostrarError(document.formulario.correo, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
+
+
 
                 } else
                     $('#correo').css("color", "black");
@@ -183,26 +190,7 @@ if (isset($_SESSION['user_id'])) {
                 error_nomUsuario = true;
                 mostrarError(document.formulario.nombre_usuario, "Debe ingresar un nombre de usuario.");
                 return;
-            }/* else {
-                $.ajax({
-                    type: "GET",
-
-                    url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
-                }).done(function (data) {
-                    console.log(data);
-                    if (data == 1) {
-                        error_nomUsuario = true;
-
-                        mostrarError(document.formulario.nombre_usuario, "usuario no valido");
-                        return;
-
-                    }
-                });
-
-
-
-            }*/
-
+            }
 
             if (document.formulario.nombre_propio.value === "") {
                 error_nomPropio = true;
