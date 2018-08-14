@@ -1,11 +1,34 @@
+ /**********************************************************************************************
+     *            FUNCIÓN PARA BUSCAR ENTRE LOS PERFILES
+     **********************************************************************************************/
+
+var search = document.getElementById("search"),
+    food = document.getElementsByClassName("enlaces_de_listas_contactos"),
+    forEach = Array.prototype.forEach;
+
+search.addEventListener("keyup", function(e){
+    var choice = this.value;
+  
+    forEach.call(food, function(f){
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+            f.style.display = "none";        
+        else
+            f.style.display = "block";        
+    });
+}, false);
+
 $(document).on("ready", function () {
     loadData();
 });
+
+ /**********************************************************************************************
+     *            FUNCIÓN AJAX PARA MOSTRAR LOS PERFILES ACTIVOS
+     **********************************************************************************************/
 var loadData = function () {
     $.ajax({
         type: "post",
         url: "consultarPerfilesParaAdministracionPerfiles.php",
-        data: {'estado': '2'}
+        data: {'ste': '2'}
     }).done(function (data) {
 
         var perfiles = JSON.parse(data);
@@ -21,7 +44,7 @@ var loadData = function () {
             ;
 
             $("#fila").append(
-                    '<a class="enlaces_de_listas_contactos" href="editar-perfil.php?contacto=' + perfiles[i].id_contacto + '"><div class = "col-md-4 col-sm-6">' +
+                    '<a class="enlaces_de_listas_contactos" href="editar-perfil.php?cto=' + perfiles[i].id_contacto + '"><div class = "col-md-4 col-sm-6">' +
                         '<div class="media">' +
                             '<div class="media-left">' +
                             '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle circle-img" src=' + imagen + '> ' +

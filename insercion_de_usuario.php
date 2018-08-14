@@ -3,20 +3,48 @@
 include 'ConexionABaseDeDatos.php';
 $flag = array();
  
-/*if(isset($_POST["nombre_usuario"])===""){
-   // echo 'el usuario no puede estar vacio';
-    print (json_encode('el usuario no puede estar vacio'));  
-}else if(isset($_POST["nombre_propio"])===""){
-        print (json_encode('el nombre propio no puede estar vacio'));   
-}else if(isset($_POST["correo"])===""){   
-    print (json_encode('el correo no puede estar vacio')); 
-}else if(isset($_POST["contrasena"])===""){
-    print (json_encode('la contraseña no puede estar vacio'));    
-}else if(isset($_POST["rol"])===""){
-    print (json_encode('el rol no puede estar vacio'));  
-}else*/
+$error_nomUsuario = false;
+$error_nomPropio = false;
+$error_correo = false;
+$error_contrasena = false;
 
-if (isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) && isset($_POST["contrasena"]) && isset($_POST["rol"])) {
+
+if (!isset($_POST['nombre_usuario']) || empty($_POST['nombre_usuario'])) {
+    $error_nomUsuario = true;
+    print json_encode('Debe ingresar un nombre de usuario.');
+    return;
+}
+if (!isset($_POST['nombre_propio']) || empty($_POST['nombre_propio'])) {
+    $error_nomPropio = true;
+    print json_encode('Debe ingresar un nombre propio.');
+    return;
+}
+
+if (!isset($_POST['correo']) || empty($_POST['correo'])) {
+    $error_correo = true;
+    print json_encode('Debe ingresar un correo.');
+    return;
+} else {
+    if (strpos($_POST['correo'], "@") === false || strpos($_POST['correo'], ".") === false) {
+        $error_correo = true;
+        print json_encode("e-mail incorrecto.");
+        return;
+    }
+}
+
+if (!isset($_POST['contrasena']) || empty($_POST['contrasena'])) {
+    $error_contrasena = true;
+    print json_encode('Debe ingresar una contraseña.');
+    return;
+}
+
+if ($error_nomUsuario === false &&
+        $error_nomPropio === false &&
+        $error_correo === false &&
+        $error_contrasena === false
+) {
+
+//}if (isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) && isset($_POST["contrasena"]) && isset($_POST["rol"])) {
 
     
 
@@ -33,10 +61,11 @@ $resultado_insert = $con->prepare($insert);
 $resultado_insert->bind_param("ssssi",$nombre_usuario, $nombre_propio, $correo, $contrasena, $rol);
 $resultado_insert->execute();
 
-
-}else{
-        print (json_encode('No se recivieron las variables'));
-}
+ 
+    //print json_encode("Usuario creado correctamente.");
+    }else{
+        print json_encode("Ocurrió un error con los paramámetros recibidos.");
+    }
 
 
 $con->close();

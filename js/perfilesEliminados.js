@@ -1,3 +1,17 @@
+var search = document.getElementById("search"),
+    food = document.getElementsByClassName("enlaces_de_listas_contactos"),
+    forEach = Array.prototype.forEach;
+
+search.addEventListener("keyup", function(e){
+    var choice = this.value;
+  
+    forEach.call(food, function(f){
+        if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
+            f.style.display = "none";        
+        else
+            f.style.display = "block";        
+    });
+}, false);
 $(document).on("ready", function () {
     loadData();
 });
@@ -5,7 +19,7 @@ var loadData = function () {
     $.ajax({
         type: "post",
         url: "consultarPerfilesParaAdministracionPerfiles.php",
-        data: {'estado': '4'},
+        data: {'ste': '4'},
         success:function (data){
         if(data!=="No hay resultados"){
             var perfiles = JSON.parse(data);

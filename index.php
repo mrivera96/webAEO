@@ -3,7 +3,7 @@ $titulo = 'Agenda Electrónica Oriental';
 include_once 'plantillas/documento-inicio.inc.php';
 //include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 include_once 'plantillas/buscador.inc.php';   
-    
+
 ?>
 <script src="js/jquery-2.2.4.min.js" ></script> 
 <link href="css/estilos_alan.css" rel="stylesheet">
@@ -37,12 +37,13 @@ include_once 'plantillas/buscador.inc.php';
             var loadData = function () {
                 $.ajax({
                     type: "GET",
-                    url: "ParaSincronizarCategorias.php"
+                    url: "ParaSincronizarCategorias.php",
+                      data: {'id_estado': '2'}
                 }).done(function (data) {
                     var categorias = JSON.parse(data);
                     for (var i in categorias) {
                         $("#fila").append('<div class = "col-sm-6 col-md-4">' +
-                                '<a href="listaDeContactos.php?id_categoria=' + categorias[i].id_categoria + '&&nombre_categoria=' + categorias[i].nombre_categoria + '"><div id="panel_default" class="panel panel-default">' +
+                                '<a href="listaDeContactos.php?cty=' + categorias[i].id_categoria + '&&name_cty=' + categorias[i].nombre_categoria + '"><div id="panel_default" class="panel panel-default">' +
                                 '<div  class="panel-heading" >' +
                                 '<span aria-hidden="true"></span> <strong>' + categorias[i].nombre_categoria + '</strong>' +
                                 '<h6>' + categorias[i].coun + ' Contactos</h6>' +
