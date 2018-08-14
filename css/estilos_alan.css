@@ -7,7 +7,6 @@
 
 /*Diseño de la tarjeta de las categorias*/
 #panel_default{
-    
     -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
     box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
 }
@@ -15,10 +14,10 @@
 /*tamaño de las cartas de categorias*/
 #tamaño{
     height: 140px;
-  
-    
+
+
 }
-  /*Diseño de la tarjeta de las categorias*/
+/*Diseño de la tarjeta de las categorias*/
 .thumbnail{
     margin: 10px;
     padding: 0px;
@@ -26,15 +25,15 @@
     -webkit-box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
     box-shadow: 0px 10px 15px -5px rgba(0,0,0,0.65);
 
-  
+
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Diseño del separador de los usuarios de panel de control*/
 #disUsusarios{
-    
-  
+
+
     background: #005662;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -57,7 +56,7 @@
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Para el contenedor de las tarjetas inclulle el tamaño */
 #estilo-contenedor{
-                margin-bottom:auto;
+    margin-bottom:auto;
 
     style-width: 90%;
     background-color: white;
@@ -68,7 +67,7 @@
 
 /*diseño del contenedor de los usuarios panel de control*/
 #contenedor_usuarios{
-       style-width: 90%;
+    style-width: 90%;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -171,31 +170,55 @@ body{
     background-color:#005662;
 }
 
-   .float{
-            position:fixed;
-            width:60px;
-            height:60px;
-            bottom:60px;
-            right:40px;
-            background-color:#005662;
-            color:#FFF;
-            border-radius:50px;
-            text-align:center;
-            box-shadow: 2px 2px 3px #999;
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:60px;
+    right:40px;
+    background-color:#005662;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
 
-        }
+}
 
-  .my-float{
-            margin-top:22px !important;
-        }
+.my-float{
+    margin-top:22px !important;
+}
 
 .panel-body >form{
     padding-top: 15px
 }
-  .oculto {
-            width:0; 
-            height:0; 
-            border:0; 
-            border:none;
-        }
-        
+.oculto {
+    width:0; 
+    height:0; 
+    border:0; 
+    border:none;
+}
+
+/*diseño de la lupa de el buscador de usuarios*/
+.form-control {
+    padding-right: 30px;
+}
+
+.form-control + .glyphicon {
+    position: absolute;
+    right: 0;
+    padding: 8px 27px;
+    color: black;
+}
+
+#diseñobuscarusuario{
+    height: 40px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#diseñotituloUsuario{
+    color: white; 
+    padding-top: 3px;
+    padding-bottom: 3px;
+   
+}

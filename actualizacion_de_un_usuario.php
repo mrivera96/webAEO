@@ -2,17 +2,50 @@
 
 include 'ConexionABaseDeDatos.php';
 $flag = array();
+$error_nomUsuario = false;
+$error_nomPropio = false;
+$error_correo = false;
 
 
-if (isset($_POST["id_usuario"]) && isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) ) {
+if (!isset($_POST['nombre_usuario']) || empty($_POST['nombre_usuario'])) {
+    $error_nomUsuario = true;
+    print json_encode('Debe ingresar un nombre de usuario.');
+    return;
+}
+if (!isset($_POST['nombre_propio']) || empty($_POST['nombre_propio'])) {
+    $error_nomPropio = true;
+    print json_encode('Debe ingresar un nombre propio.');
+    return;
+}
+
+if (!isset($_POST['correo']) || empty($_POST['correo'])) {
+    $error_correo = true;
+    print json_encode('Debe ingresar un correo.');
+    return;
+} else {
+    if (strpos($_POST['correo'], "@") === false || strpos($_POST['correo'], ".") === false) {
+        $error_correo = true;
+        print json_encode("e-mail incorrecto.");
+        return;
+    }
+}
+
+
+
+if ($error_nomUsuario === false &&
+        $error_nomPropio === false &&
+        $error_correo === false 
+      
+) {
+
+//if (isset($_POST["id_usuario"]) && isset($_POST["nombre_usuario"]) && isset($_POST["nombre_propio"]) && isset($_POST["correo"]) ) {
 
     $id_usua = $_POST['id_usuario'];
     $nombre_usua = $_POST['nombre_usuario'];
     $nombre_pro = $_POST['nombre_propio'];
     $corr = $_POST['correo'];
 
-     /* $contra = $_POST['contrasena'];*/
-//$contra = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
+    
 
     $query_search = "update usuarios SET nombre_usuario=?,nombre_propio=?,correo=? where id_usuario=?";
 
