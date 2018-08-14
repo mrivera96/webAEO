@@ -1,4 +1,5 @@
 <?php
+
 $titulo="Edición de Perfil";
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
@@ -86,6 +87,55 @@ if (isset($_SESSION['user_id'])) {
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>
                         </div>
+                         <h5>Ingrese su Ubicación</h5>
+                        
+                         <script type="text/javascript" 
+                            src="https://maps.google.com/maps/api/js?sensor=false"> 
+                        </script> 
+
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
+                         type="text/javascript"></script>
+                        
+                        <script type="text/javascript">
+                                        function getCoords(marker) {
+                                            $("#latOrg").attr("value", marker.getPosition().lat());
+                                            $("#longOrg").attr("value", marker.getPosition().lng());
+
+                                        }
+                                        function initialize() {
+                                            var myLatlng = new google.maps.LatLng(document.getElementById("latOrg").value, document.getElementById("longOrg").value);
+
+
+
+                                            var myOptions = {
+                                                zoom: 15,
+                                                center: myLatlng,
+                                                mapTypeId: google.maps.MapTypeId.satelite
+                                            }
+                                            var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+                                            marker = new google.maps.Marker({
+                                                position: myLatlng,
+                                                draggable: true,
+                                                title: 'danli'
+                                            });
+                                            google.maps.event.addListener(marker, "dragend", function () {
+
+                                                getCoords(marker);
+
+                                            });
+
+                                            marker.setMap(map);
+                                            getCoords(marker);
+
+
+                                        }
+
+                            </script> 
+                            <body onload="initialize()">
+                                <div id="map_canvas" style="width:100%; height:200px"></div><br> 
+
+                            </body
 
                         <h5>Región</h5>
                         <select class="form-control" id="region" name="id_region"></select>
