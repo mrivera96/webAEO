@@ -8,29 +8,29 @@ require 'database.php';
 $message = "";
 $stmt = "";
 if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_POST['nombre_propio']) && !empty($_POST['correo']) && !empty($_POST['password2'])) {
-   if($_POST['password'] == $_POST['password2']){
-       
-   
-    $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,2,1)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
+    if ($_POST['password'] == $_POST['password2']) {
 
 
-    $stmt->bindParam(':nombre_propio', $_POST['nombre_propio']);
+        $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,2,1)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
 
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $password = ($password);
-    $stmt->bindParam(':contrasena', $password);
 
-    $stmt->bindParam(':correo', $_POST['correo']);
+        $stmt->bindParam(':nombre_propio', $_POST['nombre_propio']);
 
-    if ($stmt->execute()) {
-        
-        $message = 'Su usuario se a creado con exito';
-        header('Location: /webaeo/login.php');
-    } else {
-        $message = 'no de a creado su usuardio';
-    }
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $password = ($password);
+        $stmt->bindParam(':contrasena', $password);
+
+        $stmt->bindParam(':correo', $_POST['correo']);
+
+        if ($stmt->execute()) {
+
+            $message = 'Su usuario se a creado con exito';
+            header('Location: /webaeo/login.php');
+        } else {
+            $message = 'no de a creado su usuario';
+        }
     } else {
         $message = 'las contraseñas no son iguales';
     }
@@ -38,7 +38,7 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
 ?>
 
 <head>
-    <link href="css/estiloLogin.css" rel="stylesheet">
+    <link href="css/estilos_alan.css" rel="stylesheet">
 </head>
 
 <?php
@@ -49,27 +49,72 @@ if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_P
     <p> <?= $message ?></p>
 <?php endif; ?>
 
-<h1>Registrarse</h1>
-<form action="registrarCuentaUsuario.php" method="post">
+    <h3 align="center">Registrar</h3><br>
+<div class="container">
+    <div class="row">
 
-    <input name="nombre_propio" required type="text" placeholder="Ingrese su Nombre" >
-    <input name="nombre_usuario" required type="text" placeholder="Ingrese Nombre de Usuario">
-    <input name="password" required type="password" placeholder="Ingrese su Contraseña">
-    <input name="password2" required type="password" placeholder="Confirmar su Contraseña">
-   <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->
-    <input name="correo" type="email" required placeholder="Ingrese su correo">
-    <br>
-    <br>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div  class="panel-heading" style="height: 40px">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-pencil"></span>  Nuevo Usuario
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form action="registrarCuentaUsuario.php" method="post">
+                        <div class="group">
+                            <input name="nombre_propio" id="nombre_propio"  required type="text">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombre Propio</label>
+                        </div>
+                        <div class="group">
+                            <input name="nombre_usuario" id="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text">
+                            <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Nombre de Usuario</label>
+                            </div>
+                        
+                           
+                         <div class="group">
+                            <input name="password" id="contrasena" required type="password">
+                            <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label >Contraseña</label>
+                            </div>
+                            
+                             <div class="group">
+                            <input  id="contrasena1" name="password2"  required type="password">
+                            <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Repite la Contraseña</label>
+                            </div>
+                            
+                            
+                           <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->
+                        <div class="group">
+                            <input name="correo" id="correo" type="email" required>
+                             <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Correo</label>
+                            </div>
+                            <br>
+                            <br>
 
-    <input type="submit" value="Enviar ">
+                            <button type="submit" value="Enviar " class="form-control" style="width:100%; background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>&nbspRegistrar</button>
+                            </form>
+                        </div>
+                </div>   
+            </div>
+        </div>
 
-</form>
+    </div>
 
 
 
 
-<?php
-include_once 'plantillas/documento-cierre.inc.php';
-?>
+    <?php
+    include_once 'plantillas/documento-cierre.inc.php';
+    ?>
 
 

@@ -117,7 +117,7 @@ if(!isset($_POST['contacto']) || empty($_POST['contacto'])){
     $error_lat === false &&
     $error_long === false){
      
-        $id_contacto=$_POST['contacto'];
+        $id_contacto=$_POST['cto'];
         $nomborg_rec=$_POST['nomborg_rec'];
         $numtel_rec=$_POST['numtel_rec'];
         $numcel_rec=$_POST['numcel_rec'];

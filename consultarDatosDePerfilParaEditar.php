@@ -1,8 +1,8 @@
 <?php
  
 include 'ConexionABaseDeDatos.php';
-if(isset($_GET["contacto"])){
- $id_contacto=$_GET['contacto'];
+if(isset($_GET["cto"])){
+ $id_contacto=$_GET['cto'];
   
 $query ="SELECT * FROM contactos where id_contacto=?";
 $resultado=$con->prepare($query);

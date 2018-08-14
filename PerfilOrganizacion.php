@@ -11,13 +11,12 @@ include_once 'plantillas/buscador.inc.php';
 
 <script src="js/jquery-2.2.4.min.js"></script>
 
-
 <!--Contenedor Titulo de La organizacion-->
 <div id="encabezado_lista_contactos" class="container responsive" >
     <div class="row" id="titulo">
 
     </div>
-</div><br/>
+</div>
 
 <!--Contenedor de imagen de perfil -->
 <div class="container" style="padding:0px;">
@@ -37,7 +36,7 @@ include_once 'plantillas/buscador.inc.php';
         $.ajax({
             type: "get",
             url: "mostrar_perfil.php",
-            data: {'id_contacto':<?php echo $_GET['id_contacto'] ?>}
+            data: {'id_contacto':<?php echo $_GET['cto'] ?>}
         }).done(function (data)
         {
             var informacionContacto = JSON.parse(data);
@@ -52,8 +51,8 @@ include_once 'plantillas/buscador.inc.php';
             for (var i in informacionContacto)
             {
                 $("#titulo").append(
-                        '<div class="col-md-12  col-sm-14 nombreOrganizacion bordeTitulo">' +
-                        '<h3 class="colorNombreOrganizacion" align="center">' + informacionContacto[i].nombre_organizacion + '</h3>' +
+                        '<div class="col-md-12  col-sm-14">' +
+                        '<h4 class="colorNombreOrganizacion" align="center">' + informacionContacto[i].nombre_organizacion + '</h4>' +
                         '</div>'
                         );
 
