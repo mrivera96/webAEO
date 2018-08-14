@@ -3,6 +3,7 @@ $titulo = 'Edición de Cuenta';
 //session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include 'Errores.inc.php';
 if (isset($_SESSION['user_id'])) {
     ?>
 
@@ -57,7 +58,7 @@ if (isset($_SESSION['user_id'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Eliminará el usuario¿Desea continuar?</p>
+                                            <p><?php print (ERROR24); ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" id="id_eliminar" class="btn btn-primary">Sí, borrar</button>
@@ -77,13 +78,12 @@ if (isset($_SESSION['user_id'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>El Usuario se ha actualizado con éxito.</p>
+                                            <p><?php echo (ERROR13); ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
                                                             window.location.href = 'cerrarSessionLogin.php';
                                                         })()">Aceptar</button>
-
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@ if (isset($_SESSION['user_id'])) {
             var error_contrasena = false;
             if (document.formulario_editar.nombre_usuario.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario_editar.nombre_usuario, "Debe ingresar un nombre de usuario.");
+                mostrarError(document.formulario_editar.nombre_usuario, <?php print json_encode(ERRROR10); ?>);
                 return;
 
             }
@@ -171,19 +171,19 @@ if (isset($_SESSION['user_id'])) {
             if (document.formulario_editar.nombre_propio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.nombre_propio, "Debe ingresar un nombre propio");
+                mostrarError(document.formulario_editar.nombre_propio,<?php print json_encode(ERRROR11); ?>);
                 return;
             }
             if (document.formulario_editar.correo.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.correo, "Debe ingresar un correo");
+                mostrarError(document.formulario_editar.correo, <?php print json_encode(ERRROR32); ?>);
                 return;
             } else {
                 if (!document.formulario_editar.correo.value.includes("@") || !document.formulario_editar.correo.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario_editar.correo, "Debes colocar una \"Dirección de Email\" válida");
+                    mostrarError(document.formulario_editar.correo, <?php print json_encode(ERRROR12); ?>);
                     return;
                 }
             }
