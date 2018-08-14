@@ -10,7 +10,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
  <div id="estilo-contenedor-textocategoria"class="container">
     <div class="row"  id="fila"  >
         <div class="panel panel-default">
-            <div class="panel-heading" style="height: 40px">
+            <div class="panel-heading" style="height: 40px; border-radius: 8px">
                 <div class="coll">
                     <h3 class="panel-title">
                         <center><strong>Ubicación</strong></center>
