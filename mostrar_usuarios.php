@@ -17,13 +17,13 @@ if (isset($_SESSION['user_id'])) {
 
             <div class="panel panel-default">
                 <div id="diseñobuscarusuario" class="panel-heading" >
-                    <div class="col-md-8 col-xs-8 col-sm-8">
+                    <div class="col-md-9 col-xs-9 col-sm-9">
                         <h3 style="color: white;"class="panel-title">
                             <strong> <span id="diseñotituloUsuario" class="glyphicon glyphicon-user"></span>  Usuarios </strong> 
                         </h3>
                     </div> 
 
-                    <div class="col-md-4 col-xs-4 col-sm-4 inner-addon right-addon">
+                    <div class="col-md-3 col-xs-3 col-sm-3 inner-addon right-addon">
                         <div class= "form-group  panel-title">
                             <input class="form-control" id="busqueda" type="search" name="busqueda"  required="">
                             <span class="glyphicon glyphicon-search"></span>
