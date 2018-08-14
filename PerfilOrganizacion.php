@@ -36,7 +36,7 @@ include_once 'plantillas/buscador.inc.php';
         $.ajax({
             type: "get",
             url: "mostrar_perfil.php",
-            data: {'id_contacto':<?php echo $_GET['id_contacto'] ?>}
+            data: {'id_contacto':<?php echo $_GET['cto'] ?>}
         }).done(function (data)
         {
             var informacionContacto = JSON.parse(data);

@@ -42,18 +42,12 @@ if (isset($_SESSION['user_id'])) {
                                 <span class="bar"></span>
                                 <label>Correo</label>
                             </div>
-
-    <!-- <div class="group">                            <input id="contrasena" type="password" required="" name="contrasena" >
-         <span class="highlight"></span>
-         <span class="bar"></span>
-         <label >Contraseña</label>
-     </div>-->
                             <iframe class="oculto"  name="formDestination"></iframe>
                             <button  type="button" onclick="validarFormulario()" id="btn" class="form-control"  name="Submit" style="width:100%; background-color:#005662; color:white;"> <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
                             <br>
-                            <!--<button class="form-control btn btn-danger " data-toggle="modal"  data-target="#Modal" type="button"  style="width:100%;  color:white;"> <span class="glyphicon glyphicon-trash"></span>  Eliminar Usuario</button>-->
+                            <button class="form-control btn btn-danger " data-toggle="modal"  data-target="#Modal" type="button"  style="width:100%;  color:white;"> <span class="glyphicon glyphicon-trash"></span>  Eliminar Usuario</button>
 
-                            <!--<div class="modal" id="Modal" tabindex="-1" role="dialog">
+                            <div class="modal" id="Modal" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -71,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
                             <!--modal de insercion-->
                             <div class="modal" id="Modal1" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -87,8 +81,8 @@ if (isset($_SESSION['user_id'])) {
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
-                                                        window.location.href = 'cerrarSessionLogin.php';
-                                                    })()">Aceptar</button>
+                                                            window.location.href = 'cerrarSessionLogin.php';
+                                                        })()">Aceptar</button>
 
                                         </div>
                                     </div>
@@ -193,13 +187,6 @@ if (isset($_SESSION['user_id'])) {
                     return;
                 }
             }
-            /*
-             if (document.formulario_editar.contrasena.value === "") {
-             error_contrasena = true;
-             alert("Debe ingresar una contraseña");
-             document.formulario_editar.contrasena.focus();
-             return;
-             }*/
 
             if (error_nomUsuario === false &&
                     error_nomPropio === false &&
@@ -213,8 +200,6 @@ if (isset($_SESSION['user_id'])) {
 
                 return;
             }
-
-
         }
 
 
@@ -256,6 +241,23 @@ if (isset($_SESSION['user_id'])) {
         }
     </script>
 
+    <script>
+        document.getElementById("id_eliminar").onclick = function () {
+            myFunction()
+        };
+
+        function myFunction() {
+            $.ajax({
+                type: "POST",
+                url: "eliminacion_de_un_usuario.php",
+                data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
+            });
+
+            window.location.href = 'cerrarSessionLogin.php';
+        }
+    </script>
+
+
     <?php
     include_once 'plantillas/documento-cierre.inc.php';
     ?>
@@ -264,5 +266,3 @@ if (isset($_SESSION['user_id'])) {
 } else {
     header('Location: /webaeo');
 }
-
-
