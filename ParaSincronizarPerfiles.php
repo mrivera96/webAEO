@@ -4,9 +4,11 @@ include 'ConexionABaseDeDatos.php';
  
 $query ="SELECT c.*, r.nombre_region from contactos as c join regiones as r on c.id_region=r.id_region";
 
-$resultado=$con->query($query);
+$resultado=$con->prepare($query);
+$resultado->execute();
+$resul=$resultado->get_result();
  
-while($row =$resultado->fetch_assoc()){
+while($row =$resul->fetch_assoc()){
             
 	$flag[]=$row;
 }

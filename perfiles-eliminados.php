@@ -1,4 +1,5 @@
 <?php  
+$titulo="Perfiles Eliminados";
 session_start();
     include_once 'plantillas/documento-inicio.inc.php';
     if (isset($_SESSION['user_id'])) {
@@ -30,7 +31,18 @@ session_start();
     
 </nav>
       
-  <div id="encabezado_lista_contactos" class="container"><h4 style="color: white">Perfiles Eliminados</h4></div>
+  <div id="encabezado_contactos_activos" class="container">
+         <div class="col-md-9 col-sm-9 col-xs-9">
+        <h4 style="color: white"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Perfiles Eliminados</h4>
+         </div>
+        <div class="col-md-3 col-sm-3 col-xs-3 ">   
+
+            <div class="inner-addon right-addon">
+                <i class="glyphicon glyphicon-search"></i>      
+                <input type="search" class="form-control" id="search">
+            </div>                                                       
+        </div>
+    </div>
   
 
   <div class="container responsive" id="contenedor_perfiles">

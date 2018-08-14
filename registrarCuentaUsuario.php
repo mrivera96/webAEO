@@ -2,69 +2,238 @@
 $titulo = 'Formulario de  Registro';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-
-
-require 'database.php';
-$message = "";
-$stmt = "";
-if (!empty($_POST['nombre_usuario']) && !empty($_POST['password']) && !empty($_POST['nombre_propio']) && !empty($_POST['correo']) && !empty($_POST['password2'])) {
-   if($_POST['password'] == $_POST['password2']){
-       
-   
-    $sql = "INSERT INTO usuarios (nombre_usuario,nombre_propio,contrasena,correo,rol,estado_usuario) VALUES (:nombre_usuario,:nombre_propio,:contrasena,:correo,2,1)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
-
-
-    $stmt->bindParam(':nombre_propio', $_POST['nombre_propio']);
-
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $password = ($password);
-    $stmt->bindParam(':contrasena', $password);
-
-    $stmt->bindParam(':correo', $_POST['correo']);
-
-    if ($stmt->execute()) {
-        
-        $message = 'Su usuario se a creado con exito';
-        header('Location: /webaeo/login.php');
-    } else {
-        $message = 'no de a creado su usuario';
-    }
-    } else {
-        $message = 'las contraseñas no son iguales';
-    }
-}
 ?>
 
 <head>
-    <link href="css/estiloLogin.css" rel="stylesheet">
+    <link href="css/estilos_alan.css" rel="stylesheet">
 </head>
 
-<?php
-//require 'partials/header.php';
-?>
+<h3 align="center">Registrar</h3><br>
 
-<?php if (!empty($message)): ?>
-    <p> <?= $message ?></p>
-<?php endif; ?>
+<div class="container">
+    <div class="row">
 
-<h1>Registrarse</h1>
-<form action="registrarCuentaUsuario.php" method="post">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div  class="panel-heading" style="height: 40px">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-pencil"></span>  Nuevo Usuario
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insertarUsuarioCliente.php" target="formDestination" >
 
-    <input name="nombre_propio" required type="text" placeholder="Ingrese su Nombre" >
-    <input name="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text" placeholder="Ingrese Nombre de Usuario">
-    <input name="password" required type="password" placeholder="Ingrese su Contraseña">
-    <input name="password2" required type="password" placeholder="Confirmar su Contraseña">
-   <!-- <input name="confir_password" type="password" placeholder="Confirmar Contraseña"> -->
-    <input name="correo" type="email" required placeholder="Ingrese su correo">
-    <br>
-    <br>
+                        <div class="group">
+                            <input id="nombre_propio" type="text" required name="nombre_propio">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombre Propio</label>
+                        </div>
+                        <div class="group">
+                            <input name="nombre_usuario" id="nombre_usuario" onkeyup="escribiendoUsuario()" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Nombre de Usuario</label>
+                        </div>
 
-    <input type="submit" value="Enviar ">
+                        <div class="group">
+                            <input id="contrasena" type="password" required name="contrasena" >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label >Contraseña</label>
+                        </div>
 
-</form>
+                        <div class="group">
+                            <input id="contrasena1" type="password" required name="contrasena1" >
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Repite la Contraseña</label>
+                        </div>
+                        <div class="group">
+                            <input id="correo" onkeyup="escribiendoEmail()"type="email"required name="correo">
+                            <span class="highlight"></span>
+                            <span class="bar"></span>
+                            <label>Correo</label>
+                        </div>
+                        <iframe class="oculto"  name="formDestination"></iframe>
 
+                        <br>
+                        <button type="button" onclick="validarFormulario()" id="btn" class="form-control"   name="Submit"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
+
+
+                        <div class="modal" id="Modal1" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><span class="glyphicon glyphicon-user"></span> Crear Usuario</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>El Usuario se ha creado con éxito.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" onClick="javascript:(function () {
+                                                    window.location.href = 'login.php';
+                                                })()">Aceptar</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+    function mostrarError(componente, error) {
+
+        $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<h5 class="modal-title"><span class="glyphicon glyphicon-remove-circle"></span> Error al ingresar un usuario.</h5>' +
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                '<span aria-hidden="true">&times;</span>' +
+                '</button>' +
+                '</div>' +
+                ' <div class="modal-body">' +
+                '<p>' + error + '</p>' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+        $("#Modal3").modal("show");
+        $('#Modal3').on('hidden.bs.modal', function () {
+            componente.focus();
+            $("#Modal3").detach();
+        });
+
+    }
+
+    function escribiendoUsuario() {
+        $.ajax({
+            type: "GET",
+
+            url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+        }).done(function (data) {
+            console.log(data);
+            if (data == 1) {
+                $('#nombre_usuario').css("color", "red");
+                // mostrarErrorto(document.formulario.nombre_usuario, "error no .");
+                mostrarError(document.formulario.nombre_usuario, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
+
+
+
+            } else
+                $('#nombre_usuario').css("color", "black");
+            // mostrarError(document.formulario.nombre_usuario, "Nombre de usuario valido.");
+
+
+        });
+    }
+
+    function escribiendoEmail() {
+        $.ajax({
+            type: "GET",
+
+            url: "verificar_email.php?correo=" + $('#correo').val(),
+        }).done(function (data) {
+            console.log(data);
+            if (data == 1) {
+                $('#correo').css("color", "red");
+                mostrarError(document.formulario.correo, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
+
+
+
+            } else
+                $('#correo').css("color", "black");
+
+        });
+    }
+
+    function validarFormulario() {
+
+        var error_nomUsuario = false;
+        var error_nomPropio = false;
+        var error_correo = false;
+        var error_contrasena = false;
+        var error_contrasena1 = false;
+
+        if (document.formulario.nombre_usuario.value === "") {
+            error_nomUsuario = true;
+            mostrarError(document.formulario.nombre_usuario, "Debe ingresar un nombre de usuario.");
+            return;
+        }
+
+        if (document.formulario.nombre_propio.value === "") {
+            error_nomPropio = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.nombre_propio, "Debe ingresar un nombre propio");
+            return;
+        }
+        if (document.formulario.correo.value === "") {
+            error_correo = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.correo, "Debe ingresar un correo");
+            return;
+        } else {
+            if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
+                error_correo = true;
+                $("#Modal3").modal("show");
+                mostrarError(document.formulario.correo, "Debes colocar una \"Dirección de Email\" válida");
+                return;
+            }
+        }
+
+        if (document.formulario.contrasena.value === "") {
+            error_contrasena = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.contrasena, "Debe ingresar una contraseña");
+            return;
+        }
+
+        if (document.formulario.contrasena1.value === "") {
+            error_contrasena = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.contrasena1, "Porfavor repita su contraseña");
+            return;
+        } else {
+            if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
+                error_contrasena1 = true;
+                $("#Modal3").modal("show");
+                mostrarError(document.formulario.contrasena1, "Ambas contraseñas deben de coincidir..");
+
+
+            }
+        }
+
+        if (error_nomUsuario === false &&
+                error_nomPropio === false &&
+                error_correo === false &&
+                error_contrasena === false &&
+                error_contrasena1 === false) {
+            document.formulario.submit();
+            $("#Modal1").modal('show');
+
+            return;
+
+
+        }
+
+
+    }
+</script>
 
 
 

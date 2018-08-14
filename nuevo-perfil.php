@@ -1,4 +1,5 @@
 <?php
+$titulo="Nuevo Perfil";
 session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 if (isset($_SESSION['user_id'])) {
@@ -137,14 +138,14 @@ if (isset($_SESSION['user_id'])) {
                                var myOptions = { 
                                    zoom: 15, 
                                    center: myLatlng, 
-                                   mapTypeId: google.maps.MapTypeId.satelite, 
+                                   mapTypeId: google.maps.MapTypeId.satelite
                                } 
                                var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
 
                               marker = new google.maps.Marker({ 
                                      position: myLatlng, 
                                      draggable: true,
-                                     title:'danli',
+                                     title:'danli'
                                }); 
                                google.maps.event.addListener(marker, "dragend", function() {
 
