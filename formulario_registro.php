@@ -4,6 +4,7 @@ $titulo = 'Formulario de Registro';
 session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+include_once 'Errores.inc.php';
 if (isset($_SESSION['user_id'])) {
     ?>
 
@@ -11,16 +12,12 @@ if (isset($_SESSION['user_id'])) {
     <script src="js/jquery-2.2.4.min.js"></script> 
     <link href="css/estilos_alan.css" rel="stylesheet">
 
-
-
-
-
-    <div class="container">
+    <div class="container" >
         <div class="row">
 
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div  class="panel-heading" style="height: 40px">
+                <div class="panel panel-default ">
+                    <div  class="panel-heading" style="height: 40px ">
                         <h3 class="panel-title">
                             <span class="glyphicon glyphicon-pencil"></span>  Nuevo Usuario
                         </h3>
@@ -99,17 +96,7 @@ if (isset($_SESSION['user_id'])) {
 
 
     <script>
-        /*
-         function mostrarErrorto(componente, error) {
-         $("#editar_usuarios").append(' <div class="tooltip-inner" role="tooltip" id="tooltips" data-toggle="tooltip"  title=' + error + '>' +
-         '</div>');
-         $("#tooltips").tooltip('toggle');
-         $('#tooltips').on('hidden.bs.tooltip', function () {
-         componente.focus();
-         $("#tooltips").detach();
-         });
-         }*/
-        function mostrarError(componente, error) {
+              function mostrarError(componente, error) {
 
             $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
                     '<div class="modal-dialog" role="document">' +
@@ -146,14 +133,12 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#nombre_usuario').css("color", "red");
-                    // mostrarErrorto(document.formulario.nombre_usuario, "error no .");
-                    mostrarError(document.formulario.nombre_usuario, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
+                    mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR30); ?>);
                  
 
 
                 } else
                     $('#nombre_usuario').css("color", "black");
-                // mostrarError(document.formulario.nombre_usuario, "Nombre de usuario valido.");
 
 
             });
@@ -168,7 +153,7 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#correo').css("color", "red");
-                    mostrarError(document.formulario.correo, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
+                    mostrarError(document.formulario.correo,<?php print json_encode(ERROR31); ?>);
 
 
 
@@ -188,26 +173,26 @@ if (isset($_SESSION['user_id'])) {
 
             if (document.formulario.nombre_usuario.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario.nombre_usuario, "Debe ingresar un nombre de usuario.");
+                mostrarError(document.formulario.nombre_usuario,<?php print json_encode(ERROR10); ?>);
                 return;
             }
 
             if (document.formulario.nombre_propio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.nombre_propio, "Debe ingresar un nombre propio");
+                mostrarError(document.formulario.nombre_propio,<?php print json_encode(ERROR11); ?>);
                 return;
             }
             if (document.formulario.correo.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.correo, "Debe ingresar un correo");
+                mostrarError(document.formulario.correo,"");
                 return;
             } else {
                 if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario.correo, "Debes colocar una \"Dirección de Email\" válida");
+                    mostrarError(document.formulario.correo, <?php print json_encode(ERROR4); ?>);
                     return;
                 }
             }
@@ -215,21 +200,20 @@ if (isset($_SESSION['user_id'])) {
             if (document.formulario.contrasena.value === "") {
                 error_contrasena = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena, "Debe ingresar una contraseña");
+                mostrarError(document.formulario.contrasena, <?php print json_encode(ERROR25); ?>);
                 return;
             }
 
             if (document.formulario.contrasena1.value === "") {
                 error_contrasena = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena1, "Porfavor repita su contraseña");
+                mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR27); ?>);
                 return;
             } else {
                 if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
                     error_contrasena1 = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario.contrasena1, "Ambas contraseñas deben de coincidir..");
-
+                    mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR28); ?>);
 
                 }
             }

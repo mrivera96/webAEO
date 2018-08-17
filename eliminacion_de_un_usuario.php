@@ -1,5 +1,7 @@
 <?php
  include 'ConexionABaseDeDatos.php';
+ include 'Errores.inc.php';
+
 
 $flag=array();
 
@@ -15,7 +17,7 @@ $resultado_update->execute();
 
  
  }else{
-     print (json_encode('No se recivieron las variables'));
+ print json_encode(ERROR22);   
  }
  $con->close();
  
