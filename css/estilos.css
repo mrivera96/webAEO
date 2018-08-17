@@ -189,3 +189,11 @@ section .section-title {
      background-color: white;
     border-radius: 8px;
 }
+
+
+#separador{
+    display:block; 
+    margin-bottom: 2px;
+    
+      
+};
