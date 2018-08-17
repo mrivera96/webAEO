@@ -18,10 +18,10 @@ if (isset($_POST['estado_usuario'])) {
     if (isset($flag)) {
         print(json_encode($flag));
     } else {
-        print("No hay resultados");
+        print json_encode(ERROR38);
     }
 } else {
- print json_encode(ERROR22); 
+    print json_encode(ERROR22);
 }
 
 $con->close();
