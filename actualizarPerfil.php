@@ -96,7 +96,7 @@ if ($_POST['id_categoria'] < 1 || $_POST['id_categoria'] > 11) {
     return;
 }
 
-if(!isset($_POST['contacto']) || empty($_POST['contacto'])){
+if(!isset($_POST['cto']) || empty($_POST['cto'])){
     $error_contacto = true;
     print json_encode("se necesita un contacto.");
     return;

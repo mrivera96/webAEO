@@ -144,7 +144,7 @@ if (isset($_SESSION['user_id'])) {
                         <select class="form-control" id="categoria" name="id_categoria"></select>
                         <br>
                         <br>
-                        <input type="hidden" name="contacto" value="<?php echo $_GET['contacto'] ?>"/>
+                        <input type="hidden" name="cto" value="<?php echo $_GET['cto'] ?>"/>
                         <input type="hidden" name="imagen" value=""/>
                         <input type="hidden" name="nombre_imagen" value=""/>
                         <iframe class="oculto"  name="formDestination"></iframe>
