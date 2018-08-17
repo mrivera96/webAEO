@@ -72,7 +72,7 @@ if (isset($_SESSION['user_id'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>El Usuario se ha creado con éxito.</p>
+                                            <p><?php print (ERROR34) ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
@@ -186,7 +186,7 @@ if (isset($_SESSION['user_id'])) {
             if (document.formulario.correo.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.correo,"");
+                mostrarError(document.formulario.correo,<?php print json_encode(ERROR32); ?>);
                 return;
             } else {
                 if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {

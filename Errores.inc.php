@@ -44,7 +44,7 @@ define("ERROR20", "Ingrese cual es tu deporte favorito.");
 
 define("ERROR21" , "Error al actualizar el usuario.");
 
-define("ERROR22", "No se recivieron las variables.");
+define("ERROR22", "No se recibieron las variables.");
     
 define("ERROR23" , "Eliminará el perfil. ¿Desea continuar?.");
 
@@ -70,6 +70,12 @@ define("ERROR33", "No se puede eliminar el usuario administrador.");
 
 define("ERROR34","El usuario se ha creado con exito.");
 
+define("ERROR35","Usuario no existe.");
 
-        
+define("ERROR36","No se recibieron parametros.");
+
+define("ERROR37","Perfil Actualizado.");
+
+define("ERROR38","No hay resultados.")
+       
 ?>

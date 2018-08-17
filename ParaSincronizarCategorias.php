@@ -17,10 +17,11 @@ $resultado = $con->prepare($query);
     if (isset($flag)) {
         print(json_encode($flag));
     } else {
-        print("No hay resultados");
+ print json_encode(ERROR38); 
     }
 } else {
-    print 'No se recibieron variables';
+     print json_encode(ERROR22); 
+
 }
 
 $con->close();
