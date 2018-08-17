@@ -2,6 +2,7 @@
 $titulo = 'Formulario de  Registro';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include 'Errores.inc.php';
 ?>
 
 <head>
@@ -172,26 +173,26 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
         if (document.formulario.nombre_usuario.value === "") {
             error_nomUsuario = true;
-            mostrarError(document.formulario.nombre_usuario, "Debe ingresar un nombre de usuario.");
+            mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR10); ?>);
             return;
         }
 
         if (document.formulario.nombre_propio.value === "") {
             error_nomPropio = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.nombre_propio, "Debe ingresar un nombre propio");
+            mostrarError(document.formulario.nombre_propio,<?php print json_encode(ERROR11); ?>);
             return;
         }
         if (document.formulario.correo.value === "") {
             error_correo = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.correo, "Debe ingresar un correo");
+            mostrarError(document.formulario.correo, <?php print json_encode(ERROR32); ?>);
             return;
         } else {
             if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.correo, "Debes colocar una \"Dirección de Email\" válida");
+                mostrarError(document.formulario.correo, <?php print json_encode(ERROR12); ?>);
                 return;
             }
         }
@@ -199,20 +200,20 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
         if (document.formulario.contrasena.value === "") {
             error_contrasena = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.contrasena, "Debe ingresar una contraseña");
+            mostrarError(document.formulario.contrasena, <?php print json_encode(ERROR25); ?>);
             return;
         }
 
         if (document.formulario.contrasena1.value === "") {
             error_contrasena = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.contrasena1, "Porfavor repita su contraseña");
+            mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR27); ?>);
             return;
         } else {
             if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
                 error_contrasena1 = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena1, "Ambas contraseñas deben de coincidir..");
+                mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR28); ?>);
 
 
             }

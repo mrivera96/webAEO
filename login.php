@@ -21,18 +21,23 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
     $message = '';
-    if (count($results) > 0 && (password_verify($_POST['password'], $results['contrasena']) )) {
-        $_SESSION['user_id'] = $results['id_usuario'];
-        $_SESSION['normal'] = $results['rol'];
-        $_SESSION['actividad'] = $results['estado_usuario'];
-        if ($results['rol'] == 2 && $results['estado_usuario'] == 1) {
-            header('Location: /webaeo/contactosUsuario.php');
-        }
-        if ($results['rol'] == 1 && $results['estado_usuario'] == 1) {
-            header("Location: /webaeo/mostrar_usuarios.php");
+    if (isset($results['nombre_usuario'])) {
+
+        if (count($results) > 0 && (password_verify($_POST['password'], $results['contrasena']) )) {
+            $_SESSION['user_id'] = $results['id_usuario'];
+            $_SESSION['normal'] = $results['rol'];
+            $_SESSION['actividad'] = $results['estado_usuario'];
+            if ($results['rol'] == 2 && $results['estado_usuario'] == 1) {
+                header('Location: /webaeo/contactosUsuario.php');
+            }
+            if ($results['rol'] == 1 && $results['estado_usuario'] == 1) {
+                header("Location: /webaeo/mostrar_usuarios.php");
+            }
+        } else {
+            $message = 'Usuario o contraseña Incorrecta ';
         }
     } else {
-        $message = 'Usuario o Contraseña incorrectas ';
+        $message = 'Usuario no existe ';
     }
 }
 ?>
@@ -44,12 +49,20 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 ?>
 
 <?php if (!empty($message)): ?>
-<p> <div class="alert alert-primary" role="alert" style="background:red; " align="center"> 
-    <?=
-    $message
-    ?>
-</div> </p>
-    <?php endif; ?>
+
+
+    <p> <div class="alert alert-primary" role="alert"  align="center"> 
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>
+                <?=
+                $message
+                ?>
+            </strong> 
+        </div>
+
+    </div> </p>
+<?php endif; ?>
 
 
 
@@ -63,11 +76,11 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
         </h5></p>
     </div>
 
-    <form action="login.php" method="post"  class="login"  >
+    <form action="login.php" method="post" id="login" name="login" class="login"  >
 
 
         <div class="group">
-            <input  type="text" required name="nombre_usuario" >
+            <input  type="text" required oninvalid="setCustomValidity('Ingrese el usuario')" oninput="setCustomValidity('')" id="nombre_usuario"  name="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios">
             <span class="highlight"></span>
             <span class="bar"></span>
             <label >  <span class="glyphicon glyphicon-user"></span> Usuario</label>
@@ -76,19 +89,106 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 
 
         <div class="group">
-            <input  type="password" required name="password" >
+            <input  type="password" id="password" required oninvalid="setCustomValidity('Ingrese la contraseña')" oninput="setCustomValidity('')" name="password" >
             <span class="highlight"></span>
             <span class="bar"></span>
             <label ><span class="glyphicon glyphicon-lock"></span> Password</label>
         </div>
 
-        <button id="btn-card" class="btn btn-lg btn-block" type="submit" value="Enviar" style=" background-color: #005662; color:white;">Ingresar</button>
+        <button id="btn-card"  class="btn btn-lg btn-block"  type="submit" value="Enviar"  style=" background-color: #005662; color:white;">Ingresar</button>
 
+        <div class="modal" id="Modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Usuario no Existe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
     </form>
 
 </div>
+<script>
+    if (nombre_usuario === false &&
+            password === false
+            )
+    {
+        document.login.submit();
+
+        $("#Modal1").modal('show');
+
+        return;
+    }
+</script>
+<script>
+    function mostrarError(componente, error) {
+
+        $("#login").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                '<div class="modal-dialog" role="document">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<h5 class="modal-title"><span class="glyphicon glyphicon-remove-circle"></span> Error al ingresar un usuario.</h5>' +
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+                '<span aria-hidden="true">&times;</span>' +
+                '</button>' +
+                '</div>' +
+                ' <div class="modal-body">' +
+                '<p>' + error + '</p>' +
+                '</div>' +
+                '<div class="modal-footer">' +
+                '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+        $("#Modal3").modal("show");
+        $('#Modal3').on('hidden.bs.modal', function () {
+            componente.focus();
+            $("#Modal3").detach();
+        });
+
+    }
+
+
+    function validarFormulario() {
+
+        var error_nomUsuario = false;
+        var error_nomPropio = false;
+
+        if (document.login.nombre_usuario === "") {
+            error_nomUsuario = true;
+            mostrarError(document.login.nombre_usuario, "Debe ingresar un nombre de usuario.");
+            return;
+        }
+        if (document.login.nombre_propio.value === "") {
+            error_nomPropio = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.login.password, "Debe ingresar la contraseña");
+            return;
+        }
+
+
+        if (error_nomUsuario === false &&
+                error_nomPropio === false) {
+            document.formulario.submit();
+            $("#Modal1").modal('show');
+
+            return;
+
+
+        }
+
+
+    }
+</script>
+
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
 ?>

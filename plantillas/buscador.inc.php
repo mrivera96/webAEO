@@ -1,8 +1,5 @@
 <?php
 $busquedas = null;
-$titulo = 'Agenda Electrónica Oriental';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
 <script
     src="/js/jquery-2.2.4.min.js"
@@ -18,7 +15,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <div class="form-group">
                                 <input class="form-control" id="busqueda" name="busqueda"  placeholder="Contacto a buscar"
-                                       required>
+                                       required oninvalid="setCustomValidity('Ingrese la busqueda.')" oninput="setCustomValidity('')">
                             </div>
                         </div> 
 
