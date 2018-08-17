@@ -32,7 +32,7 @@ if (isset($_SESSION['user_id'])) {
             url: "consultarContactosEliminados.php",
             data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
         }).done(function (data) {
-
+            if(data !== "No hay resultados"){
             var contacto = JSON.parse(data);
             var imagen;
 
@@ -71,6 +71,16 @@ if (isset($_SESSION['user_id'])) {
                         '<hr style="margin-left:140px"/>' +
                         '</div>' +
                         '</a>'
+                        );
+            }
+            }else{
+            $("#contenedorContacto").append(
+                        '<div class="col-md-12 text-center">' + 
+                        '<img  style="width:130px ; heigh:130px ;"  class="img-circle circle-img" src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Warning01-RoundedWhite-512.png"> ' +
+                        '</div>' +
+                        '<div class="col-md-12 text-center">' + 
+                        '<h3>No tiene contactos eliminados </h3> ' + 
+                        '</div>'
                         );
             }
         });
