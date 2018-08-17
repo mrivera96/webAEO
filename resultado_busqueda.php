@@ -1,14 +1,13 @@
 <?php
     include_once 'ConexionABaseDeDatos.php';
-    include_once 'plantillas/buscador.inc.php';
     include_once 'plantillas/documento-inicio.inc.php';
     include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+    include_once 'plantillas/buscador.inc.php';
 ?>
 <script
     src="js/jquery-2.2.4.min.js"
  ></script>
      <link href="css/estilos_alan.css" rel="stylesheet">
-
 
  <div id="estilo-contenedor-textocategoria"class="container">
     <div class="row"  id="fila"  >
@@ -19,9 +18,6 @@
                         <center><strong>Resultado de búsqueda</strong></center>
                     </h3>
                 </div>
-            
-            
-      
   <br/>
 
   <div class="container responsive" id="contenedor_resultado">

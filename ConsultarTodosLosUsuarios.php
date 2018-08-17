@@ -1,6 +1,8 @@
 <?php
 
 include 'ConexionABaseDeDatos.php';
+include 'Errores.inc.php';
+
 if (isset($_POST['estado_usuario'])) {
     $estado_usuario = $_POST['estado_usuario'];
     $query = "SELECT u.id_usuario, u.nombre_usuario,r.descripcion_rol FROM usuarios as u JOIN roles as r on u.rol=r.id_rol where estado_usuario=? ORDER BY u.nombre_usuario";
@@ -16,10 +18,10 @@ if (isset($_POST['estado_usuario'])) {
     if (isset($flag)) {
         print(json_encode($flag));
     } else {
-        print("No hay resultados");
+        print json_encode(ERROR38);
     }
 } else {
-    print 'No se recibieron variables';
+    print json_encode(ERROR22);
 }
 
 $con->close();

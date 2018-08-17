@@ -87,6 +87,14 @@ if (isset($_SESSION['user_id'])) {
                             <span class="bar"></span>
                             <label><span class="glyphicon glyphicon-map-marker"></span> Longitud</label>
                         </div>
+                         <h5>Ingrese su Ubicación</h5>
+                        
+                         <script type="text/javascript" 
+                            src="https://maps.google.com/maps/api/js?sensor=false"> 
+                        </script> 
+
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
+                         type="text/javascript"></script>
                         
                         <script type="text/javascript">
                                         function getCoords(marker) {
@@ -95,7 +103,7 @@ if (isset($_SESSION['user_id'])) {
 
                                         }
                                         function initialize() {
-                                            var myLatlng = new google.maps.LatLng(14.041458, -86.568061);
+                                            var myLatlng = new google.maps.LatLng(document.getElementById("latOrg").value, document.getElementById("longOrg").value);
 
 
 
@@ -136,7 +144,7 @@ if (isset($_SESSION['user_id'])) {
                         <select class="form-control" id="categoria" name="id_categoria"></select>
                         <br>
                         <br>
-                        <input type="hidden" name="contacto" value="<?php echo $_GET['contacto'] ?>"/>
+                        <input type="hidden" name="cto" value="<?php echo $_GET['cto'] ?>"/>
                         <input type="hidden" name="imagen" value=""/>
                         <input type="hidden" name="nombre_imagen" value=""/>
                         <iframe class="oculto"  name="formDestination"></iframe>

@@ -1,10 +1,6 @@
-$(document).on("ready", function () {
-    loadData();
-});
+$(document).on("ready", function () { loadData(); });
 
- /**********************************************************************************************
-     *            Método para acceder a los parametros en $_GET
-     **********************************************************************************************/
+ 
 function $_GET(param) {
     var vars = {};
     window.location.href.replace(location.hash, '').replace(
@@ -19,9 +15,7 @@ function $_GET(param) {
     }
     return vars;
 }
- /**********************************************************************************************
-     *            FUNCIONES PARA LLENAR SELECT DE REGION Y CATEGORIA
-     **********************************************************************************************/
+ 
 var loadData = function () {
     $.ajax({
         type: "GET",
@@ -45,9 +39,7 @@ var loadData = function () {
         }
     });
 
- /**********************************************************************************************
-     *            FUNCIÓN AJAX PARA MOSTRAR LOS DATOS DEL PERFIL QUE SE VA A EDITAR
-     **********************************************************************************************/
+
     var cto = $_GET('cto');
     $.ajax({
         type: "GET",
@@ -88,29 +80,22 @@ var loadData = function () {
 
 
 document.getElementById("eliminar").onclick = function () {
-    eliminarPerfil();
-};
-
- /**********************************************************************************************
-     *            FUNCIÓN AJAX PARA ELIMINAR EL PERFIL
-     **********************************************************************************************/
-function eliminarPerfil() {
     $.ajax({
         type: "GET",
         url: "eliminarPerfil.php",
-        data: {'cto': cto}
+        data: {'cto': $_GET('cto')}
     });
 
     window.location.href = 'administracion-de-perfiles.php';
-}
+};
+
+
 
 document.getElementById("guardar").onclick = function () {
     validarFormulario();
 };
 
- /**********************************************************************************************
-     *            FUNCIÓN PARA MOSTRAR ERRORES AL MOMENTO DE VALIDAR EL FORMULARIO
-     **********************************************************************************************/
+
 function mostrarError(componente, error) {
 
     $("#formularioEditar").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
@@ -139,9 +124,7 @@ function mostrarError(componente, error) {
 
 }
 
- /**********************************************************************************************
-     *            FUNCIÓN PARA VALIDAR EL FORMULARIO
-     **********************************************************************************************/
+
 function validarFormulario() {
     var error_nomb = false;
     var error_tel = false;

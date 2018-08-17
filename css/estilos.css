@@ -63,9 +63,8 @@ body {
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 #estilo-contenedor-textocategoria{
-    style-width: 80%;
     background-color: white;
-    margin-top: 3%;
+    border-radius: 8px;
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
@@ -189,3 +188,11 @@ section .section-title {
      background-color: white;
     border-radius: 8px;
 }
+
+
+#separador{
+    display:block; 
+    margin-bottom: 2px;
+    
+      
+};

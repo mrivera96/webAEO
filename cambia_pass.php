@@ -34,8 +34,8 @@ if(!verificaTokenPass($user_id,$token))
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <h4>Crea una nueva contraseña</h4>
+                <div class="panel-heading text-center" style="background: #005662">
+                    <h4 style="color: #fff">Crea una nueva contraseña</h4>
                 </div>
                 <div class="panel-body">
                     <form role="form" method="post" action="">

@@ -1,6 +1,7 @@
 <?php
 
 include 'ConexionABaseDeDatos.php';
+include 'Errores.inc.php';
 $flag = array();
 $error_nomUsuario = false;
 $error_nomPropio = false;
@@ -9,23 +10,23 @@ $error_correo = false;
 
 if (!isset($_POST['nombre_usuario']) || empty($_POST['nombre_usuario'])) {
     $error_nomUsuario = true;
-    print json_encode('Debe ingresar un nombre de usuario.');
+    print json_encode(ERROR10);
     return;
 }
 if (!isset($_POST['nombre_propio']) || empty($_POST['nombre_propio'])) {
     $error_nomPropio = true;
-    print json_encode('Debe ingresar un nombre propio.');
+    print json_encode(ERROR11);
     return;
 }
 
 if (!isset($_POST['correo']) || empty($_POST['correo'])) {
     $error_correo = true;
-    print json_encode('Debe ingresar un correo.');
+    print json_encode(ERROR32);
     return;
 } else {
     if (strpos($_POST['correo'], "@") === false || strpos($_POST['correo'], ".") === false) {
         $error_correo = true;
-        print json_encode("e-mail incorrecto.");
+        print json_encode(ERROR4);
         return;
     }
 }
@@ -54,7 +55,7 @@ if ($error_nomUsuario === false &&
     $resultado->execute();
 
 } else {
-    print (json_encode('No se recivieron las variables'));
+    print json_encode(ERROR22);
 }
 
 

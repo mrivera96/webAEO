@@ -34,7 +34,7 @@ define("ERROR15" , "Ingrese su Nombre y Apellido.");
 
 define("ERROR16" , "Ingrese el Nombre de Usuario.");
 
-define("ERROR17" , "Cree su contraceña.");
+define("ERROR17" , "Cree su contraseña.");
 
 define("ERROR18" , "Ingrese cual es el nombre de tu ciudad natal.");
 
@@ -44,8 +44,8 @@ define("ERROR20", "Ingrese cual es tu deporte favorito.");
 
 define("ERROR21" , "Error al actualizar el usuario.");
 
-define("ERROR22", "No se recivieron las variables.");
-
+define("ERROR22", "No se recibieron las variables.");
+    
 define("ERROR23" , "Eliminará el perfil. ¿Desea continuar?.");
 
 define("ERROR24" , "Eliminará el usuario. ¿Desea continuar?.");
@@ -62,6 +62,20 @@ define("ERROR29", "Debe contestar todas las preguntas.");
 
 define("ERROR30", "Este nombre de usuario ya existe.  Ingrese un usuario valido.");
 
-define("ERROR31", "Este e-mail ya existe.  Ingrese un e-mail valido.")
-        
+define("ERROR31", "Este e-mail ya existe.  Ingrese un e-mail valido.");
+
+define("ERROR32","Debe ingresar un correo.");
+
+define("ERROR33", "No se puede eliminar el usuario administrador.");
+
+define("ERROR34","El usuario se ha creado con exito.");
+
+define("ERROR35","Usuario no existe.");
+
+define("ERROR36","No se recibieron parametros.");
+
+define("ERROR37","Perfil Actualizado.");
+
+define("ERROR38","No hay resultados.")
+       
 ?>
