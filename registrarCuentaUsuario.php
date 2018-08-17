@@ -171,18 +171,19 @@ include 'Errores.inc.php';
         var error_contrasena = false;
         var error_contrasena1 = false;
 
-        if (document.formulario.nombre_usuario.value === "") {
-            error_nomUsuario = true;
-            mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR10); ?>);
-            return;
-        }
-
+       
         if (document.formulario.nombre_propio.value === "") {
             error_nomPropio = true;
             $("#Modal3").modal("show");
             mostrarError(document.formulario.nombre_propio,<?php print json_encode(ERROR11); ?>);
             return;
         }
+         if (document.formulario.nombre_usuario.value === "") {
+            error_nomUsuario = true;
+            mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR10); ?>);
+            return;
+        }
+        
         if (document.formulario.correo.value === "") {
             error_correo = true;
             $("#Modal3").modal("show");
