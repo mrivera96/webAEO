@@ -1,6 +1,7 @@
 <?php
 
 include 'ConexionABaseDeDatos.php';
+include 'Errores.inc.php';
 $flag = array();
  
 $error_nomUsuario = false;
@@ -22,7 +23,7 @@ if (!isset($_POST['nombre_propio']) || empty($_POST['nombre_propio'])) {
 
 if (!isset($_POST['correo']) || empty($_POST['correo'])) {
     $error_correo = true;
-    print json_encode(ERROR12);
+    print json_encode(ERROR32);
     return;
 } else {
     if (strpos($_POST['correo'], "@") === false || strpos($_POST['correo'], ".") === false) {
@@ -64,8 +65,8 @@ $resultado_insert->execute();
  
     //print json_encode("Usuario creado correctamente.");
     }else{
-        print json_encode("Ocurrió un error con los paramámetros recibidos.");
-    }
+ print json_encode(ERROR22);   
+ }
 
 
 $con->close();

@@ -3,6 +3,8 @@ $titulo = 'Edición de Cuenta';
 session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
+include_once 'Errores.inc.php';
+
 if (isset($_SESSION['user_id'])) {
     ?>
 
@@ -64,7 +66,7 @@ if (isset($_SESSION['user_id'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Eliminará el usuario¿Desea continuar?</p>
+                                            <p><?php print (ERROR24) ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" id="id_eliminar" class="btn btn-primary">Sí, borrar</button>
@@ -84,7 +86,7 @@ if (isset($_SESSION['user_id'])) {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>El Usuario se ha actualizado con éxito.</p>
+                                            <p><?php print (ERROR13) ?></p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
@@ -144,7 +146,7 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#nombre_usuario').css("color", "red");
-                    mostrarError(document.formulario_editar.nombre_usuario, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
+                    mostrarError(document.formulario_editar.nombre_usuario, <?php print json_encode(ERROR30); ?>);
 
 
 
@@ -162,7 +164,7 @@ if (isset($_SESSION['user_id'])) {
                 console.log(data);
                 if (data == 1) {
                     $('#correo').css("color", "red");
-                    mostrarError(document.formulario_editar.correo, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
+                    mostrarError(document.formulario_editar.correo,<?php print json_encode(ERROR31); ?>);
 
 
                 } else
@@ -178,7 +180,7 @@ if (isset($_SESSION['user_id'])) {
             var error_contrasena = false;
             if (document.formulario_editar.nombre_usuario.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario_editar.nombre_usuario, "Debe ingresar un nombre de usuario.");
+                mostrarError(document.formulario_editar.nombre_usuario, <?php print json_encode(ERROR10); ?>);
                 return;
 
             }
@@ -187,19 +189,19 @@ if (isset($_SESSION['user_id'])) {
             if (document.formulario_editar.nombre_propio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.nombre_propio, "Debe ingresar un nombre propio");
+                mostrarError(document.formulario_editar.nombre_propio, <?php print json_encode(ERROR11); ?>);
                 return;
             }
             if (document.formulario_editar.correo.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.correo, "Debe ingresar un correo");
+                mostrarError(document.formulario_editar.correo,<?php print json_encode(ERROR32); ?>);
                 return;
             } else {
                 if (!document.formulario_editar.correo.value.includes("@") || !document.formulario_editar.correo.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario_editar.correo, "Debes colocar una \"Dirección de Email\" válida");
+                    mostrarError(document.formulario_editar.correo, <?php print json_encode(ERROR4); ?>);
                     return;
                 }
             }
@@ -260,8 +262,7 @@ if (isset($_SESSION['user_id'])) {
                 }
             });
             $("#editar_usuarios").submit(function () {
-                //   alert('Usuario Actualizado con exito');
-                //window.location.href = 'mostrar_usuarios.php';
+               
             });
         }
     </script>
@@ -271,26 +272,13 @@ if (isset($_SESSION['user_id'])) {
     <script>
         document.getElementById("id_eliminar").onclick = function () {
             if (document.formulario_editar.id_usuario.value == 1) {
-                mostrarError(document.formulario_editar.id_eliminar, "No se puede eliminar el usuario administrador.");
+                mostrarError(document.formulario_editar.id_eliminar, <?php print json_encode(ERROR33); ?>);
 
 
             } else {
                     myFunction();
                 }
-            /*else {
-               
-                if (document.formulario_editar.id_usuario.value == <?php  echo isset($_SESSION['user_id']) ?>) {
-                    myFunction();
-                    session_unset();
-                    session_destroy();
-    
-                } else {
-                    myFunction();
-                }
-
-            }*/
-
-        };
+                   };
 
         function myFunction() {
             $.ajax({
