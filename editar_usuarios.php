@@ -195,7 +195,7 @@ if (isset($_SESSION['user_id'])) {
             if (document.formulario_editar.correo.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.correo,"");
+                mostrarError(document.formulario_editar.correo,<?php print json_encode(ERROR32); ?>);
                 return;
             } else {
                 if (!document.formulario_editar.correo.value.includes("@") || !document.formulario_editar.correo.value.includes(".")) {
@@ -262,8 +262,7 @@ if (isset($_SESSION['user_id'])) {
                 }
             });
             $("#editar_usuarios").submit(function () {
-                //   alert('Usuario Actualizado con exito');
-                //window.location.href = 'mostrar_usuarios.php';
+               
             });
         }
     </script>
@@ -273,26 +272,13 @@ if (isset($_SESSION['user_id'])) {
     <script>
         document.getElementById("id_eliminar").onclick = function () {
             if (document.formulario_editar.id_usuario.value == 1) {
-                mostrarError(document.formulario_editar.id_eliminar, "No se puede eliminar el usuario administrador.");
+                mostrarError(document.formulario_editar.id_eliminar, <?php print json_encode(ERROR33); ?>);
 
 
             } else {
                     myFunction();
                 }
-            /*else {
-               
-                if (document.formulario_editar.id_usuario.value == <?php  echo isset($_SESSION['user_id']) ?>) {
-                    myFunction();
-                    session_unset();
-                    session_destroy();
-    
-                } else {
-                    myFunction();
-                }
-
-            }*/
-
-        };
+                   };
 
         function myFunction() {
             $.ajax({
