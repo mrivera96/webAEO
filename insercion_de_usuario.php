@@ -1,6 +1,7 @@
 <?php
 
 include 'ConexionABaseDeDatos.php';
+include 'Errores.inc.php';
 $flag = array();
  
 $error_nomUsuario = false;
@@ -64,8 +65,8 @@ $resultado_insert->execute();
  
     //print json_encode("Usuario creado correctamente.");
     }else{
-        print json_encode("Ocurrió un error con los paramámetros recibidos.");
-    }
+ print json_encode(ERROR22);   
+ }
 
 
 $con->close();

@@ -1,6 +1,7 @@
 <?php
  
 include 'ConexionABaseDeDatos.php';
+include 'Errores.inc.php';
 
  if(isset($_GET["id_usuario"])){
  $id_usua=$_GET['id_usuario'];
@@ -23,8 +24,7 @@ if( isset($flag)){
     print (json_encode($flag));
   
 }else {
-   print (json_encode('No se recivieron las variables'));
- 
+ print json_encode(ERROR22); 
 }
   $con->close();
  
