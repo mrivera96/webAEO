@@ -1,6 +1,7 @@
 <?php
  
 include 'ConexionABaseDeDatos.php';
+include_once 'Errores.inc.php';
 if(isset($_GET["cto"])){
  $id_contacto=$_GET['cto'];
   
@@ -30,10 +31,10 @@ $resultado=$con->prepare($query);
 if(isset($flag)){
     print(json_encode($flag));
 } else {
-    print 'No hay resultados';
+    print json_encode(ERROR38);
 }
 
-}else{print 'No se recibieron variables';}
+}else{print json_encode(ERROR22);}
 
 
 $con->close();

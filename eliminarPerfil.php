@@ -1,5 +1,6 @@
 <?php
  include 'ConexionABaseDeDatos.php';
+ include_once 'Errores.inc.php';
 
 
  if(isset($_GET["cto"])){
@@ -11,7 +12,7 @@ $resultado_update=$con->prepare($update);
 $resultado_update->bind_param("i",$id_contacto);
 $resultado_update->execute();
  }else{
-     print json_encode('Revise los parametros de su request.');
+     print json_encode(ERROR22);
  }
  
 $con->close();

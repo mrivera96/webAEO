@@ -2,7 +2,7 @@
 $titulo = "Nuevo Perfil";
 session_start();
 include_once 'plantillas/documento-inicio.inc.php';
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1) {
     ?>
     <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
 

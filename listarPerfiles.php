@@ -1,6 +1,7 @@
 <?php   
  
 include 'ConexionABaseDeDatos.php';
+include_once 'Errores.inc.php';
 if(isset($_GET['ctg'])){ 
     $categoria=$_GET['ctg']; 
 
@@ -21,7 +22,7 @@ if(isset($_GET['ctg'])){
     }else{
         print json_encode(' Ocurrió un error, revise los datos de su request');
     }
-}else{print json_encode('No se recibieron variables');}
+}else{print json_encode(ERROR22);}
 
 $con->close();
  

@@ -10,7 +10,7 @@ $resultado=$con -> prepare($update);
 $resultado -> bind_param("i",$id_contacto);
 $resultado -> execute();
  }else{
-     print json_encode('Revise los parámetros de su request.');
+     print json_encode(ERROR22);
  }
 
    
