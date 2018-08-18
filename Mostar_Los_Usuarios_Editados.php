@@ -3,8 +3,8 @@
 include 'ConexionABaseDeDatos.php';
 include 'Errores.inc.php';
 
- if(isset($_GET["id_usuario"])){
- $id_usua=$_GET['id_usuario'];
+ if(isset($_GET["usuario"])){
+ $id_usua=$_GET['usuario'];
 }
 
 $query ="SELECT * FROM usuarios WHERE  id_usuario=?";

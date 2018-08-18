@@ -1,8 +1,8 @@
 <?php   
  
 include 'ConexionABaseDeDatos.php';
- if (isset($_GET['id_estado'])) {
-    $id_estado = $_GET['id_estado'];
+ if (isset($_GET['estados'])) {
+    $id_estado = $_GET['estados'];
 $query ="SELECT A.* ,COUNT(C.id_estado) as coun FROM categorias AS A JOIN contactos AS C ON A.id_categoria=C.id_categoria WHERE C.id_estado= ? GROUP BY A.id_categoria";
 
 $resultado = $con->prepare($query);

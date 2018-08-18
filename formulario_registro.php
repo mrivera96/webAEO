@@ -25,38 +25,38 @@ if (isset($_SESSION['user_id'])) {
                     <div class="panel-body">
                         <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insercion_de_usuario.php" target="formDestination" >
                             <div class="group">
-                                <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="nombre_usuario">
+                                <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="usuarionombre">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre de Usuario</label>
                             </div>
                             <div class="group">
-                                <input id="nombre_propio" type="text" required name="nombre_propio">
+                                <input id="nombre_propio" type="text" required name="usuariopropio">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre Propio</label>
                             </div>
                             <div class="group">
-                                <input id="correo" onkeyup="escribiendoEmail()"type="email"required name="correo">
+                                <input id="correo" onkeyup="escribiendoEmail()"type="email"required name="usuarioemail">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Correo</label>
                             </div>
                             <div class="group">
-                                <input id="contrasena" type="password" required name="contrasena" >
+                                <input id="contrasena" type="password" required name="usariopassword" >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label >Contraseña</label>
                             </div>
 
                             <div class="group">
-                                <input id="contrasena1" type="password" required name="contrasena1" >
+                                <input id="contrasena1" type="password" required name="usariopassword1" >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Repite la Contraseña</label>
                             </div>
                             <iframe class="oculto"  name="formDestination"></iframe>
-                            <select name="rol" class="form-control" id="id_rol_usuario">
+                            <select name="usuariosroles" class="form-control" id="id_rol_usuario">
                             </select>
                             <br>
                             <button type="button" onclick="validarFormulario()" id="btn" class="form-control"   name="Submit"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
@@ -128,7 +128,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
 
-                url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -148,7 +148,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?correo=" + $('#correo').val(),
+                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -171,49 +171,49 @@ if (isset($_SESSION['user_id'])) {
             var error_contrasena = false;
             var error_contrasena1 = false;
 
-            if (document.formulario.nombre_usuario.value === "") {
+            if (document.formulario.usuarionombre.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario.nombre_usuario,<?php print json_encode(ERROR10); ?>);
+                mostrarError(document.formulario.usuarionombre,<?php print json_encode(ERROR10); ?>);
                 return;
             }
 
-            if (document.formulario.nombre_propio.value === "") {
+            if (document.formulario.usuariopropio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.nombre_propio,<?php print json_encode(ERROR11); ?>);
+                mostrarError(document.formulario.usuariopropio,<?php print json_encode(ERROR11); ?>);
                 return;
             }
-            if (document.formulario.correo.value === "") {
+            if (document.formulario.usuarioemail.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.correo,<?php print json_encode(ERROR32); ?>);
+                mostrarError(document.formulario.usuarioemail,<?php print json_encode(ERROR32); ?>);
                 return;
             } else {
-                if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
+                if (!document.formulario.usuarioemail.value.includes("@") || !document.formulario.usuarioemail.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario.correo, <?php print json_encode(ERROR4); ?>);
+                    mostrarError(document.formulario.usuarioemail, <?php print json_encode(ERROR4); ?>);
                     return;
                 }
             }
 
-            if (document.formulario.contrasena.value === "") {
+            if (document.formulario.usariopassword.value === "") {
                 error_contrasena = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena, <?php print json_encode(ERROR25); ?>);
+                mostrarError(document.formulario.usariopassword, <?php print json_encode(ERROR25); ?>);
                 return;
             }
 
-            if (document.formulario.contrasena1.value === "") {
+            if (document.formulario.usariopassword1.value === "") {
                 error_contrasena = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR27); ?>);
+                mostrarError(document.formulario.usariopassword1, <?php print json_encode(ERROR27); ?>);
                 return;
             } else {
-                if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
+                if (document.formulario.usariopassword.value !== document.formulario.usariopassword1.value) {
                     error_contrasena1 = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR28); ?>);
+                    mostrarError(document.formulario.usariopassword1, <?php print json_encode(ERROR28); ?>);
 
                 }
             }

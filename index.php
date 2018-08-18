@@ -38,7 +38,7 @@ include_once 'plantillas/buscador.inc.php';
                 $.ajax({
                     type: "GET",
                     url: "ParaSincronizarCategorias.php",
-                      data: {'id_estado': '2'}
+                      data: {'estados': '2'}
                 }).done(function (data) {
                     var categorias = JSON.parse(data);
                     for (var i in categorias) {

@@ -3,8 +3,8 @@
 include 'ConexionABaseDeDatos.php';
  include 'Errores.inc.php';
 
-if (isset($_GET["correo"])) {
-    $corre = $_GET['correo'];
+if (isset($_GET["verificaemail"])) {
+    $corre = $_GET['verificaemail'];
 
     $query = "SELECT  correo FROM usuarios where correo=? ";
     $resultado = $con->prepare($query);

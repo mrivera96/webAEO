@@ -26,20 +26,20 @@ if (isset($_SESSION['user_id'])) {
 
 
                             <div class="group">
-                                <input  id="nombre_usuario" type="text" onkeyup="escribiendoUsuario()" required name="nombre_usuario">
-                                <input id="id_usuario" type="hidden" name="id_usuario"  >
+                                <input  id="nombre_usuario" type="text" onkeyup="escribiendoUsuario()" required name="usuarionombre">
+                                <input id="id_usuario" type="hidden" name="usuario"  >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre de Usuario</label>
                             </div>
                             <div class="group">
-                                <input id="nombre_propio" type="text" required="" name="nombre_propio">
+                                <input id="nombre_propio" type="text" required="" name="usuariopropio">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre Propio</label>
                             </div>
                             <div class="group">
-                                <input id="correo" type="email" required="" onkeyup="escribiendoEmail()" name="correo">
+                                <input id="correo" type="email" required="" onkeyup="escribiendoEmail()" name="usuarioemail">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Correo</label>
@@ -141,7 +141,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
 
-                url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -159,7 +159,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?correo=" + $('#correo').val(),
+                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -178,30 +178,30 @@ if (isset($_SESSION['user_id'])) {
             var error_nomPropio = false;
             var error_correo = false;
             var error_contrasena = false;
-            if (document.formulario_editar.nombre_usuario.value === "") {
+            if (document.formulario_editar.usuarionombre.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario_editar.nombre_usuario, <?php print json_encode(ERROR10); ?>);
+                mostrarError(document.formulario_editar.usuarionombre, <?php print json_encode(ERROR10); ?>);
                 return;
 
             }
 
 
-            if (document.formulario_editar.nombre_propio.value === "") {
+            if (document.formulario_editar.usuariopropio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.nombre_propio, <?php print json_encode(ERROR11); ?>);
+                mostrarError(document.formulario_editar.usuariopropio, <?php print json_encode(ERROR11); ?>);
                 return;
             }
-            if (document.formulario_editar.correo.value === "") {
+            if (document.formulario_editar.usuarioemail.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.correo,<?php print json_encode(ERROR32); ?>);
+                mostrarError(document.formulario_editar.usuarioemail,<?php print json_encode(ERROR32); ?>);
                 return;
             } else {
-                if (!document.formulario_editar.correo.value.includes("@") || !document.formulario_editar.correo.value.includes(".")) {
+                if (!document.formulario_editar.usuarioemail.value.includes("@") || !document.formulario_editar.usuarioemail.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario_editar.correo, <?php print json_encode(ERROR4); ?>);
+                    mostrarError(document.formulario_editar.email, <?php print json_encode(ERROR4); ?>);
                     return;
                 }
             }
@@ -246,10 +246,10 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
                 url: "Mostar_Los_Usuarios_Editados.php",
-                data: {'id_usuario':<?php echo $_GET['usuario'] ?>}
+                data: {'usuario':<?php echo $_GET['usuario'] ?>}
             }).done(function (data)
             {
-                console.log(data);
+                
                 var editar = JSON.parse(data);
                 for (var i in editar) {
 
@@ -284,7 +284,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "POST",
                 url: "eliminacion_de_un_usuario.php",
-                data: {'id_usuario':<?php echo $_GET['usuario'] ?>}
+                data: {'usuario':<?php echo $_GET['usuario'] ?>}
             });
 
             window.location.href = 'cerrarSessionLogin.php';

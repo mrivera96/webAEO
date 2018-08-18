@@ -3,8 +3,8 @@
 include 'ConexionABaseDeDatos.php';
  include 'Errores.inc.php';
 
-if (isset($_GET["nombre_usuario"])) {
-    $nombre_usua = $_GET['nombre_usuario'];
+if (isset($_GET["verificausu"])) {
+    $nombre_usua = $_GET['verificausu'];
 
     $query = "SELECT  nombre_usuario FROM usuarios where nombre_usuario=? ";
     $resultado = $con->prepare($query);

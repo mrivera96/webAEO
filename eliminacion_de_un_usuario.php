@@ -5,8 +5,8 @@
 
 $flag=array();
 
- if(isset($_POST["id_usuario"])){
- $id_usua=$_POST['id_usuario'];
+ if(isset($_POST["usuario"])){
+ $id_usua=$_POST['usuario'];
  
  $update="update usuarios SET estado_usuario=2 where id_usuario=?";
 
