@@ -27,7 +27,7 @@ var loadData = function () {
     $.ajax({
         type: "POST",
         url: "ConsultarTodosLosUsuarios.php",
-        data: {'estado_usuario': '1'}
+        data: {'estado': '1'}
     }).done(function (data) {
         var usuarios = JSON.parse(data);
 
