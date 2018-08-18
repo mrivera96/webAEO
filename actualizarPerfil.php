@@ -159,9 +159,9 @@ if(!isset($_POST['cto']) || empty($_POST['cto'])){
             $resultado->execute();
         }
        
- print json_encode("Perfil actualizado correctamente.");
+ print json_encode(ERROR37);
 }else{
-        print json_encode('ERROR Revise los parametros de su request.');
+        print json_encode(ERROR22);
         
 }
 $con->close();

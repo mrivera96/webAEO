@@ -217,7 +217,7 @@ if( $error_nomb    === false &&
     }
     print json_encode("Perfil creado correctamente.");
     }else{
-        print json_encode("Ocurrió un error con los paramámetros recibidos.");
+        print json_encode(ERROR22);
     }
        
 $con->close();

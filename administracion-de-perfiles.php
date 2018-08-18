@@ -2,7 +2,7 @@
   session_start();
   $titulo="Administración de Perfiles";
    include_once 'plantillas/documento-inicio.inc.php' ;
-    if (isset($_SESSION['user_id'])) {
+    if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1 ) {
         
  ?>
                         
