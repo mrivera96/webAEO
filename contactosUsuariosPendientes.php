@@ -2,7 +2,7 @@
 $titulo = 'Contactos Pendientes';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
+ if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <head>
@@ -45,7 +45,7 @@ var loadData = function () {
             } else {
                 imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
             }
-			 if (contacto[i].id_estado == 1) {
+	 if (contacto[i].id_estado == 1) {
                     estado = "Pendiente";
                 } else if(contacto[i].id_estado == 2) {
                     estado = "Aprobado";
@@ -53,7 +53,6 @@ var loadData = function () {
                     estado="";
                 }
             ;
-
             $("#contenedorContacto").append(
                     '<a class="enlaces_de_listas_contactos" href="edicionDePerfilUsuarioNormal.php?cto=' + contacto[i].id_contacto + '"><div class = "col-md-4 col-sm-6">' +
                        '<div class="media">' +

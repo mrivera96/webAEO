@@ -2,9 +2,8 @@
 $titulo = 'Contactos Eliminados';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
-    
-?>
+if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
+    ?>
 
 <head>
     <link href="css/estiloslogin.css" rel="stylesheet">

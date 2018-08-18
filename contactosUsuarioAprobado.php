@@ -2,9 +2,9 @@
 $titulo = 'Contactos Aprobados';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
-    
-?>
+if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
+    ?>
+
 
 <head>
     <link href="css/estiloslogin.css" rel="stylesheet">
@@ -65,7 +65,7 @@ var loadData = function () {
                         '<div class="media-body">' +
                         '<h4 class = "media-heading">' + contacto[i].nombre_organizacion + '</h4>' +'<br>'+
                         '<p>Estado del Contacto:</p>' +
-                        '<p style="color:#FCB30A">' + estado + '</p>' +
+                        '<p style="color:#388e3c">' + estado + '</p>' +
                         '</div>' +
                         '</div>' +
                         '<hr style="margin-left:140px"/>' +
