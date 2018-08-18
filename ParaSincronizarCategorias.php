@@ -1,5 +1,6 @@
 <?php   
- 
+  include 'Errores.inc.php';
+
 include 'ConexionABaseDeDatos.php';
  if (isset($_GET['estados'])) {
     $id_estado = $_GET['estados'];
@@ -10,18 +11,17 @@ $resultado = $con->prepare($query);
     $resultado->execute();
     $resul = $resultado->get_result();
 
-    while ($row = $resul->fetch_assoc()) {
+   while ($row = $resul->fetch_assoc()) {
 
         $flag[] = $row;
     }
     if (isset($flag)) {
         print(json_encode($flag));
     } else {
- print json_encode(ERROR38); 
+          print json_encode(ERROR38); 
     }
 } else {
-     print json_encode(ERROR22); 
-
+    print json_encode(ERROR22); 
 }
 
 $con->close();
