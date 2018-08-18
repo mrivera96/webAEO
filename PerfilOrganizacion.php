@@ -20,12 +20,17 @@ include_once 'plantillas/buscador.inc.php';
 </div>
 
 <!--Contenedor de imagen de perfil -->
-<div class="container" style="padding:0px;">
-
-    <div class="row" style="margin-top: 5px;" id="filaPorg">
+<div class="container" id="contenedor_perfiles" >
+    <div class="row" style="margin-top: 10px;" >
+        <div class="form-group text-center" id="filaPorg">
+            
+ </div><br><br>
 
     </div>
+    
+    <div class="row" style="margin-top: 10px;" id="filatxt">
 
+    </div>
 </div>	
 
 <div class="container" id="ubicacion"> 

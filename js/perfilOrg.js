@@ -83,13 +83,18 @@ var cto = $_GET('cto');
                 }
 
                 $("#filaPorg").append(
-                        '<div class="col-md-6">' +
+                        '<img style="width: 250px; height: 250px" class="img-circle img-circle" class="img-rounded" src=' + imagen + '>'
+                        );
+                
+                 /************************************************************************************************/
+                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?numct='+informacionContacto[i].id_contacto+'">' +
+                                    '<i class="glyphicon glyphicon-map-marker my-float"></i>'+' </a>'
+                 );
+         
+         $("#filatxt").append(
+                  ' <div class="col-md-12">' +
+                        
                         '<div class="panel panel-default">' +
-                        '<img  class="tamanioImagenPO img-rounded" src=' + imagen + '>' +
-                        '</div>' +
-                        '</div>' +
-                        ' <div class="col-md-6">' +
-                        '<div class="panel panel-default pre-scrollable panelTexto">' +
                         ' <div class="panel-body">' +
                         '<h4><strong><span class="glyphicon glyphicon-earphone"></span>&nbspTélefono:</strong></h4>' +
                         '<h5>' + telefono + '</h5>' + ' <hr>' +
@@ -101,11 +106,6 @@ var cto = $_GET('cto');
                         '<h5>' + direccion + '</h5>' + '<hr>' +
                         '<h4><strong><strong><span class="glyphicon glyphicon-align-left"></span>&nbspDescripción:</strong></h4>' +
                         '<h5>' + descripcion + '</h5>'
-                        );
-                
-                 /************************************************************************************************/
-                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?numct='+informacionContacto[i].id_contacto+'">' +
-                                    '<i class="glyphicon glyphicon-map-marker my-float"></i>'+' </a>'
                  );
             }
         });
