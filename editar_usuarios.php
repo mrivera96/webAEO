@@ -285,9 +285,14 @@ if (isset($_SESSION['user_id'])) {
                 type: "POST",
                 url: "eliminacion_de_un_usuario.php",
                 data: {'usuario':<?php echo $_GET['usuario'] ?>}
-            });
+            });if
+                (<?php echo $_SESSION['user_id']?>== <?php echo $_GET['usuario'] ?>) {
+                    window.location.href = 'cerrarSessionLogin.php';
+            }else{
+                 window.location.href = 'mostrar_usuarios.php';
+            }
 
-            window.location.href = 'cerrarSessionLogin.php';
+           
         }
     </script>
 
