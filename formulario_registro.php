@@ -133,7 +133,7 @@ include_once 'Errores.inc.php';
                 console.log(data);
                 if (data == 1) {
                     $('#nombre_usuario').css("color", "red");
-                    mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR30); ?>);
+                    mostrarError(document.formulario.usuarionombre, <?php print json_encode(ERROR30); ?>);
                  
 
 
@@ -153,7 +153,7 @@ include_once 'Errores.inc.php';
                 console.log(data);
                 if (data == 1) {
                     $('#correo').css("color", "red");
-                    mostrarError(document.formulario.correo,<?php print json_encode(ERROR31); ?>);
+                    mostrarError(document.formulario.usuarioemail,<?php print json_encode(ERROR31); ?>);
 
 
 

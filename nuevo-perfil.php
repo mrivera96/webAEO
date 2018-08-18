@@ -117,9 +117,7 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
 
                             <h5>Ingrese su Ubicación</h5>
 
-                            <script type="text/javascript" 
-                                    src="https://maps.google.com/maps/api/js?sensor=false">
-                            </script> 
+                            
 
                             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
                             type="text/javascript"></script>
