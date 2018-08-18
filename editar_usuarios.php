@@ -5,7 +5,7 @@ include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
 include_once 'Errores.inc.php';
 
-if (isset($_SESSION['user_id'])) {
+  if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <script src="js/jquery-2.2.4.min.js"></script> 
@@ -285,9 +285,14 @@ if (isset($_SESSION['user_id'])) {
                 type: "POST",
                 url: "eliminacion_de_un_usuario.php",
                 data: {'usuario':<?php echo $_GET['usuario'] ?>}
-            });
+            });if
+                (<?php echo $_SESSION['user_id']?>== <?php echo $_GET['usuario'] ?>) {
+                    window.location.href = 'cerrarSessionLogin.php';
+            }else{
+                 window.location.href = 'mostrar_usuarios.php';
+            }
 
-            window.location.href = 'cerrarSessionLogin.php';
+           
         }
     </script>
 

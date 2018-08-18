@@ -5,7 +5,7 @@ session_start();
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/navbar_panel_de_control.inc.php';
 
-if (isset($_SESSION['user_id'])) {
+    if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <script src="js/jquery-2.2.4.min.js"></script> 
