@@ -1,6 +1,9 @@
 $(document).on("ready", function () { loadData(); });
 
- 
+ /*****************************************************************************************
+ * 
+ * FUNCIÓN PARA ACCEDER A LOS PARAMETROS GET DESDE JAVASCRIPT
+ ******************************************************************************************/
 function $_GET(param) {
     var vars = {};
     window.location.href.replace(location.hash, '').replace(
@@ -16,6 +19,10 @@ function $_GET(param) {
     return vars;
 }
  
+ /*****************************************************************************************
+ * 
+ * FUNCIONES AJAX PARA LLENAR LOS SELECT DE REGION Y CATEGORIA
+ ******************************************************************************************/
 var loadData = function () {
     $.ajax({
         type: "GET",
