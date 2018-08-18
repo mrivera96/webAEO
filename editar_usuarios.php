@@ -146,7 +146,7 @@ include_once 'Errores.inc.php';
                 console.log(data);
                 if (data == 1) {
                     $('#nombre_usuario').css("color", "red");
-                    mostrarError(document.formulario_editar.nombre_usuario, <?php print json_encode(ERROR30); ?>);
+                    mostrarError(document.formulario_editar.usuarionombre, <?php print json_encode(ERROR30); ?>);
 
 
 
@@ -164,7 +164,7 @@ include_once 'Errores.inc.php';
                 console.log(data);
                 if (data == 1) {
                     $('#correo').css("color", "red");
-                    mostrarError(document.formulario_editar.correo,<?php print json_encode(ERROR31); ?>);
+                    mostrarError(document.formulario_editar.usuarioemail,<?php print json_encode(ERROR31); ?>);
 
 
                 } else
@@ -201,7 +201,7 @@ include_once 'Errores.inc.php';
                 if (!document.formulario_editar.usuarioemail.value.includes("@") || !document.formulario_editar.usuarioemail.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario_editar.email, <?php print json_encode(ERROR4); ?>);
+                    mostrarError(document.formulario_editar.usuarioemail, <?php print json_encode(ERROR4); ?>);
                     return;
                 }
             }
