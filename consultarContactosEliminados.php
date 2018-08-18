@@ -15,7 +15,7 @@ $resultado->bind_param("i", $usuario);
 $resultado->execute();
 $resul = $resultado->get_result();
 
-$flag = array();
+//$flag = array();
 
 while($row =$resul->fetch_assoc()) {
  
@@ -25,10 +25,10 @@ while($row =$resul->fetch_assoc()) {
  if(isset($flag)){
         print(json_encode($flag));
     } else {
-        print json_encode("Ocurrió un error");
+        print ("No hay resultados");
     }
 }else {
-        print(json_encode("No se recibieron variables"));
+        print("No se recibieron variables");
 }
 
 $con->close();

@@ -86,7 +86,7 @@ document.getElementById("eliminar").onclick = function () {
         data: {'cto': $_GET('cto')}
     });
 
-    window.location.href = 'administracion-de-perfiles.php';
+    window.location.href = 'contactosUsuario.php';
 };
 
 

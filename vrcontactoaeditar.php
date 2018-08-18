@@ -1,36 +1,12 @@
-<?php
-$titulo = 'Contactos Aprobados';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
-    
-?>
-
-<head>
-    <link href="css/estiloslogin.css" rel="stylesheet">
-    <link href="css/estilos_melvin.css" rel="stylesheet">
-</head>
-
-<script src="js/jquery-2.2.4.min.js"></script>
-
-<div class="container" id="contenedor_perfiles">
-    <div class="row" style="margin-top: 10px;" id="contenedorContacto">
-
-    </div>
-
-
-</div>
-
-
 <script>
-    $(document).on("ready", function () {
+ $(document).on("ready", function () {
     loadData();
 });
 
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarContactosAprobados.php",
+        url: "consultarContactosPendientes.php",
         data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
     }).done(function (data) {
         if(data !== "No hay resultados"){
@@ -79,7 +55,8 @@ var loadData = function () {
                         '<img  style="width:130px ; heigh:130px ;"  class="img-circle circle-img" src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Warning01-RoundedWhite-512.png"> ' +
                         '</div>' +
                         '<div class="col-md-12 text-center">' + 
-                        '<h3>No tiene contactos aprobados </h3> ' + 
+                        '<h3>No tiene contactos Pendiente </h3> ' + 
+                        '<h3>Empieza a registrar tus contacto </h3> '+
                         '</div>'
                         
                         );
@@ -88,12 +65,3 @@ var loadData = function () {
 };
 
 </script>
-<?php
-include_once 'plantillas/documento-cierre.inc.php';
-?>
-<?php
-   } else {
-       header('Location: /webaeo');
-    }
-?>
-

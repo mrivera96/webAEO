@@ -116,10 +116,10 @@ function enviarEmail($email, $nombre, $asunto, $cuerpo) {
     $mail->Host = 'smtp.gmail.com'; 
     $mail->Port = 25; 
 
-    $mail->Username = ''; 
-    $mail->Password = ''; 
+    $mail->Username = 'aeodanli@gmail.com'; 
+    $mail->Password = 'grupoaeo'; 
 
-    $mail->setFrom('shessag@gmail.com', 'aeo'); 
+    $mail->setFrom('aeodanli@gmail.com', 'aeo'); 
     $mail->addAddress($email, $nombre);
 
     $mail->Subject = $asunto;

@@ -33,11 +33,15 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
             if ($results['rol'] == 1 && $results['estado_usuario'] == 1) {
                 header("Location: /webaeo/mostrar_usuarios.php");
             }
+            if (($results['rol'] == 1 && $results['estado_usuario'] == 2) || ($results['rol'] == 2 && $results['estado_usuario'] == 2)) {
+                $message = 'Usuario o contraseña Incorrecta ';
+            }
+            
         } else {
             $message = 'Usuario o contraseña Incorrecta ';
         }
     } else {
-        $message = 'Usuario no existe ';
+        $message = 'Es probable que el usuario no este registrado ';
     }
 }
 ?>
@@ -49,7 +53,6 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 ?>
 
 <?php if (!empty($message)): ?>
-
 
     <p> <div class="alert alert-primary" role="alert"  align="center"> 
         <div class="alert alert-warning alert-dismissable">
@@ -80,7 +83,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 
 
         <div class="group">
-            <input  type="text" required oninvalid="setCustomValidity('Ingrese el usuario')" oninput="setCustomValidity('')" id="nombre_usuario"  name="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios">
+            <input  type="text" required oninvalid="setCustomValidity('Ingrese el usuario')" oninput="setCustomValidity('')" id="nombre_usuario"  name="nombre_usuario" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-0-9]*$|" title="No se permiten espacios">
             <span class="highlight"></span>
             <span class="bar"></span>
             <label >  <span class="glyphicon glyphicon-user"></span> Usuario</label>
