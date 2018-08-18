@@ -35,8 +35,14 @@
                           
                         <?php
                     } else {
-                        ?>
-                         <li> <a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control</strong></a></li>
+                        ?><li id="boton" class="dropdown">
+                            <!--<a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control</strong></a>-->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
+                            <ul id="despliege"class="dropdown-menu" role="menu">
+                                <li> <a id = "colorIniciosecion" href = "login.php"><img src="imagenes/config.png" height="15"></img> <strong>Panel de Control </strong></a></li>
+                                <li><a href="editar_usuarios.php"><img src="imagenes/administracioncuenta.jpg" height="15"></img> <strong>Edición de Cuenta</strong></a></li>
+                            </ul>
+                        </li>
                          <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
                         <?php
                         $message = 'Usuario o Contraseña incorrectas desde la sesion';
