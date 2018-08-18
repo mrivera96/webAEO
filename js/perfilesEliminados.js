@@ -1,3 +1,7 @@
+/******************************************
+ * 
+ * FUNCIÓN DE BUSCARDOR JAVASCRIPT
+ ******************************************/
 var search = document.getElementById("search"),
     food = document.getElementsByClassName("enlaces_de_listas_contactos"),
     forEach = Array.prototype.forEach;
@@ -15,6 +19,10 @@ search.addEventListener("keyup", function(e){
 $(document).on("ready", function () {
     loadData();
 });
+/*****************************************************************************************
+ * 
+ * FUNCIÓN AJAX PARA MOSTRAR LOS PERFILES ELIMINADOS
+ ******************************************************************************************/
 var loadData = function () {
     $.ajax({
         type: "post",

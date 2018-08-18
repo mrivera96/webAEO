@@ -2,7 +2,7 @@
 $titulo = 'Contactos';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
+ if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <head>
@@ -15,7 +15,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="row" style="margin-top: 10px;" id="contedidodecategoriascontacto">
             <div class="row">
 
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-6">
             <div class="panel panel-default">
                 <div  class="panel-heading" style="height: 40px">
                     <h3 class="panel-title">
@@ -37,7 +37,7 @@ if (isset($_SESSION['user_id'])) {
             </div>   
         </div>
         
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-6">
             <div class="panel panel-default">
                 <div  class="panel-heading" style="height: 40px">
                     <h3 class="panel-title">
@@ -59,7 +59,7 @@ if (isset($_SESSION['user_id'])) {
             </div>   
         </div>
         
-        <div class="col-sm-6 col-md-4">
+       <!-- <div class="col-sm-6 col-md-4">
             <div class="panel panel-default">
                 <div  class="panel-heading" style="height: 40px">
                     <h3 class="panel-title">
@@ -79,7 +79,7 @@ if (isset($_SESSION['user_id'])) {
                     </center>
                 </div>
             </div>   
-        </div>
+        </div> -->
     </div>
         </div>
  <div  class="container">

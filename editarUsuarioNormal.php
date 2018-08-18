@@ -4,7 +4,7 @@ $titulo = 'Edición de Cuenta';
 include_once 'plantillas/documento-inicio.inc.php';
 include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
-if (isset($_SESSION['user_id'])) {
+ if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <script src="js/jquery-2.2.4.min.js"></script> 
@@ -25,20 +25,20 @@ if (isset($_SESSION['user_id'])) {
 
 
                             <div class="group">
-                                <input  id="nombre_usuario" type="text" onkeyup="escribiendoUsuario()" required name="nombre_usuario">
-                                <input id="id_usuario" type="hidden" name="id_usuario"  >
+                                <input  id="nombre_usuario" type="text" onkeyup="escribiendoUsuario()" required name="usuarionombre">
+                                <input id="id_usuario" type="hidden" name="usuario"  >
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre de Usuario</label>
                             </div>
                             <div class="group">
-                                <input id="nombre_propio" type="text" required="" name="nombre_propio">
+                                <input id="nombre_propio" type="text" required="" name="usuariopropio">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre Propio</label>
                             </div>
                             <div class="group">
-                                <input id="correo" type="email" required="" onkeyup="escribiendoEmail()" name="correo">
+                                <input id="correo" type="email" required="" onkeyup="escribiendoEmail()" name="usuarioemail">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Correo</label>
@@ -103,7 +103,7 @@ if (isset($_SESSION['user_id'])) {
         function escribiendoUsuario() {
             $.ajax({
                 type: "GET",
-                url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -118,7 +118,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?correo=" + $('#correo').val(),
+                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -160,30 +160,30 @@ if (isset($_SESSION['user_id'])) {
             var error_nomPropio = false;
             var error_correo = false;
             var error_contrasena = false;
-            if (document.formulario_editar.nombre_usuario.value === "") {
+            if (document.formulario_editar.usuarionombre.value === "") {
                 error_nomUsuario = true;
-                mostrarError(document.formulario_editar.nombre_usuario, "Debe ingresar un nombre de usuario.");
+                mostrarError(document.formulario_editar.usuarionombre, "Debe ingresar un nombre de usuario.");
                 return;
 
             }
 
 
-            if (document.formulario_editar.nombre_propio.value === "") {
+            if (document.formulario_editar.usuariopropio.value === "") {
                 error_nomPropio = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.nombre_propio,"Debe ingresar un nombre propio.");
+                mostrarError(document.formulario_editar.usuariopropio,"Debe ingresar un nombre propio.");
                 return;
             }
-            if (document.formulario_editar.correo.value === "") {
+            if (document.formulario_editar.usuarioemail.value === "") {
                 error_correo = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario_editar.correo, "Debe ingresar un correo.");
+                mostrarError(document.formulario_editar.usuarioemail, "Debe ingresar un correo.");
                 return;
             } else {
-                if (!document.formulario_editar.correo.value.includes("@") || !document.formulario_editar.correo.value.includes(".")) {
+                if (!document.formulario_editar.usuarioemail.value.includes("@") || !document.formulario_editar.usuarioemail.value.includes(".")) {
                     error_correo = true;
                     $("#Modal3").modal("show");
-                    mostrarError(document.formulario_editar.correo, "Debes colocar una Dirección de Email válida.");
+                    mostrarError(document.formulario_editar.usuarioemail, "Debes colocar una Dirección de Email válida.");
                     return;
                 }
             }
@@ -219,7 +219,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "GET",
                 url: "Mostar_Los_Usuarios_Editados.php",
-                data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
+                data: {'usuario':<?php echo $_SESSION['user_id'] ?>}
             }).done(function (data)
             {
                 console.log(data);
@@ -250,7 +250,7 @@ if (isset($_SESSION['user_id'])) {
             $.ajax({
                 type: "POST",
                 url: "eliminacion_de_un_usuario.php",
-                data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
+                data: {'usuario':<?php echo $_SESSION['user_id'] ?>}
             });
 
             window.location.href = 'cerrarSessionLogin.php';

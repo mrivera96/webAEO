@@ -7,12 +7,18 @@ $id_stado=1;
 
 
 
-$usuario= isset($_POST['id_usuario']) ? $_POST['id_usuario'] : 0;
+$usuario= isset($_GET['id_usuario']) ? $_GET['id_usuario'] : 0;
 
  
-$query ="SELECT * FROM contactos where id_usuario like'{$usuario}'and id_estado like'{$id_estado}' or id_usuario like'{$usuario}'and id_estado like'{$id_stado}'";
-$resultado=$con->query($query);
-$flag = array();
+$records = $conn->prepare ("SELECT COUNT[id_usuario] * FROM contactos where id_usuario = ? and id_estado = 1 or id_usuario = ? and id_estado = 2");
+
+$records->bindParam(':nombre_usuario', $_POST['nombre_usuario']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $message = '';
+ if (count($results) > 0 && (password_verify($_POST['password'], $results['contrasena']) )) {
+	//$resultado=$con->query($query);
+//$flag = array();
 
 while($row =$resultado->fetch_assoc()) {
  
@@ -23,6 +29,7 @@ while($row =$resultado->fetch_assoc()) {
     print(json_encode($flag));
 //else
     //print("{data: []}");
-$con->close();
- 
-?>
+	
+}else{
+	print(json_encode("error "));
+}
