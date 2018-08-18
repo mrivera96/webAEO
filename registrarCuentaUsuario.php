@@ -25,33 +25,33 @@ include 'Errores.inc.php';
                     <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insertarUsuarioCliente.php" target="formDestination" >
 
                         <div class="group">
-                            <input id="nombre_propio" type="text" required name="nombre_propio">
+                            <input id="nombre_propio" type="text" required name="usuariopropio">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Nombre Propio</label>
                         </div>
                         <div class="group">
-                            <input name="nombre_usuario" id="nombre_usuario" onkeyup="escribiendoUsuario()" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text">
+                            <input name="usuarionombre" id="nombre_usuario" onkeyup="escribiendoUsuario()" pattern="|^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ_-]*$|" title="No se permiten espacios" required type="text">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Nombre de Usuario</label>
                         </div>
 
                         <div class="group">
-                            <input id="contrasena" type="password" required name="contrasena" >
+                            <input id="contrasena" type="password" required name="usariopassword" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label >Contraseña</label>
                         </div>
 
                         <div class="group">
-                            <input id="contrasena1" type="password" required name="contrasena1" >
+                            <input id="contrasena1" type="password" required name="usariopassword1" >
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Repite la Contraseña</label>
                         </div>
                         <div class="group">
-                            <input id="correo" onkeyup="escribiendoEmail()"type="email"required name="correo">
+                            <input id="correo" onkeyup="escribiendoEmail()"type="email"required name="usuarioemail">
                             <span class="highlight"></span>
                             <span class="bar"></span>
                             <label>Correo</label>
@@ -126,21 +126,16 @@ include 'Errores.inc.php';
         $.ajax({
             type: "GET",
 
-            url: "verificar_usuario.php?nombre_usuario=" + $('#nombre_usuario').val(),
+             url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
                 $('#nombre_usuario').css("color", "red");
                 // mostrarErrorto(document.formulario.nombre_usuario, "error no .");
-                mostrarError(document.formulario.nombre_usuario, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
-
-
+                mostrarError(document.formulario.usuarionombre, "Este nombre de usuario ya existe \" Ingrese un usuario valido\"");
 
             } else
                 $('#nombre_usuario').css("color", "black");
-            // mostrarError(document.formulario.nombre_usuario, "Nombre de usuario valido.");
-
-
         });
     }
 
@@ -148,12 +143,12 @@ include 'Errores.inc.php';
         $.ajax({
             type: "GET",
 
-            url: "verificar_email.php?correo=" + $('#correo').val(),
+           url: "verificar_email.php?verificaemail=" + $('#correo').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
                 $('#correo').css("color", "red");
-                mostrarError(document.formulario.correo, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
+                mostrarError(document.formulario.usuarioemail, "Este e-mail ya existe \" Ingrese un e-mail valido\"");
 
 
 
@@ -172,51 +167,51 @@ include 'Errores.inc.php';
         var error_contrasena1 = false;
 
        
-        if (document.formulario.nombre_propio.value === "") {
+        if (document.formulario.usuariopropio.value === "") {
             error_nomPropio = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.nombre_propio,<?php print json_encode(ERROR11); ?>);
+            mostrarError(document.formulario.usuariopropio,<?php print json_encode(ERROR11); ?>);
             return;
         }
-         if (document.formulario.nombre_usuario.value === "") {
+         if (document.formulario.usuarionombre.value === "") {
             error_nomUsuario = true;
-            mostrarError(document.formulario.nombre_usuario, <?php print json_encode(ERROR10); ?>);
+            mostrarError(document.formulario.usuarionombre, <?php print json_encode(ERROR10); ?>);
             return;
         }
         
-        if (document.formulario.correo.value === "") {
-            error_correo = true;
-            $("#Modal3").modal("show");
-            mostrarError(document.formulario.correo, <?php print json_encode(ERROR32); ?>);
-            return;
-        } else {
-            if (!document.formulario.correo.value.includes("@") || !document.formulario.correo.value.includes(".")) {
-                error_correo = true;
-                $("#Modal3").modal("show");
-                mostrarError(document.formulario.correo, <?php print json_encode(ERROR12); ?>);
-                return;
-            }
-        }
-
-        if (document.formulario.contrasena.value === "") {
+        if (document.formulario.usariopassword.value === "") {
             error_contrasena = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.contrasena, <?php print json_encode(ERROR25); ?>);
+            mostrarError(document.formulario.usariopassword, <?php print json_encode(ERROR25); ?>);
             return;
         }
 
-        if (document.formulario.contrasena1.value === "") {
+        if (document.formulario.usariopassword1.value === "") {
             error_contrasena = true;
             $("#Modal3").modal("show");
-            mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR27); ?>);
+            mostrarError(document.formulario.usariopassword1, <?php print json_encode(ERROR27); ?>);
             return;
         } else {
-            if (document.formulario.contrasena.value !== document.formulario.contrasena1.value) {
+            if (document.formulario.usariopassword.value !== document.formulario.usariopassword1.value) {
                 error_contrasena1 = true;
                 $("#Modal3").modal("show");
-                mostrarError(document.formulario.contrasena1, <?php print json_encode(ERROR28); ?>);
+                mostrarError(document.formulario.usariopassword1, <?php print json_encode(ERROR28); ?>);
 
 
+            }
+        }
+        
+         if (document.formulario.usuarioemail.value === "") {
+            error_correo = true;
+            $("#Modal3").modal("show");
+            mostrarError(document.formulario.usuarioemail, <?php print json_encode(ERROR32); ?>);
+            return;
+        } else {
+            if (!document.formulario.correo.value.includes("@") || !document.formulario.usuarioemail.value.includes(".")) {
+                error_correo = true;
+                $("#Modal3").modal("show");
+                mostrarError(document.formulario.usuarioemail, <?php print json_encode(ERROR12); ?>);
+                return;
             }
         }
 
