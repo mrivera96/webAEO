@@ -121,18 +121,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
     </form>
 
 </div>
-<script>
-    if (nombre_usuario === false &&
-            password === false
-            )
-    {
-        document.login.submit();
 
-        $("#Modal1").modal('show');
-
-        return;
-    }
-</script>
 
 
 <?php
