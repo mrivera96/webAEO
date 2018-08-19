@@ -91,7 +91,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['activi
                         
                          
 
-                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjOpSe_s3D6bX5abrOcQ5Yg8GGmUdhQn8&callback=initMap"
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEOxwsMZ7J9V7kqTr82JflRNORJchV4mM&callback=initMap"
                          type="text/javascript"></script>
                         
                         <script type="text/javascript">
@@ -131,7 +131,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['activi
 
                             </script> 
                             <body onload="initialize()">
-                                <div id="map_canvas" style="width:100%; height:200px"></div><br> 
+                                <div id="map_canvas" style="width:100%; height:220px"></div><br> 
 
                             </body
 
