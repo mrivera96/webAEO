@@ -97,10 +97,8 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
             <span class="bar"></span>
             <label ><span class="glyphicon glyphicon-lock"></span> Password</label>
         </div>
-        <div class="container">
-            <div class="row">
-                <a href="recuperar_clave.php"> ¿olvidastes tu contraseña?<a>          
-            </div>
+        <div>
+         <a href="recuperar_clave.php"> ¿olvidastes tu contraseña?<a>          
         </div>
         <br>
         <button id="btn-card"  class="btn btn-lg btn-block"  type="submit" value="Enviar"  style=" background-color: #005662; color:white;">Ingresar</button>
@@ -135,67 +133,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
         return;
     }
 </script>
-<script>
-    function mostrarError(componente, error) {
 
-        $("#login").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
-                '<div class="modal-dialog" role="document">' +
-                '<div class="modal-content">' +
-                '<div class="modal-header">' +
-                '<h5 class="modal-title"><span class="glyphicon glyphicon-remove-circle"></span> Error al ingresar un usuario.</h5>' +
-                '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
-                '<span aria-hidden="true">&times;</span>' +
-                '</button>' +
-                '</div>' +
-                ' <div class="modal-body">' +
-                '<p>' + error + '</p>' +
-                '</div>' +
-                '<div class="modal-footer">' +
-                '<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>');
-        $("#Modal3").modal("show");
-        $('#Modal3').on('hidden.bs.modal', function () {
-            componente.focus();
-            $("#Modal3").detach();
-        });
-
-    }
-
-
-    function validarFormulario() {
-
-        var error_nomUsuario = false;
-        var error_nomPropio = false;
-
-        if (document.login.nombre_usuario === "") {
-            error_nomUsuario = true;
-            mostrarError(document.login.nombre_usuario, "Debe ingresar un nombre de usuario.");
-            return;
-        }
-        if (document.login.nombre_propio.value === "") {
-            error_nomPropio = true;
-            $("#Modal3").modal("show");
-            mostrarError(document.login.password, "Debe ingresar la contraseña");
-            return;
-        }
-
-
-        if (error_nomUsuario === false &&
-                error_nomPropio === false) {
-            document.formulario.submit();
-            $("#Modal1").modal('show');
-
-            return;
-
-
-        }
-
-
-    }
-</script>
 
 <?php
 include_once 'plantillas/documento-cierre.inc.php';
