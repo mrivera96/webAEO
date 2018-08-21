@@ -39,7 +39,7 @@ $busquedas = null;
                     <option value="3">Danlí</option>
                 </select>              
             </div>
-            <div  id="separador"class="col-md-4 col-ms-4  ">
+            <div  id="separador"class="col-md-5 col-ms-5  ">
 
                     <input id="busqueda" type="text" class="form-control" name="busqueda"  placeholder="Contacto a buscar"
                            required oninvalid="setCustomValidity('Ingrese la busqueda.')" oninput="setCustomValidity('')">
@@ -47,9 +47,9 @@ $busquedas = null;
                
                
             </div>
-            <div class="col-md-2 col-ms-2">
+            <div  class="col-md-1 col-ms-1">
 
-                <button id="separador"  type="submit" style="background-color:white; color: black" class="form-control btn btn-primary btn-buscar"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
+                <button class="form-control" id="separador"  type="submit" style="background-color:white; color: black " class=" btn btn-primary btn-buscar"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
 
                     </div>
 
