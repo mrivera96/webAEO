@@ -21,8 +21,9 @@ var loadData = function () {
         url: "consultarPerfilesParaAdministracionPerfiles.php",
         data: {'ste': '3'},
         success:function (data){
-        if(data!=="No hay resultados"){
-            var perfiles = JSON.parse(data);
+             var perfiles = JSON.parse(data);
+        if(perfiles!=="No hay resultados."){
+           
             var imagen;
 
 
