@@ -1,7 +1,7 @@
 <?php
 
 
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 
 
     if (isset($_GET["nombre_usuario"]) && isset($_GET["contrasena"])) {

@@ -1,6 +1,6 @@
 <?php
  
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 
 
 if (isset($_POST["id_usuario"])) {
