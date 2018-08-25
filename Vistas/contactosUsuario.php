@@ -115,7 +115,7 @@ include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
     ?>
     <?php
 } else {
-    header('Location: ../webaeo');
+    header('Location: /webaeo');
 }
 ?>
 

@@ -28,10 +28,10 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
             $_SESSION['normal'] = $results['rol'];
             $_SESSION['actividad'] = $results['estado_usuario'];
             if ($results['rol'] == 2 && $results['estado_usuario'] == 1) {
-                header('Location: /webaeo/contactosUsuario.php');
+                header('Location: /webaeo/Vistas/contactosUsuario.php');
             }
             if ($results['rol'] == 1 && $results['estado_usuario'] == 1) {
-                header("Location: /webaeo/mostrar_usuarios.php");
+                header("Location: /webaeo/Vistas/mostrar_usuarios.php");
             }
             if (($results['rol'] == 1 && $results['estado_usuario'] == 2) || ($results['rol'] == 2 && $results['estado_usuario'] == 2)) {
                 $message = 'Usuario o contraseña Incorrecta ';
