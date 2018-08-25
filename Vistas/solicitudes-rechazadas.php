@@ -1,11 +1,11 @@
 <?php
 session_start();
 $titulo="Solicitudes Rechazadas";
-include_once 'plantillas/documento-inicio.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
 if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1) {
     ?>
 
-    <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
+    <head><link href="../css/estilos_melvin.css" rel="stylesheet"></head>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -16,8 +16,8 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button> 
-                <a  href="index.php"><img class="btn-card" src="imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
-                <a class="navbar-brand" href="index.php"><strong>Agenda Electrónica Oriental</strong></a> 
+                <a  href="../index.php"><img class="btn-card" src="../imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
+                <a class="navbar-brand" href="../index.php"><strong>Agenda Electrónica Oriental</strong></a> 
             </div>
             <div id="navbar" class="navbar-collapse collapse">
 
@@ -51,11 +51,11 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
 
         </div>                    
     </div>
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="js/solicitudesRechazadas.js"></script>   
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/solicitudesRechazadas.js"></script>   
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
     <?php
 } else {

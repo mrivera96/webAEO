@@ -26,7 +26,7 @@ search.addEventListener("keyup", function(e){
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarPerfilesParaAdministracionPerfiles.php",
+        url: "../WebServices/consultarPerfilesParaAdministracionPerfiles.php",
         data: {'ste': '1'},
         success: function (data) {
             var perfiles = JSON.parse(data);
@@ -54,8 +54,8 @@ var loadData = function () {
                             '<p>Usuario Propietario:</p>' +
                             '<p>' + perfiles[i].nombre_usuario + '</p>' +
                             '<input type="hidden" id="id" name="id" value=' + perfiles[i].id_contacto + '/>' +
-                            '<button type="button" id="aceptar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'aceptarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + '},success:function(){}}); })()" data-toggle="modal" data-target="#Modal" class="btn btn-primary">Aceptar</button>'+
-                            '<button type="button" id="rechazar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'rechazarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + '},success:function(){}}); })()" data-toggle="modal" data-target="#Modal1" class="btn btn-secondary">Rechazar</button>' +
+                            '<button type="button" id="aceptar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'../WebServices/aceptarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + '},success:function(){}}); })()" data-toggle="modal" data-target="#Modal" class="btn btn-primary">Aceptar</button>'+
+                            '<button type="button" id="rechazar" onclick="javascript:(function() { $.ajax({type:\'GET\',url: \'../WebServices/rechazarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + '},success:function(){}}); })()" data-toggle="modal" data-target="#Modal1" class="btn btn-secondary">Rechazar</button>' +
                             '</div>' +
                             '</div>' +
                             '<hr style="margin-left:140px"/>' +
