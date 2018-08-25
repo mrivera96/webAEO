@@ -1,6 +1,6 @@
 <?php
  
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 $id_estado=2;
 $id_stado=1;
 

@@ -1,11 +1,11 @@
 <?php
-include_once 'ConexionABaseDeDatos.php';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../config/ConexionABaseDeDatos.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
 
-<script src="js/jquery-2.2.4.min.js"></script>
-<link href="css/estilos_alan.css" rel="stylesheet">
+<script src="../js/jquery-2.2.4.min.js"></script>
+<link href="../css/estilos_alan.css" rel="stylesheet">
 
  <div id="estilo-contenedor-textocategoria"class="container">
     <div class="row"  id="fila"  >
@@ -34,7 +34,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                 {
                     $.ajax({
                         type: "get",
-                        url: "mostrar_perfil.php",
+                        url: "../WebServices/mostrar_perfil.php",
                         data: {'id_contacto':<?php echo $_GET['numct'] ?>}
                     }).done(function (data)
                     {
@@ -103,5 +103,5 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
     </body>
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>

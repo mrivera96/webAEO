@@ -1,16 +1,16 @@
 <?php
 $titulo = 'Contactos';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
  if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <head>
-        <link href="css/estiloslogin.css" rel="stylesheet">
-        <link href="css/estilos_melvin.css" rel="stylesheet"
+        <link href="../css/estiloslogin.css" rel="stylesheet">
+        <link href="../css/estilos_melvin.css" rel="stylesheet"
     </head>
 
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="../js/jquery-2.2.4.min.js"></script>
 <div class="container" id="">
         <div class="row" style="margin-top: 10px;" id="contedidodecategoriascontacto">
             <div class="row">
@@ -26,7 +26,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                 </div>
                 <div class="coll">
                     <center>
-                        <img src="imagenes/contactopendiente.jpg" height="200px" class="img-fluid imagenAcercadeWeb " alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
+                        <img src="../imagenes/contactopendiente.jpg" height="200px" class="img-fluid imagenAcercadeWeb " alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
                     </center>
                 </div>
                 <div class="panel-body">
@@ -48,7 +48,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                 </div>
                 <div class="coll">
                     <center>
-                        <img class="card-img-top" height="200px" src="imagenes/contactoaprovado.jpg" alt="Imagen no Disponible">
+                        <img class="card-img-top" height="200px" src="../imagenes/contactoaprovado.jpg" alt="Imagen no Disponible">
                    </center>
                 </div>
                 <div class="panel-body">
@@ -111,11 +111,11 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
     </a>
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
     <?php
 } else {
-    header('Location: /webaeo');
+    header('Location: ../webaeo');
 }
 ?>
 

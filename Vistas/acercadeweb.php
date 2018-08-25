@@ -1,9 +1,9 @@
 <?php
 $titulo = 'Acerca de....';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 ?>
-<link href="css/estilos_alan.css" rel="stylesheet">
+<link href="../css/estilos_alan.css" rel="stylesheet">
 
 
 
@@ -21,7 +21,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                 </div>
                 <div class="coll">
                     <center>
-                        <img src="imagenes/aeo.png" height="200px" class="img-fluid imagenAcercadeWeb " alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
+                        <img src="../imagenes/aeo.png" height="200px" class="img-fluid imagenAcercadeWeb " alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
                     </center>
                 </div>
                 <div class="panel-body">
@@ -52,7 +52,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                 </div>
                 <div class="coll">
                     <center>
-                        <img src="imagenes/webeverLogo.png"height="200px" class="img-fluid imagenAcercadeWeb" alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
+                        <img src="../imagenes/webeverLogo.png"height="200px" class="img-fluid imagenAcercadeWeb" alt="Imagen no Disponible" title="Imagen Agenda Electronica Digital" >
                     </center>
                 </div>
                 <div class="panel-body">
@@ -70,5 +70,5 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>

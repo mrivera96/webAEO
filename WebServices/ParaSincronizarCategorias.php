@@ -1,7 +1,7 @@
 <?php   
   include 'Errores.inc.php';
 
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
  if (isset($_GET['estados'])) {
     $id_estado = $_GET['estados'];
 $query ="SELECT A.* ,COUNT(C.id_estado) as coun FROM categorias AS A JOIN contactos AS C ON A.id_categoria=C.id_categoria WHERE C.id_estado= ? GROUP BY A.id_categoria";

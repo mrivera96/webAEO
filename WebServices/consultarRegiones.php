@@ -1,5 +1,5 @@
 <?php
- include 'ConexionABaseDeDatos.php';
+ include '../config/ConexionABaseDeDatos.php';
 
  
 $query="select * from regiones";

@@ -1,7 +1,7 @@
 <?php
  
-include 'ConexionABaseDeDatos.php';
-include_once 'Errores.inc.php';
+include '../config/ConexionABaseDeDatos.php';
+include_once '../config/Errores.inc.php';
 if(isset($_POST['ste'])){
     $id_estado=$_POST['ste'];
     

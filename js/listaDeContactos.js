@@ -26,7 +26,7 @@ var loadData = function () {
     $.ajax({
 
         type: "get",
-        url: "listarPerfiles.php",
+        url: "../WebServices/listarPerfiles.php",
         data: {'ctg': cty}
     }).done(function (data) {
 
