@@ -97,9 +97,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
             <span class="bar"></span>
             <label ><span class="glyphicon glyphicon-lock"></span> Password</label>
         </div>
-        <div>
-         <a href="recuperar_clave.php"> ¿olvidastes tu contraseña?<a>          
-        </div>
+        
         <br>
         <button id="btn-card"  class="btn btn-lg btn-block"  type="submit" value="Enviar"  style=" background-color: #005662; color:white;">Ingresar</button>
 
