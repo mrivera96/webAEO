@@ -6,7 +6,7 @@
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarContactosPendientes.php",
+        url: "../WebServices/consultarContactosPendientes.php",
         data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
     }).done(function (data) {
         if(data !== "No hay resultados"){

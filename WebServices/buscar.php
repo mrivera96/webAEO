@@ -1,5 +1,5 @@
 <?php
-include_once 'ConexionABaseDeDatos.php';
+include_once '../config/ConexionABaseDeDatos.php';
 $busqueda = $_GET['busqueda'];
 
 $categoria=$_GET['categoria'];

@@ -21,7 +21,7 @@ var cto = $_GET('cto');
     {
         $.ajax({
             type: "get",
-            url: "mostrar_perfil.php",
+            url: "../WebServices/mostrar_perfil.php",
             data: {'id_contacto':cto}
         }).done(function (data)
         {
@@ -87,7 +87,7 @@ var cto = $_GET('cto');
                         );
                 
                  /************************************************************************************************/
-                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="mapa.php?numct='+informacionContacto[i].id_contacto+'">' +
+                 $("#ubicacion").append('<a class="enlaces_de_listas_contactos float" href="../Vistas/mapa.php?numct='+informacionContacto[i].id_contacto+'">' +
                                     '<i class="glyphicon glyphicon-map-marker my-float"></i>'+' </a>'
                  );
          

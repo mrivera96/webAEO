@@ -1,13 +1,13 @@
 <?php
 $titulo = 'Formulario Registro '; 
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id'])) {
     
 ?>
 <head>
-    <link href="css/nuevoperfil.css" rel="stylesheet">
-    <link href="css/estilos_melvin.css" rel="stylesheet">
+    <link href="../css/nuevoperfil.css" rel="stylesheet">
+    <link href="../css/estilos_melvin.css" rel="stylesheet">
 </head>
 
 <div class="container responsive">
@@ -21,7 +21,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
 
                 <div class="panel-body">
-                    <form id="formularioCrear" name="formularioCrear" role="form" method="post" action="insertarPerfilUsuario.php" target="formDestination">
+                    <form id="formularioCrear" name="formularioCrear" role="form" method="post" action="../WebServices/insertarPerfilUsuario.php" target="formDestination">
 <br/>
                         <div class="group">   
                             <input type="text" required name="nomborg_rec" id="nombreOrg">
@@ -184,17 +184,17 @@ if (isset($_SESSION['user_id'])) {
 </div>
 <br>
 
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/vrcontactocrear.js"></script>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script src="../js/vrcontactocrear.js"></script>
 
 
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>
 
 <?php
    } else {
-       header('Location: /webaeo');
+       header('Location: ../webaeo');
     }
 ?>

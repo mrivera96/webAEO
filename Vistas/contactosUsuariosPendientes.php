@@ -1,16 +1,16 @@
 <?php
 $titulo = 'Contactos Pendientes';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
  if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <head>
-        <link href="css/estiloslogin.css" rel="stylesheet">
-        <link href="css/estilos_melvin.css" rel="stylesheet">
+        <link href="../css/estiloslogin.css" rel="stylesheet">
+        <link href="../css/estilos_melvin.css" rel="stylesheet">
     </head>
 
-    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="../js/jquery-2.2.4.min.js"></script>
 
     <div class="container" id="contenedor_perfiles">
         <div class="row" style="margin-top: 10px;" id="contenedorContacto">
@@ -28,7 +28,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarContactosPendientes.php",
+        url: "../WebServices/consultarContactosPendientes.php",
         data: {'id_usuario':<?php echo $_SESSION['user_id'] ?>}
     }).done(function (data) {
         if(data !== "No hay resultados"){
@@ -88,11 +88,11 @@ var loadData = function () {
     </script> 
     
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
     <?php
 } else {
-    header('Location: /webaeo');
+    header('Location: ../webaeo');
 }
 ?>
 

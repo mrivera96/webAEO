@@ -1,7 +1,7 @@
 <?php
 
-require 'ConexionABaseDeDatos.php';
-require 'funcs/funcs.php';
+include '../config/ConexionABaseDeDatos.php';
+require '../funcs/funcs.php';
 
 $user_id= $con->real_escape_string($_POST['user_id']);
 $token= $con->real_escape_string($_POST['token']);
@@ -14,7 +14,7 @@ if(validaPassword($password,$con_password)){
     
     if(cambiaPassword($password,$user_id,$token)){
         echo "Contraseña modificada con éxito!";
-        echo "<br> <a href='login.php'>Iniciar Sesión</a>";
+        echo "<br> <a href='../Vistas/login.php'>Iniciar Sesión</a>";
     } else {
         echo 'Error al modificar la contraseña';
     }

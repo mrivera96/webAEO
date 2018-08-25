@@ -2,15 +2,15 @@
 
 $titulo = 'Formulario de Registro';
 session_start();
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/navbar_panel_de_control.inc.php';
-include_once 'Errores.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/navbar_panel_de_control.inc.php';
+include_once '../Errores.inc.php';
   if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
     ?>
 
 
-    <script src="js/jquery-2.2.4.min.js"></script> 
-    <link href="css/estilos_alan.css" rel="stylesheet">
+    <script src="../js/jquery-2.2.4.min.js"></script> 
+    <link href="../css/estilos_alan.css" rel="stylesheet">
 
     <div class="container" >
         <div class="row">
@@ -23,7 +23,7 @@ include_once 'Errores.inc.php';
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insercion_de_usuario.php" target="formDestination" >
+                        <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="../WebServices/insercion_de_usuario.php" target="formDestination" >
                             <div class="group">
                                 <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="usuarionombre">
                                 <span class="highlight"></span>
@@ -76,7 +76,7 @@ include_once 'Errores.inc.php';
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
-                                                        window.location.href = 'mostrar_usuarios.php';
+                                                        window.location.href = '../Vistas/mostrar_usuarios.php';
                                                     })()">Aceptar</button>
 
                                         </div>
@@ -128,7 +128,7 @@ include_once 'Errores.inc.php';
             $.ajax({
                 type: "GET",
 
-                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+                url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -148,7 +148,7 @@ include_once 'Errores.inc.php';
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
+                url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -245,7 +245,7 @@ include_once 'Errores.inc.php';
 
         $.ajax({
             type: "GET",
-            url: "consultar_los_roles.php"
+            url: "../WebServices/consultar_los_roles.php"
         }).done(function (data) {
             var roles = JSON.parse(data);
 
@@ -258,7 +258,7 @@ include_once 'Errores.inc.php';
 
     <?php
 
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
 
     <?php
