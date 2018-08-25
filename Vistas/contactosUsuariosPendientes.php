@@ -92,7 +92,7 @@ var loadData = function () {
     ?>
     <?php
 } else {
-    header('Location: ../webaeo');
+    header('Location: /webaeo');
 }
 ?>
 
