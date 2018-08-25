@@ -2,7 +2,7 @@
 $busquedas = null;
 ?>
 <script
-    src="/js/jquery-2.2.4.min.js"
+    src="../js/jquery-2.2.4.min.js"
 ></script>
 
 
