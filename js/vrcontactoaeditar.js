@@ -19,7 +19,7 @@ function $_GET(param) {
 var loadData = function () {
     $.ajax({
         type: "GET",
-        url: "consultarRegiones.php"
+        url: "../WebServices/consultarRegiones.php"
     }).done(function (data) {
         var regiones = JSON.parse(data);
 
@@ -30,7 +30,7 @@ var loadData = function () {
 
     $.ajax({
         type: "GET",
-        url: "consultarCategorias.php"
+        url: "../WebServices/consultarCategorias.php"
     }).done(function (data) {
         var categorias = JSON.parse(data);
 
@@ -43,7 +43,7 @@ var loadData = function () {
     var cto = $_GET('cto');
     $.ajax({
         type: "GET",
-        url: "consultarDatosDePerfilParaEditar.php",
+        url: "../WebServices/consultarDatosDePerfilParaEditar.php",
         data: {'cto': cto}
     }).done(function (data) {
 
