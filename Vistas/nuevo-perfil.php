@@ -1,10 +1,10 @@
 <?php
 $titulo = "Nuevo Perfil";
 session_start();
-include_once 'plantillas/documento-inicio.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
 if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1) {
     ?>
-    <head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
+    <head><link href="../css/estilos_melvin.css" rel="stylesheet"></head>
 
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -16,8 +16,8 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button> 
-                <a  href="index.php"><img class="btn-card" src="imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
-                <a class="navbar-brand" href="#"><strong>Agenda Electrónica Oriental</strong></a> 
+                <a  href="../index.php"><img class="btn-card" src="../imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
+                <a class="navbar-brand" href="../index.php"><strong>Agenda Electrónica Oriental</strong></a> 
             </div>
             <div id="navbar" class="navbar-collapse collapse">
 
@@ -27,8 +27,8 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
                     <li id="boton" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                         <ul id="despliege" class="dropdown-menu" role="menu">
-                            <li><a href="mostrar_usuarios.php"><img src="imagenes/administracioncuenta.jpg" height="15"> <strong>Administración de Cuenta</strong></a></li>
-                            <li><a href="administracion-de-perfiles.php"><img src="imagenes/administracionperfil.jpg" height="15"> Administración de Perfiles</a></li>
+                            <li><a href="mostrar_usuarios.php"><img src="../imagenes/administracioncuenta.jpg" height="15"> <strong>Administración de Cuenta</strong></a></li>
+                            <li><a href="administracion-de-perfiles.php"><img src="../imagenes/administracionperfil.jpg" height="15"> Administración de Perfiles</a></li>
                         </ul>
                     </li>
 
@@ -214,13 +214,13 @@ if (isset($_SESSION['user_id'])&& $_SESSION['normal'] == 1 && $_SESSION['activid
     </div>
     <br>
 
-    <script src="js/jquery-2.2.4.min.js"></script>
-    <script src="js/nuevoPerfil.js"></script>
+    <script src="../js/jquery-2.2.4.min.js"></script>
+    <script src="../js/nuevoPerfil.js"></script>
 
 
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
 
     <?php

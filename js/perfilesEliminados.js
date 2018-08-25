@@ -26,7 +26,7 @@ $(document).on("ready", function () {
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarPerfilesParaAdministracionPerfiles.php",
+        url: "../WebServices/consultarPerfilesParaAdministracionPerfiles.php",
         data: {'ste': '4'},
         success:function (data){
             var perfiles = JSON.parse(data);
