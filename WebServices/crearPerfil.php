@@ -1,7 +1,7 @@
 <?php
  
- include 'ConexionABaseDeDatos.php';
- include_once 'Errores.inc.php';
+ include '../config/ConexionABaseDeDatos.php';
+ include_once '../config/Errores.inc.php';
  
 $error_nomb=false;
 $error_tel=false; 
