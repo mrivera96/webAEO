@@ -1,6 +1,6 @@
 <?php
  
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 include 'Errores.inc.php';
 
  if(isset($_GET["usuario"])){

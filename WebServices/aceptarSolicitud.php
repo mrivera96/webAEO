@@ -1,5 +1,5 @@
 <?php
- include 'ConexionABaseDeDatos.php';
+ include '../config/ConexionABaseDeDatos.php';
 
 
  if(isset($_GET["cto"])){

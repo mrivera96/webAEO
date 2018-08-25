@@ -1,15 +1,15 @@
 <?php
 $titulo = 'Edición de Cuenta';
 session_start();
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/navbar_panel_de_control.inc.php';
-include_once 'Errores.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/navbar_panel_de_control.inc.php';
+include_once '../Errores.inc.php';
 
   if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
     ?>
 
-    <script src="js/jquery-2.2.4.min.js"></script> 
-    <link href="css/estilos_alan.css" rel="stylesheet">
+    <script src="../js/jquery-2.2.4.min.js"></script> 
+    <link href="../css/estilos_alan.css" rel="stylesheet">
 
     <div class="container">
         <div class="row">
@@ -22,7 +22,7 @@ include_once 'Errores.inc.php';
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <form  name="formulario_editar" id="editar_usuarios" role="form" method="post" action="actualizacion_de_un_usuario.php" target="formDestination" >
+                        <form  name="formulario_editar" id="editar_usuarios" role="form" method="post" action="../WebServices/actualizacion_de_un_usuario.php" target="formDestination" >
 
 
                             <div class="group">
@@ -90,7 +90,7 @@ include_once 'Errores.inc.php';
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
-                                                            window.location.href = 'mostrar_usuarios.php';
+                                                            window.location.href = '../Vistas/mostrar_usuarios.php';
                                                         })()">Aceptar</button>
 
                                         </div>
@@ -141,7 +141,7 @@ include_once 'Errores.inc.php';
             $.ajax({
                 type: "GET",
 
-                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+                url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -159,7 +159,7 @@ include_once 'Errores.inc.php';
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
+                url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -245,7 +245,7 @@ include_once 'Errores.inc.php';
 
             $.ajax({
                 type: "GET",
-                url: "Mostar_Los_Usuarios_Editados.php",
+                url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
                 data: {'usuario':<?php echo $_GET['usuario'] ?>}
             }).done(function (data)
             {
@@ -283,13 +283,13 @@ include_once 'Errores.inc.php';
         function myFunction() {
             $.ajax({
                 type: "POST",
-                url: "eliminacion_de_un_usuario.php",
+                url: "../WebServices/eliminacion_de_un_usuario.php",
                 data: {'usuario':<?php echo $_GET['usuario'] ?>}
             });if
                 (<?php echo $_SESSION['user_id']?>== <?php echo $_GET['usuario'] ?>) {
-                    window.location.href = 'cerrarSessionLogin.php';
+                    window.location.href = '../config/cerrarSessionLogin.php';
             }else{
-                 window.location.href = 'mostrar_usuarios.php';
+                 window.location.href = '../Vistas/mostrar_usuarios.php';
             }
 
            
@@ -299,7 +299,7 @@ include_once 'Errores.inc.php';
 
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
 
     <?php

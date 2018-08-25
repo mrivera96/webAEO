@@ -12,8 +12,8 @@ $error_contacto=false;
 $error_lat = false;
 $error_long = false;
 
- include 'ConexionABaseDeDatos.php';
- include_once 'Errores.inc.php';
+ include '../config/ConexionABaseDeDatos.php';
+ include_once '../config/Errores.inc.php';
  
  if(!isset($_POST['lat_rec'])){
     $error_lat=true;

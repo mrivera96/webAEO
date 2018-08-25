@@ -1,7 +1,7 @@
 <?php
 
-include 'ConexionABaseDeDatos.php';
- include 'Errores.inc.php';
+include '../config/ConexionABaseDeDatos.php';
+ include '../config/Errores.inc.php';
 
 if (isset($_GET["verificaemail"])) {
     $corre = $_GET['verificaemail'];
