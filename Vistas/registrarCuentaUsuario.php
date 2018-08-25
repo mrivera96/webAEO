@@ -1,8 +1,8 @@
 <?php
 $titulo = 'Formulario de  Registro';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-include 'Errores.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
+include '../config/Errores.inc.php';
 ?>
 
 <head>
@@ -22,7 +22,7 @@ include 'Errores.inc.php';
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="insertarUsuarioCliente.php" target="formDestination" >
+                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="../WebServices/insertarUsuarioCliente.php" target="formDestination" >
 
                         <div class="group">
                             <input id="nombre_propio" type="text" required name="usuariopropio">
@@ -126,7 +126,7 @@ include 'Errores.inc.php';
         $.ajax({
             type: "GET",
 
-             url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+             url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -143,7 +143,7 @@ include 'Errores.inc.php';
         $.ajax({
             type: "GET",
 
-           url: "verificar_email.php?verificaemail=" + $('#correo').val(),
+           url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -235,7 +235,7 @@ include 'Errores.inc.php';
 
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>
 
 
