@@ -6,9 +6,9 @@ include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 //session_start();
 if (isset($_SESSION['user_id'])) {
     if (($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
-        header('Location: /webaeo/contactosUsuario.php');
+        header('Location: /webaeo/Vistas/contactosUsuario.php');
     } else if (($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
-        header('Location: /webaeo/mostrar_usuarios.php');
+        header('Location: /webaeo/Vistas/mostrar_usuarios.php');
     } else {
         $message = 'Usuario o Contraseña incorrectas ';
     }
