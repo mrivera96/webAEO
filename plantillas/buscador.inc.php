@@ -2,7 +2,7 @@
 $busquedas = null;
 ?>
 <script
-    src="/js/jquery-2.2.4.min.js"
+    src="../js/jquery-2.2.4.min.js"
 ></script>
 
 
@@ -10,7 +10,7 @@ $busquedas = null;
 
 
     <div class="form-group" >
-        <form role="form" method="get" action="resultado_busqueda.php" >
+        <form role="form" method="get" action="../Vistas/resultado_busqueda.php" >
 
 
             <div id="separador" class="col-md-3 col-ms-3 ">
