@@ -18,8 +18,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button> 
-                    <a  href="index.php"><img class="btn-card" src="imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
-                    <a class="navbar-brand" href="index.php"><strong>Agenda Electrónica Oriental</strong></a> 
+                    <a  href="../index.php"><img class="btn-card" src="../imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
+                    <a class="navbar-brand" href="../index.php"><strong>Agenda Electrónica Oriental</strong></a> 
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
