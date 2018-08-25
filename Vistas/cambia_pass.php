@@ -2,19 +2,19 @@
 
 $titulo="Recuperacion de contraseña";
 
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 
-require 'ConexionABaseDeDatos.php';
-require 'funcs/funcs.php';
+require '../config/ConexionABaseDeDatos.php';
+require '../funcs/funcs.php';
 
 if(empty($_GET['user_id'])){
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 
 
 if(empty($_GET['token'])){
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 
 $user_id= $con->real_escape_string($_GET['user_id']);
@@ -63,6 +63,6 @@ if(!verificaTokenPass($user_id,$token))
 </div>
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>
 
