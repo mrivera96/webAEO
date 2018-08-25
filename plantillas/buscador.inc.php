@@ -47,9 +47,9 @@ $busquedas = null;
                
                
             </div>
-            <div  class="col-md-1 col-ms-1">
+            <div class="col-md-1 col-ms-1">
 
-                <button class="form-control" id="separador"  type="submit" style="background-color:white; color: black " class=" btn btn-primary btn-buscar"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
+                <button id="separador"  type="submit" style="background-color:white; color: black" class="form-control btn btn-primary btn-buscar"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
 
                     </div>
 
