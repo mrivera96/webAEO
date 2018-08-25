@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left ">
             <div  class="col-xs-6 col-sm-6 col-md-4" >
-                <a  href="acercadeweb.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
+                <a  href="../Vistas/acercadeweb.php"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> <strong class="opcion coloremail">Acerca de Desarrolladores</strong></a> 
             </div>
 
             <div  class="col-xs-6 col-sm-6 col-md-4" >

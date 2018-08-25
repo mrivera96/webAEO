@@ -1,5 +1,5 @@
 <?php   
-  include 'Errores.inc.php';
+  include '../config/Errores.inc.php';
 
 include '../config/ConexionABaseDeDatos.php';
  if (isset($_GET['estados'])) {

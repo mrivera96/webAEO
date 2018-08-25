@@ -1,7 +1,7 @@
 <?php
  
 include '../config/ConexionABaseDeDatos.php';
-include 'Errores.inc.php';
+include '../config/Errores.inc.php';
 
  if(isset($_GET["usuario"])){
  $id_usua=$_GET['usuario'];
