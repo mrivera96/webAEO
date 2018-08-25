@@ -1,7 +1,7 @@
 <?php
 
 include '../config/ConexionABaseDeDatos.php';
-include 'Errores.inc.php';
+include '../config/Errores.inc.php';
 $flag = array();
 $error_nomUsuario = false;
 $error_nomPropio = false;
