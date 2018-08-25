@@ -35,7 +35,7 @@
                                 <li><a href="administracion-de-perfiles.php"><img src="../imagenes/administracionperfil.jpg" height="15"> <strong>Administración de Perfiles</strong></a></li>
                             </ul>
                         </li>
-                        <li> <a id="colorIniciosecion" href="cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> </a></li>
+                        <li> <a id="colorIniciosecion" href="../config/cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> </a></li>
                     </ul>
                 </div> 
             </div>   
