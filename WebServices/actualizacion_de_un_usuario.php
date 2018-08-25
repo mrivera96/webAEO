@@ -53,7 +53,7 @@ if ($error_nomUsuario === false &&
     $resultado = $con->prepare($query_search);
     $resultado->bind_param("sssi", $nombre_usua, $nombre_pro, $corr,  $id_usua);
     $resultado->execute();
-
+ print json_encode(ERROR13);
 } else {
     print json_encode(ERROR22);
 }
