@@ -1,13 +1,13 @@
 <?php
-    include_once 'ConexionABaseDeDatos.php';
-    include_once 'plantillas/documento-inicio.inc.php';
-    include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-    include_once 'plantillas/buscador.inc.php';
+    include_once '../config/ConexionABaseDeDatos.php';
+    include_once '../plantillas/documento-inicio.inc.php';
+    include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
+    include_once '../plantillas/buscador.inc.php';
 ?>
 <script
-    src="js/jquery-2.2.4.min.js"
+    src="../js/jquery-2.2.4.min.js"
  ></script>
-     <link href="css/estilos_alan.css" rel="stylesheet">
+     <link href="../css/estilos_alan.css" rel="stylesheet">
 
  <div id="estilo-contenedor-textocategoria"class="container">
     <div class="row"  id="fila"  >
@@ -27,7 +27,7 @@
                 var loadData = function(){
                           $.ajax({
                               type:"GET",
-                              url:"buscar.php",
+                              url:"../WebServices/buscar.php",
                               data: {'busqueda':'<?php echo $_GET['busqueda']?>','region':"<?php echo $_GET['region']?>",'categoria':"<?php echo $_GET['categoria']?>"}
                             }).done(function(data){
                                      
@@ -46,7 +46,7 @@
                                     }else{
                                         telefono=perfiles[i].numero_movil;
                                     };
-                                    $("#fila").append('<a href="PerfilOrganizacion.php?cto='+perfiles[i].id_contacto+'"><div class = "col-md-12">' +
+                                    $("#fila").append('<a href="Vistas/PerfilOrganizacion.php?cto='+perfiles[i].id_contacto+'"><div class = "col-md-12">' +
                                               '<div class="media">' +
                                               '<div class="media-left">' +
                                               '<img style="width:130px ; heigh:130px ;"  class="media-object img-circle" src='+ imagen+'> ' +
@@ -72,5 +72,5 @@
     </div>
   </div>
 <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
 ?>

@@ -1,7 +1,7 @@
 <?php
 $titulo = 'Acceder a la cuenta';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 
 //session_start();
 if (isset($_SESSION['user_id'])) {
@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
         $message = 'Usuario o Contraseña incorrectas ';
     }
 }
-require 'database.php';
+require '../config/database.php';
 if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 
     $records = $conn->prepare('SELECT id_usuario, nombre_usuario, contrasena,rol,estado_usuario FROM usuarios WHERE nombre_usuario = :nombre_usuario');
@@ -46,7 +46,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 }
 ?>
 <head>
-    <link href="css/estiloslogin.css" rel="stylesheet">
+    <link href="../css/estiloslogin.css" rel="stylesheet">
 </head>
 <?php
 //require 'partials/header.php';
@@ -72,7 +72,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 <div  class="container well" id="contenedor">
     <div class="row">
         <div class="col-xs-12">
-            <img src="imagenes/LoginUsuario.png" class="img-responsive" id="imagen">
+            <img src="../imagenes/LoginUsuario.png" class="img-responsive" id="imagen">
         </div>
         <p><h5>
             <strong><center style="color: #005662">   Acceder a la Cuenta</center></strong>
@@ -125,5 +125,5 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>

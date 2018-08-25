@@ -1,6 +1,6 @@
 <?php
 
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 
 if (isset($_GET["id_contacto"])) {
     $id_contacto = $_GET['id_contacto'];

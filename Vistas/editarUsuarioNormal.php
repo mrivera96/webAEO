@@ -1,14 +1,14 @@
 <?php
 $titulo = 'Edición de Cuenta';
 //session_start();
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 
  if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
     ?>
 
-    <script src="js/jquery-2.2.4.min.js"></script> 
-    <link href="css/estilos_alan.css" rel="stylesheet">
+    <script src="../js/jquery-2.2.4.min.js"></script> 
+    <link href="../css/estilos_alan.css" rel="stylesheet">
 
     <div class="container">
         <div class="row">
@@ -21,7 +21,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                         </h3>
                     </div>
                     <div class="panel-body">
-                        <form  name="formulario_editar" id="editar_usuarios" role="form" method="post" action="actualizacion_de_un_usuario.php" target="formDestination" >
+                        <form  name="formulario_editar" id="editar_usuarios" role="form" method="post" action="../WebServices/actualizacion_de_un_usuario.php" target="formDestination" >
 
 
                             <div class="group">
@@ -82,7 +82,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" onClick="javascript:(function () {
-                                                            window.location.href = 'cerrarSessionLogin.php';
+                                                            window.location.href = '../config/cerrarSessionLogin.php';
                                                         })()">Aceptar</button>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
         function escribiendoUsuario() {
             $.ajax({
                 type: "GET",
-                url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+                url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -118,7 +118,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
             $.ajax({
                 type: "GET",
 
-                url: "verificar_email.php?verificaemail=" + $('#correo').val(),
+                url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
             }).done(function (data) {
                 console.log(data);
                 if (data == 1) {
@@ -218,7 +218,7 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
 
             $.ajax({
                 type: "GET",
-                url: "Mostar_Los_Usuarios_Editados.php",
+                url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
                 data: {'usuario':<?php echo $_SESSION['user_id'] ?>}
             }).done(function (data)
             {
@@ -249,17 +249,17 @@ include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
         function myFunction() {
             $.ajax({
                 type: "POST",
-                url: "eliminacion_de_un_usuario.php",
+                url: "../WebServices/eliminacion_de_un_usuario.php",
                 data: {'usuario':<?php echo $_SESSION['user_id'] ?>}
             });
 
-            window.location.href = 'cerrarSessionLogin.php';
+            window.location.href = '../config/cerrarSessionLogin.php';
         }
     </script>
 
 
     <?php
-    include_once 'plantillas/documento-cierre.inc.php';
+    include_once '../plantillas/documento-cierre.inc.php';
     ?>
 
     <?php

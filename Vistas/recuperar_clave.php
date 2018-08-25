@@ -1,11 +1,11 @@
 <?php
-require 'funcs/funcs.php';
-require 'ConexionABaseDeDatos.php';
+require '../funcs/funcs.php';
+require '../config/ConexionABaseDeDatos.php';
 
 $titulo = 'Recuperación de contraseña';
 
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 
 $errors = array();
 
@@ -81,5 +81,5 @@ if (!empty($_POST)) {
 </html>	
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
 
 session_start();
  

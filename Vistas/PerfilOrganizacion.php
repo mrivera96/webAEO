@@ -1,16 +1,16 @@
 <?php
 $titulo = 'Perfil de Contacto';
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
-include_once 'plantillas/buscador.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/buscador.inc.php';
 ?>
 <head>
-    <link href="css/estilos_melvin.css" rel="stylesheet">
-    <link href="css/estilos.css" rel="stylesheet">
+    <link href="../css/estilos_melvin.css" rel="stylesheet">
+    <link href="../css/estilos.css" rel="stylesheet">
 </head>
 
-<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/perfilOrg.js"></script>
+<script type="text/javascript" src="../js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../js/perfilOrg.js"></script>
 
 <!--Contenedor Titulo de La organizacion-->
 <div id="encabezado_lista_contactos" class="container responsive" >
@@ -37,5 +37,5 @@ include_once 'plantillas/buscador.inc.php';
       
   </div>
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>
