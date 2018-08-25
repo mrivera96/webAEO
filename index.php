@@ -100,7 +100,7 @@ $busquedas = null;
 
 
     <div class="form-group" >
-        <form role="form" method="get" action="resultado_busqueda.php" >
+        <form role="form" method="get" action="Vistas/resultado_busqueda.php" >
 
 
             <div id="separador" class="col-md-3 col-ms-3 ">

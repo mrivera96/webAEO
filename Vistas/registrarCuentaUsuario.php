@@ -6,7 +6,7 @@ include '../config/Errores.inc.php';
 ?>
 
 <head>
-    <link href="css/estilos_alan.css" rel="stylesheet">
+    <link href="../css/estilos_alan.css" rel="stylesheet">
 </head>
 
 <h3 align="center">Registrar</h3><br>
