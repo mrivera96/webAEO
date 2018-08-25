@@ -27,7 +27,7 @@ $(document).on("ready", function () {
 var loadData = function () {
     $.ajax({
         type: "post",
-        url: "consultarPerfilesParaAdministracionPerfiles.php",
+        url: "../WebServices/consultarPerfilesParaAdministracionPerfiles.php",
         data: {'ste': '2'}
     }).done(function (data) {
 

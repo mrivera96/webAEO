@@ -1,11 +1,11 @@
 <?php
 
 $titulo="Edición de Perfil";
-include_once 'plantillas/documento-inicio.inc.php';
-include_once 'plantillas/barra-de-navegacion-navbar.inc.php';
+include_once '../plantillas/documento-inicio.inc.php';
+include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1) {
 ?>
-<head><link href="css/estilos_melvin.css" rel="stylesheet"></head>
+<head><link href="../css/estilos_melvin.css" rel="stylesheet"></head>
 <div class="container">
     <br/>
     <div class="row">
@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['activi
                 </div>
 
                 <div class="panel-body">
-                    <form id="formularioEditar" name="formularioEditar" role="form" method="post" action="actualizarPerfil.php" target="formDestination">
+                    <form id="formularioEditar" name="formularioEditar" role="form" method="post" action="../WebServices/actualizarPerfil.php" target="formDestination">
                         <div class="form-group text-center">
                             <img style="width: 250px; height: 250px" class="img-circle img-circle" id="imganenOrg">
                         </div><br><br>
@@ -199,12 +199,12 @@ if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['activi
 </div>
 <br>
 
-<script src="js/jquery-2.2.4.min.js"></script>
-<script type="text/javascript" src="js/EdicionPerfil.js"></script>
+<script src="../js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="../js/EdicionPerfil.js"></script>
 
 
 <?php
-include_once 'plantillas/documento-cierre.inc.php';
+include_once '../plantillas/documento-cierre.inc.php';
 ?>
 <?php
    } else {
