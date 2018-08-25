@@ -1,5 +1,5 @@
 <?php
- include 'ConexionABaseDeDatos.php';
+ include '../config/ConexionABaseDeDatos.php';
 
  
 $query="select nombre_categoria, id_categoria from categorias";

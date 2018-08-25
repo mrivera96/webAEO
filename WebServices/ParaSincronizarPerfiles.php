@@ -1,6 +1,6 @@
 <?php   
  
-include 'ConexionABaseDeDatos.php';
+include '../config/ConexionABaseDeDatos.php';
  
 $query ="SELECT c.*, r.nombre_region from contactos as c join regiones as r on c.id_region=r.id_region";
 
