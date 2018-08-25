@@ -93,7 +93,7 @@ include_once '../plantillas/documento-cierre.inc.php';
 ?>
 <?php
    } else {
-       header('Location: ../webaeo');
+       header('Location: /webaeo');
     }
 ?>
 

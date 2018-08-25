@@ -82,11 +82,11 @@ var loadData = function () {
 document.getElementById("eliminar").onclick = function () {
     $.ajax({
         type: "GET",
-        url: "eliminarPerfil.php",
+        url: "../WebServices/eliminarPerfil.php",
         data: {'cto': $_GET('cto')}
     });
 
-    window.location.href = 'contactosUsuario.php';
+    window.location.href = '/webaeo/Vistas/contactosUsuario.php';
 };
 
 
