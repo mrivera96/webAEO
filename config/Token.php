@@ -1,8 +1,8 @@
 <?php
-require_once './php-jwt-master/src/JWT.php';
-require_once './php-jwt-master/src/BeforeValidException.php';
-require_once './php-jwt-master/src/ExpiredException.php';
-require_once './php-jwt-master/src/SignatureInvalidException.php';
+require_once '../php-jwt-master/src/JWT.php';
+require_once '../php-jwt-master/src/BeforeValidException.php';
+require_once '../php-jwt-master/src/ExpiredException.php';
+require_once '../hp-jwt-master/src/SignatureInvalidException.php';
 
 
 use Firebase\JWT\JWT;
@@ -38,9 +38,9 @@ class Token{
     public static function generarToken($usr){
         include_once 'ConexionABaseDeDatos.php';
         
-        $query = "SELECT * FROM usuarios WHERE id_usuario = ?";
+        $query = "SELECT * FROM usuarios WHERE nombre_usuario = ?";
         $resultado = $con -> prepare($query);
-        $resultado -> bind_param("i", $usr);
+        $resultado -> bind_param("s", $usr);
         $resultado -> execute();
         $results = $resultado->get_result();
         $con -> close();
