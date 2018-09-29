@@ -2,7 +2,7 @@
 require_once '../php-jwt-master/src/JWT.php';
 require_once '../php-jwt-master/src/BeforeValidException.php';
 require_once '../php-jwt-master/src/ExpiredException.php';
-require_once '../hp-jwt-master/src/SignatureInvalidException.php';
+require_once '../php-jwt-master/src/SignatureInvalidException.php';
 
 
 use Firebase\JWT\JWT;
@@ -17,7 +17,7 @@ class Token{
     //Verifica la existencia de un token
     public static function existeToken($tkn){
 
-        include_once 'ConexionABaseDeDatos.php';
+        include 'ConexionABaseDeDatos.php';
 
 
         $existeTkn = "SELECT * FROM usuarios WHERE token = ?";
@@ -36,7 +36,7 @@ class Token{
 
     //Hace la consulta, genera y devuelve el token
     public static function generarToken($usr){
-        include_once 'ConexionABaseDeDatos.php';
+        include 'ConexionABaseDeDatos.php';
         
         $query = "SELECT * FROM usuarios WHERE nombre_usuario = ?";
         $resultado = $con -> prepare($query);
