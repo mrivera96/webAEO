@@ -2,7 +2,7 @@
 $titulo = 'Formulario Registro '; 
 include_once '../plantillas/documento-inicio.inc.php';
 include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
-if (isset($_SESSION['user_id'])) {
+if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
     
 ?>
 <head>
