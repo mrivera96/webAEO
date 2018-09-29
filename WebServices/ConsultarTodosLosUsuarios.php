@@ -2,7 +2,7 @@
 
 include '../config/ConexionABaseDeDatos.php';
 include '../config/Errores.inc.php';
-include '/../config/Token.php';
+include_once '../config/Token.php';
 
 if (isset($_POST['estado'])&&isset($_POST['tkn']) && !empty($_POST['tkn'])) {
                 
