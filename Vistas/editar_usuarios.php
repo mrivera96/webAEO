@@ -234,9 +234,6 @@ if (isset($_SESSION['user_id']) && ($_SESSION['normal'] == 1) && ($_SESSION['act
     </script>
 
 
-
-
-
     <script>
         $(document).on("ready", function () {
             loadData();

@@ -117,22 +117,7 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
         
         <button id="btn-card"  class="btn btn-lg btn-block"  type="button"  onclick="loguear()" style=" background-color: #005662; color:white;">Ingresar</button>
 
-       <!-- <div class="modal" id="Modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"><span class="glyphicon glyphicon-trash"></span> Usuario no Existe</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </div>-->
-
-
-    <form style="display: hidden" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST" id="form">
+          <form style="display: hidden" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST" id="form">
                             <input type="hidden" id="tkn" name="tkn" value=""/>
                             <input type="hidden" id="rol" name="rol" value=""/>
                             <input type="hidden" id="id" name="id" value=""/>
