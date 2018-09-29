@@ -1,11 +1,11 @@
 <?php
-  session_start();
-  $titulo="Administración de Perfiles";
-   include_once '../plantillas/documento-inicio.inc.php' ;
-    if (isset($_SESSION['user_id']) && $_SESSION['normal'] == 1 && $_SESSION['actividad'] == 1 ) {
-        
- ?>
-                        
+session_start();
+$titulo = "Administración de Perfiles";
+include_once '../plantillas/documento-inicio.inc.php';
+if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
+    if (isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+        ?>
+
         <head><link href="../css/estilos_melvin.css" rel="stylesheet"></head>
 
         <nav class="navbar navbar-default navbar-static-top">
@@ -42,46 +42,49 @@
 
         </nav>
 
-        
 
-            <div id="encabezado_contactos_activos" class="container">
-                <div class="col-md-9 col-sm-9 col-xs-9">
-                    
-                    <h4 style="color: white"><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i> Perfiles Activos</h4>
-                    
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-3 ">   
 
-                    <div class="inner-addon right-addon">
-                        <i class="glyphicon glyphicon-search"></i>      
-                        <input type="search" class="form-control" id="search">
-                    </div>                                                       
-                </div>
-            </div> 
-        
-        <div class="container" id="contenedor_perfiles">
-                
-                <div class="row" style="margin-top: 10px;" id="fila">
-                       
+        <div id="encabezado_contactos_activos" class="container">
+            <div class="col-md-9 col-sm-9 col-xs-9">
 
-                </div>  
-
-                <a href="nuevo-perfil.php" class="float">  
-                    <i class="glyphicon glyphicon-plus my-float"></i>
-                </a>
+                <h4 style="color: white"><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i> Perfiles Activos</h4>
 
             </div>
+            <div class="col-md-3 col-sm-3 col-xs-3 ">   
+
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-search"></i>      
+                    <input type="search" class="form-control" id="search">
+                </div>                                                       
+            </div>
+        </div> 
+
+        <div class="container" id="contenedor_perfiles">
+
+            <div class="row" style="margin-top: 10px;" id="fila">
+
+
+            </div>  
+
+            <a href="nuevo-perfil.php" class="float">  
+                <i class="glyphicon glyphicon-plus my-float"></i>
+            </a>
+
+        </div>
 
         <script src="../js/jquery-2.2.4.min.js"></script>                
         <script src="../js/administracionPerfiles.js"></script> 
         <?php
-            include_once '../plantillas/documento-cierre.inc.php';
+        include_once '../plantillas/documento-cierre.inc.php';
         ?>
 
-<?php
-   } else {
-       header('Location: /webaeo');
+        <?php
+    } else {
+        header('Location: /webaeo');
     }
+} else {
+    header('Location: /webaeo');
+}
 ?>
 
 
