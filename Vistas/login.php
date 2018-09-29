@@ -78,7 +78,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 <!--VALIDACION DE LOS CAMPOS DE INICIO DE SECCION-->
 <script>
     $("#btn-card").click(function () {
-        loguear()
+        loguear();
     });
     function mostrarError(componente, error) {
 
@@ -146,7 +146,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     $("#tkn").val(dataParse.token);
                     $("#rol").val(dataParse.rol);
                     $("#id").val(dataParse.idUrs);
-                    $("#estado").val(dataParse.ste);
+                    $("#stado").val(dataParse.ste);
 
 
                     $("#form").submit();
