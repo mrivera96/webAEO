@@ -1,7 +1,7 @@
 <?php
  include '../config/ConexionABaseDeDatos.php';
  include '../Errores.inc.php';
-
+include'../config/Token.php';
 
 $flag=array();
 
