@@ -271,7 +271,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
         <script>
             document.getElementById("id_eliminar").onclick = function () {
-                if (document.formulario_editar.id_usuario.value == 1) {
+                if (document.formulario_editar.usuario.value == 1) {
                     mostrarError(document.formulario_editar.id_eliminar, <?php print json_encode(ERROR33); ?>);
 
 
@@ -284,10 +284,10 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 $.ajax({
                     type: "POST",
                     url: "../WebServices/eliminacion_de_un_usuario.php",
-                    data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':<?php echo $_SESSION['token'] ?>}
+                    data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 });
                 if
-                        (<?php echo $_SESSION['token'] ?> == <?php echo $_GET['usuario'] ?>) {
+                        (<?php echo $_SESSION['idUrs'] ?> == <?php echo $_GET['usuario'] ?>) {
                     window.location.href = '../config/cerrarSessionLogin.php';
                 } else {
                     window.location.href = '../Vistas/mostrar_usuarios.php';
