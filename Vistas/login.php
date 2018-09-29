@@ -24,6 +24,8 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         header('Location: /webaeo/Vistas/mostrar_usuarios.php');
     } else {
         $message = 'Usuario o Contraseña incorrectas ';
+        
+
     }
 }
 ?>
@@ -153,7 +155,8 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     $("#form").detach();
 
                 } else {
-                    window.location.href = "../index.php";
+                     mostrarError(document.log.usern,<?php print json_encode(ERROR14); ?>);
+
                 }
 
             }
