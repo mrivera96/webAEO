@@ -412,7 +412,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                        error_desc === false &&
                        error_reg === false &&
                        error_cat === false) {
-                   document.formularioEditar.tkn.value=<?php echo $_SESSION['token']?>;
+                   document.formularioEditar.tkn.value="<?php echo $_SESSION['token']?>";
                    document.formularioEditar.submit();
                    $("#Modal1").modal('show');
 
