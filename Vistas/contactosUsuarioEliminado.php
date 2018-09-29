@@ -30,7 +30,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
             $.ajax({
             type: "post",
                     url: "../WebServices/consultarContactosEliminados.php",
-                    data: {'id_usuario':<?php echo $_SESSION['idUrs'] ?>, 'tkn':<?php echo $_SESSION['token'] ?>}
+                    data: {'id_usuario':<?php echo $_SESSION['idUrs'] ?>, 'tkn':"<?php echo $_SESSION['token'] ?>"}
             }).done(function (data) {
             var users = JSON.parse(data);
                     if (users == "El token recibido NO existe en la base de datos." || users == "Credenciales incorrectos"){

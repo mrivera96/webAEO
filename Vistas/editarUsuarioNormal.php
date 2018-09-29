@@ -250,7 +250,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 $.ajax({
                     type: "POST",
                     url: "../WebServices/eliminacion_de_un_usuario.php",
-                    data: {'usuario':<?php echo $_SESSION['idUrs'] ?>,'tkn':<?php echo $_SESSION['token'] ?>}
+                    data: {'usuario':<?php echo $_SESSION['idUrs'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 });
 
                 window.location.href = '../config/cerrarSessionLogin.php';
