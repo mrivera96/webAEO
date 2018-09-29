@@ -220,15 +220,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 $.ajax({
                 type: "GET",
                         url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
-                        data: {'usuario':<?php echo $_SESSION['idUrs'] ?>, 'tkn':<?php echo $_SESSION['token'] ?>}}
+                        data: {'usuario':<?php echo $_SESSION['idUrs'] ?>}
                 }).done(function (data)
                 {
-                var users = JSON.parse(data);
-                        if (users == "El token recibido NO existe en la base de datos." || users == "Credenciales incorrectos"){
-
-                } else if (users == "El Token ya expiró."){
-                document.getElementById("logout").click();
-                } else {
                 console.log(data);
                         var editar = JSON.parse(data);
                         for (var i in editar) {
