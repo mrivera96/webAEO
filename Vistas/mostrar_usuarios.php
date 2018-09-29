@@ -87,15 +87,12 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
             <i class="glyphicon glyphicon-plus my-float"></i>
         </a>
 
-
-
         <?php
 
         include_once '../plantillas/documento-cierre.inc.php';
         ?>
 
-
-        <?php
+       <?php
 
     } else {
         header('Location: /webaeo');
