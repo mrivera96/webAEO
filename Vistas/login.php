@@ -5,9 +5,6 @@ include_once '../plantillas/documento-inicio.inc.php';
 include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 include '../config/Errores.inc.php';
 
-
-
-
 if (isset($_POST['tkn']) && !empty($_POST['tkn'])) {
 
     if ($_POST['estado'] != 2) {
@@ -142,7 +139,6 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                 if (dataParse != "Credenciales incorrectos") {
 
-
                     $("#tkn").val(dataParse.token);
                     $("#rol").val(dataParse.rol);
                     $("#id").val(dataParse.idUrs);
@@ -162,10 +158,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         ;
 
         return;
-
-
     }
-
 
 </script>
 
