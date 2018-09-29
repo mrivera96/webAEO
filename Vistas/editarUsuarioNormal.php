@@ -223,8 +223,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         data: {'usuario':<?php echo $_SESSION['idUrs'] ?>}
                 }).done(function (data)
                 {
-                console.log(data);
-                        var editar = JSON.parse(data);
+                    var editar = JSON.parse(data);
                         for (var i in editar) {
 
 
