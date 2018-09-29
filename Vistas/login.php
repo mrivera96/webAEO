@@ -153,7 +153,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     $("#form").detach();
 
                 } else {
-                    window.location.href = "../index.php";
+            mostrarError(document.log.pass,<?php print json_encode(ERROR14); ?>);
                 }
 
             }
