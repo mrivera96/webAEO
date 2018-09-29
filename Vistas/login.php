@@ -1,6 +1,6 @@
 
  <?php
-$titulo = 'Acceder a la cuenta';
+  $titulo = 'Acceder a la cuenta';
 include_once '../plantillas/documento-inicio.inc.php';
 include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
 
@@ -13,7 +13,6 @@ include_once '../plantillas/barra-de-navegacion-navbar.inc.php';
         $_SESSION['idUrs'] = $_POST['id'];
         $_SESSION['rol'] = $_POST['rol'];
       }
-
 
     }
     if(isset($_SESSION['token']) && !empty($_SESSION['token'])){
@@ -87,8 +86,6 @@ if (!empty($_POST['nombre_usuario']) && (!empty($_POST['password']))) {
 
     </div> </p>
 <?php endif; ?>
-
-
 
 <div  class="container well" id="contenedor">
     <div class="row">

@@ -75,6 +75,7 @@ if (isset($_SESSION['user_id']) && ($_SESSION['normal'] == 1) && ($_SESSION['act
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--modal de insercion-->
                             <div class="modal" id="Modal1" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -242,7 +243,6 @@ if (isset($_SESSION['user_id']) && ($_SESSION['normal'] == 1) && ($_SESSION['act
         });
         var loadData = function ()
         {
-
             $.ajax({
                 type: "GET",
                 url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
