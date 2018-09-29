@@ -42,7 +42,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         <p><h5>
             <strong><center style="color: #005662">   Acceder a la Cuenta</center></strong>
         </h5></p>
-        <br>            
+        <br>
     </div>
     <form class="form" name="log" id="modal_login" method="POST">
         <div class="group">
@@ -74,7 +74,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
 </div>
 
-<script src="../js/jquery-2.2.4.min.js"></script> 
+<script src="../js/jquery-2.2.4.min.js"></script>
 <!--VALIDACION DE LOS CAMPOS DE INICIO DE SECCION-->
 <script>
     $("#btn-card").click(function () {
@@ -146,7 +146,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     $("#tkn").val(dataParse.token);
                     $("#rol").val(dataParse.rol);
                     $("#id").val(dataParse.idUrs);
-                    $("#estado").val(dataParse.ste);
+                    $("#stado").val(dataParse.ste);
 
 
                     $("#form").submit();

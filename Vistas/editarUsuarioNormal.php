@@ -8,7 +8,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
     if (isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol'] == 2) {
         ?>
 
-        <script src="../js/jquery-2.2.4.min.js"></script> 
+        <script src="../js/jquery-2.2.4.min.js"></script>
         <link href="../css/estilos_alan.css" rel="stylesheet">
 
         <div class="container">
@@ -18,7 +18,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     <div class="panel panel-default">
                         <div   class="panel-heading" style="height: 40px">
                             <h3 class="panel-title">
-                                <span class="glyphicon glyphicon-edit"></span>  Edición de Cuenta 
+                                <span class="glyphicon glyphicon-edit"></span>  Edición de Cuenta
                             </h3>
                         </div>
                         <div class="panel-body">
@@ -92,7 +92,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </form>
 
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
 
@@ -251,7 +251,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 $.ajax({
                     type: "POST",
                     url: "../WebServices/eliminacion_de_un_usuario.php",
-                    data: {'usuario':<?php echo $_SESSION['idUrs'] ?>,'tkn':<?php echo $_SESSION['token'] ?>}
+                    data: {'usuario':<?php echo $_SESSION['idUrs'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 });
 
                 window.location.href = '../config/cerrarSessionLogin.php';
