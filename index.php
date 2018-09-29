@@ -41,9 +41,11 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                  <?php
-                if (isset($_SESSION['user_id'])) {
-                    if (($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
-                        ?>
+
+        if(isset($_SESSION['token']) && !empty($_SESSION['token'])){
+          if(isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol']==2){
+            ?>
+                
                         <!--   header('Location: /webaeo/contactosUsuario.php');
                         } else if (($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
                             header('Location: /webaeo/mostrar_usuarios.php'); -->

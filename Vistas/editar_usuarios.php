@@ -5,7 +5,7 @@ include_once '../plantillas/documento-inicio.inc.php';
 include_once '../plantillas/navbar_panel_de_control.inc.php';
 include_once '../config/Errores.inc.php';
 
-  if (isset($_SESSION['user_id'])&&($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
+if (isset($_SESSION['user_id']) && ($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
     ?>
 
     <script src="../js/jquery-2.2.4.min.js"></script> 
@@ -45,11 +45,11 @@ include_once '../config/Errores.inc.php';
                                 <label>Correo</label>
                             </div>
 
-                <!-- <div class="group">                            <input id="contrasena" type="password" required="" name="contrasena" >
-                     <span class="highlight"></span>
-                     <span class="bar"></span>
-                     <label >Contraseña</label>
-                 </div>-->
+                        <!-- <div class="group">                            <input id="contrasena" type="password" required="" name="contrasena" >
+                             <span class="highlight"></span>
+                             <span class="bar"></span>
+                             <label >Contraseña</label>
+                         </div>-->
                             <!-- CUADRO MODAL DE ELIMINACION DE UN USUARIO-->
                             <iframe class="oculto"  name="formDestination"></iframe>
                             <button  type="button" onclick="validarFormulario()" id="btn" class="form-control"  name="Submit" style="width:100%; background-color:#005662; color:white;"> <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
@@ -75,6 +75,7 @@ include_once '../config/Errores.inc.php';
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--modal de insercion-->
                             <div class="modal" id="Modal1" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -233,24 +234,25 @@ include_once '../config/Errores.inc.php';
     </script>
 
 
-
-
-
     <script>
         $(document).on("ready", function () {
             loadData();
         });
         var loadData = function ()
         {
-
             $.ajax({
                 type: "GET",
                 url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
-                data: {'usuario':<?php echo $_GET['usuario'] ?>}
+                data: {'usuario':<?php echo $_GET['usuario'] ?>, 'tkn':<?php echo $_SESSION['token'] ?>}
             }).done(function (data)
             {
-                
-                var editar = JSON.parse(data);
+                var users = JSON.parse(data);
+                if (users == "El token recibido NO existe en la base de datos." || users == "Credenciales incorrectos") {
+
+                } else if (users == "El Token ya expiró.") {
+                    document.getElementById("logout").click();
+                } else{
+                    var editar = JSON.parse(data);
                 for (var i in editar) {
 
 
@@ -262,7 +264,7 @@ include_once '../config/Errores.inc.php';
                 }
             });
             $("#editar_usuarios").submit(function () {
-               
+
             });
         }
     </script>
@@ -276,23 +278,32 @@ include_once '../config/Errores.inc.php';
 
 
             } else {
-                    myFunction();
-                }
-                   };
+                myFunction();
+            }
+        };
 
         function myFunction() {
             $.ajax({
                 type: "POST",
                 url: "../WebServices/eliminacion_de_un_usuario.php",
-                data: {'usuario':<?php echo $_GET['usuario'] ?>}
-            });if
-                (<?php echo $_SESSION['user_id']?>== <?php echo $_GET['usuario'] ?>) {
-                    window.location.href = '../config/cerrarSessionLogin.php';
-            }else{
-                 window.location.href = '../Vistas/mostrar_usuarios.php';
+                data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':<?php echo $_SESSION['token'] ?>}
+            }).done(function (data)
+            {
+                var users = JSON.parse(data);
+                if (users == "El token recibido NO existe en la base de datos." || users == "Credenciales incorrectos") {
+
+                } else if (users == "El Token ya expiró.") {
+                    document.getElementById("logout").click();
+                } else{
+            });
+            if
+                    (<?php echo $_SESSION['user_id'] ?> == <?php echo $_GET['usuario'] ?>) {
+                window.location.href = '../config/cerrarSessionLogin.php';
+            } else {
+                window.location.href = '../Vistas/mostrar_usuarios.php';
             }
 
-           
+
         }
     </script>
 
