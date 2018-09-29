@@ -9,7 +9,8 @@ include '../config/Errores.inc.php';
     <link href="../css/estilos_alan.css" rel="stylesheet">
 </head>
 
-<h3 align="center">Registrar</h3><br>
+<h3 class="panel-title"> <strong><center style="color: #005662">   Registrar</center></strong><br></H3>
+
 
 <div class="container">
     <div class="row">
