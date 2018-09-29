@@ -220,7 +220,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 $.ajax({
                 type: "GET",
                         url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
-                        data: {'usuario':<?php echo $_SESSION['idUrs'] ?>}
+                        data: {'usuario':<?php echo $_SESSION['idUrs'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 }).done(function (data)
                 {
                 console.log(data);
