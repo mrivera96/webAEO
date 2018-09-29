@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 ?>
 <nav class="navbar navbar-default ">
     <div class="container">
@@ -17,26 +17,23 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                 <?php
-                if (isset($_SESSION['user_id'])) {
-                    if (($_SESSION['normal'] == 2) && ($_SESSION['actividad'] == 1)) {
+                <?php
+                if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
+                    if (isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol'] == 2) {
                         ?>
-                        <!--   header('Location: /webaeo/contactosUsuario.php');
-                        } else if (($_SESSION['normal'] == 1) && ($_SESSION['actividad'] == 1)) {
-                            header('Location: /webaeo/mostrar_usuarios.php'); -->
-                           <li id="boton" class="dropdown">
+                        <li id="boton" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                             <ul id="despliege"class="dropdown-menu" role="menu">
                                 <li> <a id = "colorIniciosecion" href = "../Vistas/login.php"><img src="../imagenes/config.png" height="15"></img> <strong>Panel de Control </strong></a></li>
                                 <li><a href="../Vistas/editarUsuarioNormal.php"><img src="../imagenes/administracioncuenta.jpg" height="15"></img> <strong>Edición de Cuenta</strong></a></li>
                             </ul>
                         </li>
-                          <li> <a id="colorIniciosecion" href="../config/cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
-                          
+                        <li> <a id="colorIniciosecion" href="../config/cerrarSessionLogin.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <strong>Cerrar Sesión</strong></a></li>
+
                         <?php
                     } else {
                         ?><li id="boton" class="dropdown">
-                            <!--<a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control</strong></a>-->
+          <!--<a id = "colorIniciosecion" href = "login.php"><span class = "glyphicon glyphicon-cog" aria-hidden = "true"></span> <strong>Panel de Control</strong></a>-->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <strong>Panel de Control</strong><span class="caret"></span></a>
                             <ul id="despliege"class="dropdown-menu" role="menu">
                                 <li><a href="../Vistas/mostrar_usuarios.php"><img src="../imagenes/administracioncuenta.jpg" height="15"></img> <strong>Administración de Cuenta</strong></a></li>
@@ -52,13 +49,12 @@
                     <?php
                 } else {
                     ?>
-                        <li> <a id = "colorIniciosecion" href = "../Vistas/login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Iniciar Sesión</strong></a></li>
-                        <li> <a id = "colorIniciosecion" href = "../Vistas/registrarCuentaUsuario.php"><span class = "glyphicon glyphicon-plus" aria-hidden = "true"></span> <strong>Registrarse</strong></a></li>
-                <?php
-                }
-                ?>   <!--va iniciar secion o registrarce -->
+                    <li> <a id = "colorIniciosecion" href = "../Vistas/login.php"><span class = "glyphicon glyphicon-log-in" aria-hidden = "true"></span> <strong>Iniciar Sesión</strong></a></li>
+                    <li> <a id = "colorIniciosecion" href = "../Vistas/registrarCuentaUsuario.php"><span class = "glyphicon glyphicon-plus" aria-hidden = "true"></span> <strong>Registrarse</strong></a></li>
+                        <?php
+                    }
+                    ?>   <!--va iniciar secion o registrarce -->
             </ul>
         </div> 
     </div>   
-
 </nav>
