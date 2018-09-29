@@ -66,7 +66,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         $.ajax({
                             type: "POST",
                             url: "../WebServices/ConsultarTodosLosUsuarios.php",
-                            data: {'estado': '1'}
+                            data: {'estado': '1','tkn':"<?php echo $_SESSION['token'] ?>"}
                         }).done(function (data) {
                             var usuarios = JSON.parse(data);
                             for (var i in usuarios) {
