@@ -286,8 +286,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     url: "../WebServices/eliminacion_de_un_usuario.php",
                     data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':<?php echo $_SESSION['token'] ?>}
                 });
-                if
-                        (<?php echo $_SESSION['token'] ?> == <?php echo $_GET['usuario'] ?>) {
+                if(<?php echo $_SESSION['token'] ?> == <?php echo $_GET['usuario'] ?>) {
                     window.location.href = '../config/cerrarSessionLogin.php';
                 } else {
                     window.location.href = '../Vistas/mostrar_usuarios.php';
