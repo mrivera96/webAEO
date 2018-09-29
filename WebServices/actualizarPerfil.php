@@ -1,13 +1,14 @@
 <?php include_once '../config/Token.php';
+include_once '../config/Errores.inc.php';
 if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
 
     if( Token::existeToken($_POST['tkn']) ){
     //El token recibido SI existe en la base de datos.
         if(Token::vigenciaToken($_POST['tkn'])){
             $error_nomb=false;
-            $error_tel=false; 
-            $error_cel=false; 
-            $error_mail=false; 
+            $error_tel=false;
+            $error_cel=false;
+            $error_mail=false;
             $error_desc=false;
             $error_dir=false;
             $error_reg=false;
@@ -17,7 +18,7 @@ if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
             $error_long = false;
 
              include '../config/ConexionABaseDeDatos.php';
-             include_once '../config/Errores.inc.php';
+
 
              if(!isset($_POST['lat_rec'])){
                 $error_lat=true;
@@ -110,7 +111,7 @@ if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
 
 
              if($error_nomb    === false &&
-                $error_nomb   === false && 
+                $error_nomb   === false &&
                 $error_tel    === false &&
                 $error_cel    === false &&
                 $error_dir    === false &&
@@ -176,6 +177,6 @@ if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
         print json_encode("El token recibido NO existe en la base de datos.");
     }
 }else{
-    print json_encode(ERROR22);        
+    print json_encode(ERROR22);
 }
 ?>
