@@ -50,7 +50,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         </div>
 
                         <div class="panel-body">
-                            <form id="formularioCrear" name="formularioCrear" role="form" method="post" action="crearPerfil.php" target="formDestination">
+                            <form id="formularioCrear" name="formularioCrear" role="form" method="post" action="../WebServices/crearPerfil.php" target="formDestination">
                                 <br/>
                                 <div class="group">
                                     <input type="text" required name="nomborg_rec" id="nombreOrg">
@@ -176,7 +176,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 <input type="hidden" name="imagen" value=""/>
                                 <input type="hidden" name="nombre_imagen" value=""/>
                                 <input type="hidden" name="tkn" value=""/>
-                                
+
                                 <iframe class="oculto"  name="formDestination"></iframe>
                                 <button class="form-control" name="guardar" id="guardar"  type="button" style="background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
@@ -345,7 +345,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     } else {
                         if (document.formularioCrear.numcel_rec.value.length < 8 || document.formularioCrear.numcel_rec.value.length > 8) {
                             error_cel = true;
-                            
+
                             mostrarError(document.formularioCrear.numcel_rec, "El número telefónico ingresado no es válido.");
                             return;
                         }
@@ -353,7 +353,6 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                     if (document.formularioCrear.direccion_rec.value === "") {
                         error_dir = true;
-
                         mostrarError(document.formularioCrear.direccion_rec, "Debe ingresar la dirección de la organización.");
                         return;
                     }
@@ -384,8 +383,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             error_desc === false &&
                             error_reg === false &&
                             error_cat === false) {
-                        document.formularioCrear.tkn.value=<?php echo $_SESSION['token']?>;
+                              document.formularioCrear.tkn.value="<?php echo $_SESSION['token']?>";
                         document.formularioCrear.submit();
+
                         $("#Modal1").modal('show');
 
                         return;

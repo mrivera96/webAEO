@@ -13,7 +13,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     <div class="panel panel-default">
                         <div class="panel-heading " style="height: 40px">
 
-                            <h3 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>   Edición de Perfil</h3>     
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>   Edición de Perfil</h3>
                         </div>
 
                         <div class="panel-body">
@@ -23,7 +23,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 </div><br><br>
 
 
-                                <div class="group" id="nombreDeOrg">   
+                                <div class="group" id="nombreDeOrg">
                                     <input  type="text" required name="nomborg_rec" id="nombreOrg">
                                     <span id="lbNomb" class="highlight"></span>
                                     <span class="bar"></span>
@@ -47,7 +47,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 </div>
 
 
-                                <div class="group">      
+                                <div class="group">
                                     <input class="input" type="text" required id="dirOrg" name="direccion_rec">
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
@@ -64,7 +64,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
 
 
-                                <div class="group">    
+                                <div class="group">
                                     <input class="input" type="text" required id="descOrg" name="desc_rec">
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
@@ -73,7 +73,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
 
 
-                                <div class="group">     
+                                <div class="group">
                                     <input class="input" type="text" id="latOrg" required name="lat_rec" >
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
@@ -81,7 +81,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 </div>
 
 
-                                <div class="group">   
+                                <div class="group">
                                     <input class="input" type="text" id="longOrg" required name="longitud_rec">
                                     <span class="highlight"></span>
                                     <span class="bar"></span>
@@ -129,9 +129,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                                     }
 
-                                </script> 
+                                </script>
                                 <body onload="initialize()">
-                                    <div id="map_canvas" style="width:100%; height:220px"></div><br> 
+                                    <div id="map_canvas" style="width:100%; height:220px"></div><br>
 
                                 </body
 
@@ -197,7 +197,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
         <br>
@@ -206,9 +206,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         <script type="text/javascript">
             $(document).on("ready", function () { loadData(); });
 
-          
+
           /*****************************************************************************************
-            * 
+            *
             * FUNCIONES AJAX PARA LLENAR LOS SELECT DE REGION Y CATEGORIA
             ******************************************************************************************/
            var loadData = function () {
@@ -233,9 +233,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                        $("#categoria").append('<option class="form-control" value="' + categorias[i].id_categoria + '">' + categorias[i].nombre_categoria + '</option>');
                    }
                });
-              
+
                $.ajax({
-                   type: "GET",
+                   type: "POST",
                    url: "../WebServices/consultarDatosDePerfilParaEditar.php",
                    data: {'cto': <?php echo $_GET['cto']?>}
                }).done(function (data) {
@@ -274,9 +274,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
            document.getElementById("eliminar").onclick = function () {
                $.ajax({
-                   type: "GET",
+                   type: "POST",
                    url: "../WebServices/eliminarPerfil.php",
-                   data: {'cto': <?php echo $_GET['cto']?>}
+                   data: {'cto': <?php echo $_GET['cto']?>, 'tkn':"<?php echo $_SESSION['token']?>"}
                });
 
                window.location.href = 'administracion-de-perfiles.php';

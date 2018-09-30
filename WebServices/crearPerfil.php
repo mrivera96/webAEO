@@ -1,19 +1,19 @@
 <?php
- 
+
  include '../config/ConexionABaseDeDatos.php';
  include_once '../config/Errores.inc.php';
  include_once '../config/Token.php';
 
     if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
-     
+
         if( Token::existeToken($_POST['tkn']) ){
-            
+
             if(Token::vigenciaToken($_POST['tkn'])){
-                
+
                 $error_nomb=false;
-                $error_tel=false; 
-                $error_cel=false; 
-                $error_mail=false; 
+                $error_tel=false;
+                $error_cel=false;
+                $error_mail=false;
                 $error_desc=false;
                 $error_dir=false;
                 $error_reg=false;
@@ -113,7 +113,7 @@
                 }
 
                 if( $error_nomb    === false &&
-                    $error_nomb   === false && 
+                    $error_nomb   === false &&
                     $error_tel    === false &&
                     $error_cel    === false &&
                     $error_dir    === false &&
@@ -140,11 +140,11 @@
                         $imagen="";
                         $nombre_imagen="";
 
-                        if(isset($_POST['imagen'])){
+                        if(isset($_POST['imagen']) && !empty($_POST['imagen'])){
                             $imagen=base64_decode($_POST['imagen']);
                         }
 
-                        if(isset($_POST['nombre_imagen'])){
+                        if(isset($_POST['nombre_imagen']) && !empty($_POST['nombre_imagen'])){
                             $nombre_imagen=$_POST['nombre_imagen'];
                         }
 
@@ -161,27 +161,27 @@
                             nombre_organizacion,
                             numero_fijo,
                             numero_movil,
-                            direccion, 
-                            descripcion_organizacion, 
-                            e_mail, 
-                            id_categoria, 
-                            latitud,  
-                            longitud, 
-                            id_region, 
-                            id_usuario, 
+                            direccion,
+                            descripcion_organizacion,
+                            e_mail,
+                            id_categoria,
+                            latitud,
+                            longitud,
+                            id_region,
+                            id_usuario,
                             id_estado,
                             imagen)
                             VALUES(
-                                ?, 
-                                ?, 
-                                ?, 
                                 ?,
                                 ?,
-                                ?, 
-                                ?, 
-                                ?, 
-                                ?, 
-                                ?, 
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
                                 ?,
                                 2,
                                 ?)";
@@ -194,31 +194,31 @@
                             nombre_organizacion,
                             numero_fijo,
                             numero_movil,
-                            direccion, 
-                            descripcion_organizacion, 
-                            e_mail, 
-                            id_categoria, 
-                            latitud,  
-                            longitud, 
-                            id_region, 
-                            id_usuario, 
+                            direccion,
+                            descripcion_organizacion,
+                            e_mail,
+                            id_categoria,
+                            latitud,
+                            longitud,
+                            id_region,
+                            id_usuario,
                             id_estado
                             )
                             VALUES(
-                                ?, 
-                                ?, 
-                                ?, 
                                 ?,
                                 ?,
-                                ?, 
-                                ?, 
-                                ?, 
-                                ?, 
-                                ?, 
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
+                                ?,
                                 ?,
                                 2)";
                         $resultado = $con->prepare($query_search);
-                        $resultado->bind_param("ssssssiddii", $nomborg_rec, $numtel_rec, $numcel_rec, 
+                        $resultado->bind_param("ssssssiddii", $nomborg_rec, $numtel_rec, $numcel_rec,
                                 $direccion_rec, $desc_rec, $email_rec, $id_categoria, $lat_rec, $longitud_rec, $id_region, $id_usuario);
                         $resultado->execute();
                     }
@@ -226,13 +226,13 @@
                     }
             } else{
           print json_encode("El Token ya expiró.");
-        }       
+        }
         }else{
         print json_encode("El token recibido NO existe en la base de datos.");
-        }         
+        }
     } else{
         print json_encode(ERROR22);
-     }       
+     }
 
    $con->close();
 
