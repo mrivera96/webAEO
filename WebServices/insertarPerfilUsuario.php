@@ -123,7 +123,7 @@ if( $error_nomb    === false &&
         $lat_rec=$_POST['lat_rec'];
         $longitud_rec=$_POST['longitud_rec'];
         $id_region=$_POST['id_region'];
-		$id_usuario =$_SESSION['user_id'];
+		$id_usuario =$_SESSION['idUrs'];
         $imagen="";
         $nombre_imagen="";
         
