@@ -15,6 +15,7 @@ $flag=array();
            $resultado_update = $con->prepare($update);
            $resultado_update->bind_param("i", $id_usua);
            $resultado_update->execute();
+           print json_encode("Usuario Eliminado.");
         }else{
           print json_encode("El Token ya expiró.");
         }
@@ -22,8 +23,8 @@ $flag=array();
         print json_encode("El token recibido NO existe en la base de datos.");
     }
  }else{
- print json_encode(ERROR22);   
+ print json_encode(ERROR22);
  }
  $con->close();
- 
-?> 
+
+?>
