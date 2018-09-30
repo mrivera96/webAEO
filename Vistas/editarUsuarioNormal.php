@@ -211,12 +211,15 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             if(users=="El token recibido NO existe en la base de datos."|| users == "El Token ya expiró." ){
                             document.getElementById("colorIniciosecion").click();
                             }else{
-                              window.location.href = 'index.php';
+                              $("#Modal1").modal('show');
 
                             }
+                          }
+                          );
 
                     return;
-                }
+                  }
+
             }
 
 

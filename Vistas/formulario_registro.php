@@ -22,7 +22,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px" target="formDestination" >
+                            <form name="formulario" role="form" id="formulario"  method="post"style="padding-top: 15px" target="formDestination" >
                                 <div class="group">
                                     <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="usuarionombre">
                                     <span class="highlight"></span>
@@ -58,7 +58,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 <select name="usuariosroles" class="form-control" id="id_rol_usuario">
                                 </select>
                                 <br>
-                                <button type="button" onclick="validarFormulario()" id="btn" class="form-control"   name="Submit"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
+                                <button type="button"  id="guardar"  class="form-control"   name="guardar"  style="width:100%; background-color:#005662; color:white;">  <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
 
                                 <div class="modal" id="Modal1" tabindex="-1" role="dialog">
@@ -95,9 +95,10 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
 
         <script>
+
             function mostrarError(componente, error) {
 
-                $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                $("#formulario").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
                         '<div class="modal-dialog" role="document">' +
                         '<div class="modal-content">' +
                         '<div class="modal-header">' +
@@ -161,7 +162,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                 });
             }
-
+            document.getElementById("guardar").onclick = function () {
+                validarFormulario();
+            };
             function validarFormulario() {
 
                 var error_nomUsuario = false;
@@ -233,21 +236,23 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                           $.ajax({
                                     type:"POST",
                                     url:"../WebServices/insercion_de_usuario.php",
-                                    data:{'usuarionombre':nombre,'usuariopropio':nombrepropio,'usuarioemail':email,'usariopassword':pass,'usuariosroles',:roles,'tkn':"<?php echo $_SESSION['token'] ?>"}
+                                    data:{'usuarionombre':nombre,'usuariopropio':nombrepropio,'usuarioemail':email,'usariopassword':pass,'usuariosroles':roles,'tkn':"<?php echo $_SESSION['token'] ?>"}
                                 }).done(function(data){
                                     var users = JSON.parse(data);
                                     if(users=="El token recibido NO existe en la base de datos."|| users == "El Token ya expiró." ){
                                     document.getElementById("colorIniciosecion").click();
                                     }else{
-                                      window.location.href = '..Vistas/mostrar_usuarios.php';
-
+                                    $("#Modal1").modal('show');
                                     }
+                                  }
+                                  );
 
 
                     return;
 
 
-                }
+                  }
+
 
 
             }

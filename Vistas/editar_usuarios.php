@@ -22,7 +22,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form  name="formulario_editar" id="editar_usuarios" role="form" method="post"  target="formDestination" >
+                            <form  name="formulario_editar" id="formulario_editar" role="form" method="post"  target="formDestination" >
 
 
                                 <div class="group">
@@ -111,7 +111,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
             function mostrarError(componente, error) {
 
-                $("#editar_usuarios").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
+                $("#formulario_editar").append('<div class="modal" id="Modal3" tabindex="-1" role="dialog">' +
                         '<div class="modal-dialog" role="document">' +
                         '<div class="modal-content">' +
                         '<div class="modal-header">' +
@@ -215,9 +215,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
                 if (error_nomUsuario === false &&
                         error_nomPropio === false &&
-                        error_correo === false
+                        error_correo === false)
                         //error_contrasena === false
-                        )
+
                 {
                   var iUsuario = document.formulario_editar.usuario.value;
                   var nombre = document.formulario_editar.usuarionombre.value;
@@ -235,14 +235,15 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             if(users=="El token recibido NO existe en la base de datos." || users == "El Token ya expiró." ){
                             document.getElementById("colorIniciosecion").click();
                             }else{
-                              window.location.href = '..Vistas/mostrar_usuarios.php';
+                              $("#Modal1").modal('show');
                             }
-
+                          }
+                          );
                     return;
-                }
 
+  }
 
-            }
+};
 
 
         </script>
@@ -259,9 +260,9 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
             {
 
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
                     url: "../WebServices/Mostar_Los_Usuarios_Editados.php",
-                    data: {'usuario':<?php echo $_GET['usuario'] ?>}
+                    data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 }).done(function (data)
                 {
 
@@ -301,7 +302,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     url: "../WebServices/eliminacion_de_un_usuario.php",
                     data: {'usuario':<?php echo $_GET['usuario'] ?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
                 });
-                if(<?php echo $_SESSION['token'] ?> == <?php echo $_GET['usuario'] ?>) {
+                if(<?php echo $_SESSION['idUrs'] ?> == <?php echo $_GET['usuario'] ?>) {
                     window.location.href = '../config/cerrarSessionLogin.php';
                 } else {
                     window.location.href = '../Vistas/mostrar_usuarios.php';
