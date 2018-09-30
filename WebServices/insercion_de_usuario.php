@@ -68,7 +68,7 @@ if(isset($_POST['tkn']) && !empty($_POST['tkn'])){
       $resultado_insert->execute();
 
 
-          //print json_encode("Usuario creado correctamente.");
+          print json_encode("Usuario creado correctamente.");
           }
       }else{
           print json_encode("El Token ya expiró.");
