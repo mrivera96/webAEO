@@ -237,7 +237,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                $.ajax({
                    type: "POST",
                    url: "../WebServices/consultarDatosDePerfilParaEditar.php",
-                   data: {'cto': <?php echo $_GET['cto']?>}
+                   data: {'cto': <?php echo $_GET['cto']?>,'tkn':"<?php echo $_SESSION['token']?>"}
                }).done(function (data) {
 
                    var perfiles = JSON.parse(data);
@@ -272,17 +272,26 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
 
 
-           document.getElementById("eliminar").onclick = function () {
+           $("#eliminar").click(function () {
                $.ajax({
                    type: "POST",
                    url: "../WebServices/eliminarPerfil.php",
                    data: {'cto': <?php echo $_GET['cto']?>, 'tkn':"<?php echo $_SESSION['token']?>"}
+               }).done(function(data){
+
+                   var resp = JSON.parse(data);
+
+                   if(resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró."){
+                      document.getElementById("colorIniciosecion").click();
+                   }else {
+                     window.location.href = 'administracion-de-perfiles.php';
+                   }
+
+
                });
 
-               window.location.href = 'administracion-de-perfiles.php';
-           };
 
-
+           });
 
            document.getElementById("guardar").onclick = function () {
                validarFormulario();
