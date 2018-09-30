@@ -50,7 +50,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         </div>
 
                         <div class="panel-body">
-                            <form id="formularioCrear" name="formularioCrear" role="form" method="post" action="../WebServices/crearPerfil.php" target="formDestination">
+                            <form id="formularioCrear" name="formularioCrear" role="form" method="post">
                                 <br/>
                                 <div class="group">
                                     <input type="text" required name="nomborg_rec" id="nombreOrg">
@@ -175,9 +175,6 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 <br>
                                 <input type="hidden" name="imagen" value=""/>
                                 <input type="hidden" name="nombre_imagen" value=""/>
-                                <input type="hidden" name="tkn" value=""/>
-
-                                <iframe class="oculto"  name="formDestination"></iframe>
                                 <button class="form-control" name="guardar" id="guardar"  type="button" style="background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
                                 <div class="modal" id="Modal1" tabindex="-1" role="dialog">
@@ -219,6 +216,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
         <script src="../js/jquery-2.2.4.min.js"></script>
         <script type="text/javascript">
+        <!--
                 $(document).on("ready", function () {
                     loadData();
                 });
@@ -251,10 +249,15 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         data: {'estado': '1', 'tkn':"<?php echo $_SESSION['token']?>"}
                     }).done(function (data) {
                         var usuarios = JSON.parse(data);
-
-                        for (var i in usuarios) {
-                            $("#usuario").append('<option value="' + usuarios[i].id_usuario + '">' + usuarios[i].nombre_usuario + '</option>');
+                        if(usuarios == "El token recibido NO existe en la base de datos." || usuarios == "El Token ya expiró."){
+                           document.getElementById("colorIniciosecion").click();
+                        }else {
+                          for (var i in usuarios) {
+                              $("#usuario").append('<option value="' + usuarios[i].id_usuario + '">' + usuarios[i].nombre_usuario + '</option>');
+                          }
                         }
+
+
                     });
 
                 };
@@ -383,15 +386,40 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             error_desc === false &&
                             error_reg === false &&
                             error_cat === false) {
-                              document.formularioCrear.tkn.value="<?php echo $_SESSION['token']?>";
-                        document.formularioCrear.submit();
+                              $.ajax({
+                                type:"POST",
+                                url:"../WebServices/crearPerfil.php",
+                                data:{
+                                  'tkn':"<?php echo $_SESSION['token']?>",
+                                  'lat_rec':document.formularioCrear.lat_rec.value,
+                                  'longitud_rec':document.formularioCrear.longitud_rec.value,
+                                  'nomborg_rec':document.formularioCrear.nomborg_rec.value,
+                                  'email_rec':document.formularioCrear.email_rec.value,
+                                  'numtel_rec':document.formularioCrear.numtel_rec.value,
+                                  'numcel_rec':document.formularioCrear.numcel_rec.value,
+                                  'direccion_rec':document.formularioCrear.direccion_rec.value,
+                                  'desc_rec':document.formularioCrear.desc_rec.value,
+                                  'id_region':document.formularioCrear.id_region.value,
+                                  'id_categoria':document.formularioCrear.id_categoria.value,
+                                  'id_usuario':document.formularioCrear.id_usuario.value
+                                }
 
-                        $("#Modal1").modal('show');
+                              }).done(function(data){
+                                 var resp = JSON.parse(data);
+                                 if(resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró."){
+                                    document.getElementById("colorIniciosecion").click();
+                                 }else {
+                                   $("#Modal1").modal('show');
+                                 }
+
+
+                              });
+
 
                         return;
                     }
                 }
-
+//-->
         </script>
 
 
