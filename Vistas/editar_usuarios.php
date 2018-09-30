@@ -8,7 +8,7 @@ include_once '../config/Errores.inc.php';
 if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
     if (isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol'] == 1) {
         ?>
-        <script src="../js/jquery-2.2.4.min.js"></script> 
+        <script src="../js/jquery-2.2.4.min.js"></script>
         <link href="../css/estilos_alan.css" rel="stylesheet">
 
         <div class="container">
@@ -18,11 +18,11 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                     <div class="panel panel-default">
                         <div   class="panel-heading" style="height: 40px">
                             <h3 class="panel-title">
-                                <span class="glyphicon glyphicon-edit"></span>  Edición de Cuenta 
+                                <span class="glyphicon glyphicon-edit"></span>  Edición de Cuenta
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form  name="formulario_editar" id="editar_usuarios" role="form" method="post" action="../WebServices/actualizacion_de_un_usuario.php" target="formDestination" >
+                            <form  name="formulario_editar" id="editar_usuarios" role="form" method="post"  target="formDestination" >
 
 
                                 <div class="group">
@@ -100,7 +100,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </form>
 
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
 
@@ -219,9 +219,24 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         //error_contrasena === false
                         )
                 {
-                    document.formulario_editar.submit();
+                  var iUsuario = document.formulario_editar.usuario.value;
+                  var nombre = document.formulario_editar.usuarionombre.value;
+                  var nombrepropio = document.formulario_editar.usuariopropio.value;
+                  var email = document.formulario_editar.usuarioemail.value;
 
-                    $("#Modal1").modal('show');
+
+
+                  $.ajax({
+                            type:"POST",
+                            url:"../WebServices/actualizacion_de_un_usuario.php",
+                            data:{'usuario':iUsuario,'usuarionombre':nombre,'usuariopropio':nombrepropio,'usuarioemail':email,'tkn':"<?php echo $_SESSION['token'] ?>"}
+                        }).done(function(data){
+                            var users = JSON.parse(data);
+                            if(users=="El token recibido NO existe en la base de datos." || users == "El Token ya expiró." ){
+                            document.getElementById("colorIniciosecion").click();
+                            }else{
+                              window.location.href = '..Vistas/mostrar_usuarios.php';
+                            }
 
                     return;
                 }

@@ -8,7 +8,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
     if (isset($_SESSION['rol']) && !empty($_SESSION['rol']) && $_SESSION['rol'] == 1) {
         ?>
 
-        <script src="../js/jquery-2.2.4.min.js"></script> 
+        <script src="../js/jquery-2.2.4.min.js"></script>
         <link href="../css/estilos_alan.css" rel="stylesheet">
 
         <div class="container" >
@@ -22,7 +22,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="../WebServices/insercion_de_usuario.php" target="formDestination" >
+                            <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px" target="formDestination" >
                                 <div class="group">
                                     <input  id="nombre_usuario" type="text"   onkeyup="escribiendoUsuario()" required name="usuarionombre">
                                     <span class="highlight"></span>
@@ -85,7 +85,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </form>
 
                         </div>
-                    </div>   
+                    </div>
                 </div>
             </div>
 
@@ -222,8 +222,27 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         error_correo === false &&
                         error_contrasena === false &&
                         error_contrasena1 === false) {
-                    document.formulario.submit();
-                    $("#Modal1").modal('show');
+                          var nombre = document.formulario.usuarionombre.value;
+                          var nombrepropio = document.formulario.usuariopropio.value;
+                          var email = document.formulario.usuarioemail.value;
+                          var pass = document.formulario.usariopassword.value;
+                          var roles = document.formulario.usuariosroles.value;
+
+
+
+                          $.ajax({
+                                    type:"POST",
+                                    url:"../WebServices/insercion_de_usuario.php",
+                                    data:{'usuarionombre':nombre,'usuariopropio':nombrepropio,'usuarioemail':email,'usariopassword':pass,'usuariosroles',:roles,'tkn':"<?php echo $_SESSION['token'] ?>"}
+                                }).done(function(data){
+                                    var users = JSON.parse(data);
+                                    if(users=="El token recibido NO existe en la base de datos."|| users == "El Token ya expiró." ){
+                                    document.getElementById("colorIniciosecion").click();
+                                    }else{
+                                      window.location.href = '..Vistas/mostrar_usuarios.php';
+
+                                    }
+
 
                     return;
 
