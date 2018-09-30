@@ -17,7 +17,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         </div>
 
                         <div class="panel-body">
-                            <form id="formularioEditar" name="formularioEditar" role="form" method="post" action="../WebServices/actualizarPerfil.php" target="formDestination">
+                            <form id="formularioEditar" name="formularioEditar" role="form" method="post">
                                 <div class="form-group text-center">
                                     <img style="width: 250px; height: 250px" class="img-circle img-circle" id="imganenOrg">
                                 </div><br><br>
@@ -145,8 +145,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 <input type="hidden" name="cto" value="<?php echo $_GET['cto'] ?>"/>
                                 <input type="hidden" name="imagen" value=""/>
                                 <input type="hidden" name="nombre_imagen" value=""/>
-                                <input type="hidden" name="tkn" value=""/>
-                                <iframe class="oculto"  name="formDestination"></iframe>
+
                                 <button class="form-control" name="guardar" id="guardar" type="button" style="width:100%; background-color:#005662; color:white;" ><span class="glyphicon glyphicon-floppy-disk"></span>  Guardar</button>
 
                                 <br>
@@ -204,6 +203,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
 
         <script src="../js/jquery-2.2.4.min.js"></script>
         <script type="text/javascript">
+        <!--
             $(document).on("ready", function () { loadData(); });
 
 
@@ -243,26 +243,32 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                    var perfiles = JSON.parse(data);
                    var imagen;
 
-                   for (var i in perfiles["perfiles"]) {
-                       if (perfiles["perfiles"][i].imagen !== "") {
-                           imagen = perfiles["perfiles"][i].imagen;
-                       } else {
-                           imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
-                       }
-                       ;
+                   if(perfiles == "El token recibido NO existe en la base de datos." || perfiles == "El Token ya expiró."){
+                     document.getElementById("colorIniciosecion").click();
+                   }else{
+                     for (var i in perfiles["perfiles"]) {
+                         if (perfiles["perfiles"][i].imagen !== "") {
+                             imagen = perfiles["perfiles"][i].imagen;
+                         } else {
+                             imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                         }
+                         ;
 
-                       $("#imganenOrg").attr("src", imagen);
-                       $("#nombreOrg").attr("value", perfiles["perfiles"][i].nombre_organizacion);
-                       $("#numtelOrg").attr("value", perfiles["perfiles"][i].numero_fijo);
-                       $("#numcelOrg").attr("value", perfiles["perfiles"][i].numero_movil);
-                       $("#dirOrg").attr("value", perfiles["perfiles"][i].direccion);
-                       $("#emailOrg").attr("value", perfiles["perfiles"][i].e_mail);
-                       $("#descOrg").attr("value", perfiles["perfiles"][i].descripcion_organizacion);
-                       $("#latOrg").attr("value", perfiles["perfiles"][i].latitud);
-                       $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);
-                       $("#region option[value=" + perfiles["perfiles"][i].id_region + "]").attr("selected", true);
-                       $("#categoria option[value=" + perfiles["perfiles"][i].id_categoria + "]").attr("selected", true);
-                   }
+                         $("#imganenOrg").attr("src", imagen);
+                         $("#nombreOrg").attr("value", perfiles["perfiles"][i].nombre_organizacion);
+                         $("#numtelOrg").attr("value", perfiles["perfiles"][i].numero_fijo);
+                         $("#numcelOrg").attr("value", perfiles["perfiles"][i].numero_movil);
+                         $("#dirOrg").attr("value", perfiles["perfiles"][i].direccion);
+                         $("#emailOrg").attr("value", perfiles["perfiles"][i].e_mail);
+                         $("#descOrg").attr("value", perfiles["perfiles"][i].descripcion_organizacion);
+                         $("#latOrg").attr("value", perfiles["perfiles"][i].latitud);
+                         $("#longOrg").attr("value", perfiles["perfiles"][i].longitud);
+                         $("#region option[value=" + perfiles["perfiles"][i].id_region + "]").attr("selected", true);
+                         $("#categoria option[value=" + perfiles["perfiles"][i].id_categoria + "]").attr("selected", true);
+                     }
+                  }
+
+
 
 
 
@@ -421,16 +427,43 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                        error_desc === false &&
                        error_reg === false &&
                        error_cat === false) {
-                   document.formularioEditar.tkn.value="<?php echo $_SESSION['token']?>";
-                   document.formularioEditar.submit();
-                   $("#Modal1").modal('show');
+
+                         $.ajax({
+                           type:"POST",
+                           url:"../WebServices/actualizarPerfil.php",
+                           data:{
+                             'tkn':"<?php echo $_SESSION['token']?>",
+                             'lat_rec':document.formularioEditar.lat_rec.value,
+                             'longitud_rec':document.formularioEditar.longitud_rec.value,
+                             'nomborg_rec':document.formularioEditar.nomborg_rec.value,
+                             'email_rec':document.formularioEditar.email_rec.value,
+                             'numtel_rec':document.formularioEditar.numtel_rec.value,
+                             'numcel_rec':document.formularioEditar.numcel_rec.value,
+                             'direccion_rec':document.formularioEditar.direccion_rec.value,
+                             'desc_rec':document.formularioEditar.desc_rec.value,
+                             'id_region':document.formularioEditar.id_region.value,
+                             'id_categoria':document.formularioEditar.id_categoria.value,
+                             'cto':document.formularioEditar.cto.value
+                           }
+
+                         }).done(function(data){
+                            var resp = JSON.parse(data);
+                            if(resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró."){
+                               document.getElementById("colorIniciosecion").click();
+                            }else {
+                              $("#Modal1").modal('show');
+                            }
+
+
+                         });
+
 
                    return;
                }
            }
 
 
-
+//-->
         </script>
 
 
