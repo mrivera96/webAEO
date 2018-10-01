@@ -23,7 +23,7 @@ include '../config/Errores.inc.php';
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="../WebServices/insertarUsuarioCliente.php" target="formDestination" >
+                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px" target="formDestination" >
 
                         <div class="group">
                             <input id="nombre_propio" type="text" required name="usuariopropio">
@@ -127,7 +127,7 @@ include '../config/Errores.inc.php';
         $.ajax({
             type: "GET",
 
-             url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+            url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -144,7 +144,7 @@ include '../config/Errores.inc.php';
         $.ajax({
             type: "GET",
 
-           url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
+            url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -167,19 +167,19 @@ include '../config/Errores.inc.php';
         var error_contrasena = false;
         var error_contrasena1 = false;
 
-       
+
         if (document.formulario.usuariopropio.value === "") {
             error_nomPropio = true;
             $("#Modal3").modal("show");
             mostrarError(document.formulario.usuariopropio,<?php print json_encode(ERROR11); ?>);
             return;
         }
-         if (document.formulario.usuarionombre.value === "") {
+        if (document.formulario.usuarionombre.value === "") {
             error_nomUsuario = true;
             mostrarError(document.formulario.usuarionombre, <?php print json_encode(ERROR10); ?>);
             return;
         }
-        
+
         if (document.formulario.usariopassword.value === "") {
             error_contrasena = true;
             $("#Modal3").modal("show");
@@ -201,8 +201,8 @@ include '../config/Errores.inc.php';
 
             }
         }
-        
-         if (document.formulario.usuarioemail.value === "") {
+
+        if (document.formulario.usuarioemail.value === "") {
             error_correo = true;
             $("#Modal3").modal("show");
             mostrarError(document.formulario.usuarioemail, <?php print json_encode(ERROR32); ?>);
@@ -221,9 +221,31 @@ include '../config/Errores.inc.php';
                 error_correo === false &&
                 error_contrasena === false &&
                 error_contrasena1 === false) {
-            document.formulario.submit();
-            $("#Modal1").modal('show');
 
+
+            $.ajax({
+                type: "POST",
+                url: "../WebServices/insertarUsuarioCliente.php",
+                data: {
+                    'tkn': "<?php echo $_SESSION['token'] ?>",
+                    'usuariopropio': document.formulario.usuariopropio.value,
+                    'usuarionombre': document.formulario.usuarionombre.value,
+                    'usariopassword': document.formulario.usariopassword.value,
+                    'usariopassword1': document.formulario.usariopassword1.value,
+                    'usuarioemail': document.formulario.usuarioemail.value
+                    
+                }
+
+            }).done(function (data) {
+                var resp = JSON.parse(data);
+                if (resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró.") {
+                    document.getElementById("colorIniciosecion").click();
+                } else {
+                    $("#Modal1").modal('show');
+                }
+
+
+            });
             return;
 
 
