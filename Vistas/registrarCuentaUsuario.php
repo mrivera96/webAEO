@@ -9,8 +9,7 @@ include '../config/Errores.inc.php';
     <link href="../css/estilos_alan.css" rel="stylesheet">
 </head>
 
-<h3 class="panel-title"> <strong><center style="color: #005662">   Registrar</center></strong><br></H3>
-
+<h3 align="center">Registrar</h3><br>
 
 <div class="container">
     <div class="row">
@@ -23,7 +22,7 @@ include '../config/Errores.inc.php';
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px" target="formDestination" >
+                    <form name="formulario" role="form" id="editar_usuarios"  method="post"style="padding-top: 15px"action="../WebServices/insertarUsuarioCliente.php" target="formDestination" >
 
                         <div class="group">
                             <input id="nombre_propio" type="text" required name="usuariopropio">
@@ -127,7 +126,7 @@ include '../config/Errores.inc.php';
         $.ajax({
             type: "GET",
 
-            url: "../WebServices/verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
+            url: "verificar_usuario.php?verificausu=" + $('#nombre_usuario').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -144,7 +143,7 @@ include '../config/Errores.inc.php';
         $.ajax({
             type: "GET",
 
-            url: "../WebServices/verificar_email.php?verificaemail=" + $('#correo').val(),
+            url: "verificar_email.php?verificaemail=" + $('#correo').val(),
         }).done(function (data) {
             console.log(data);
             if (data == 1) {
@@ -221,31 +220,9 @@ include '../config/Errores.inc.php';
                 error_correo === false &&
                 error_contrasena === false &&
                 error_contrasena1 === false) {
+            document.formulario.submit();
+            $("#Modal1").modal('show');
 
-
-            $.ajax({
-                type: "POST",
-                url: "../WebServices/insertarUsuarioCliente.php",
-                data: {
-                    'tkn': "<?php echo $_SESSION['token'] ?>",
-                    'usuariopropio': document.formulario.usuariopropio.value,
-                    'usuarionombre': document.formulario.usuarionombre.value,
-                    'usariopassword': document.formulario.usariopassword.value,
-                    'usariopassword1': document.formulario.usariopassword1.value,
-                    'usuarioemail': document.formulario.usuarioemail.value
-                    
-                }
-
-            }).done(function (data) {
-                var resp = JSON.parse(data);
-                if (resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró.") {
-                    document.getElementById("colorIniciosecion").click();
-                } else {
-                    $("#Modal1").modal('show');
-                }
-
-
-            });
             return;
 
 
