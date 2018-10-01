@@ -38,7 +38,7 @@ var loadData = function () {
             if (perfiles[i].imagen != "") {
                 imagen = perfiles[i].imagen;
             } else {
-                imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                imagen = "../imagenes/iconocontactowhite.png";
             }
             ;
             if (perfiles[i].numero_fijo != "") {
@@ -64,6 +64,3 @@ var loadData = function () {
         }
     });
 };
-
-
-

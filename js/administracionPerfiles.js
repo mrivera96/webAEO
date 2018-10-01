@@ -8,12 +8,12 @@ var search = document.getElementById("search"),
 
 search.addEventListener("keyup", function(e){
     var choice = this.value;
-  
+
     forEach.call(food, function(f){
         if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
-            f.style.display = "none";        
+            f.style.display = "none";
         else
-            f.style.display = "block";        
+            f.style.display = "block";
     });
 }, false);
 
@@ -39,7 +39,7 @@ var loadData = function () {
             if (perfiles[i].imagen !== "") {
                 imagen = perfiles[i].imagen;
             } else {
-                imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                imagen = "../imagenes/iconocontactowhite.png";
             }
             ;
 
@@ -62,5 +62,3 @@ var loadData = function () {
         }
     });
 };
-
-

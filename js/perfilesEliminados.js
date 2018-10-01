@@ -1,5 +1,5 @@
 /******************************************
- * 
+ *
  * FUNCIÓN DE BUSCARDOR JAVASCRIPT
  ******************************************/
 var search = document.getElementById("search"),
@@ -8,19 +8,19 @@ var search = document.getElementById("search"),
 
 search.addEventListener("keyup", function(e){
     var choice = this.value;
-  
+
     forEach.call(food, function(f){
         if (f.innerHTML.toLowerCase().search(choice.toLowerCase()) == -1)
-            f.style.display = "none";        
+            f.style.display = "none";
         else
-            f.style.display = "block";        
+            f.style.display = "block";
     });
 }, false);
 $(document).on("ready", function () {
     loadData();
 });
 /*****************************************************************************************
- * 
+ *
  * FUNCIÓN AJAX PARA MOSTRAR LOS PERFILES ELIMINADOS
  ******************************************************************************************/
 var loadData = function () {
@@ -31,7 +31,7 @@ var loadData = function () {
         success:function (data){
             var perfiles = JSON.parse(data);
         if(perfiles!=="No hay resultados."){
-            
+
             var imagen;
 
 
@@ -39,7 +39,7 @@ var loadData = function () {
                 if (perfiles[i].imagen !== "") {
                     imagen = perfiles[i].imagen;
                 } else {
-                    imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                    imagen = "../imagenes/iconocontactowhite.png";
                 }
                 ;
 
@@ -63,16 +63,15 @@ var loadData = function () {
             }
         }else{
             $("#fila").append(
-                        '<div class="col-md-12 text-center">' + 
+                        '<div class="col-md-12 text-center">' +
                         '<img  style="width:130px ; heigh:130px ;"  class="img-circle circle-img" src="https://cdn4.iconfinder.com/data/icons/rounded-white-basic-ui/139/Warning01-RoundedWhite-512.png"> ' +
                         '</div>' +
-                        '<div class="col-md-12 text-center">' + 
+                        '<div class="col-md-12 text-center">' +
                         '<h1>No hay solicitudes rechazadas</h1> ' +
                         '</div>'
-                        
+
                         );
-        } 
+        }
     }
     });
 };
-
