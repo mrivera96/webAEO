@@ -154,7 +154,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                 if (perfiles[i].imagen !== "") {
                                     imagen = perfiles[i].imagen;
                                 } else {
-                                    imagen = "https://cdn.icon-icons.com/icons2/37/PNG/512/contacts_3695.png";
+                                    imagen = "../imagenes/iconocontactowhite.png";
                                 }
                                 ;
 
