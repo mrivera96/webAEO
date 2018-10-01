@@ -12,13 +12,13 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 <div class="navbar-header">
 
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only"></span> 
+                        <span class="sr-only"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button> 
+                    </button>
                     <a  href="../index.php"><img class="btn-card" src="../imagenes/aeo.png"   align="left" height="50"></a><!--Para ponerle una img ala pagina -->
-                    <a class="navbar-brand" href="../index.php"><strong>Agenda Electrónica Oriental</strong></a> 
+                    <a class="navbar-brand" href="../index.php"><strong>Agenda Electrónica Oriental</strong></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
@@ -27,8 +27,8 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         <li><a href="solicitudes-rechazadas.php"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Solicitudes Rechazadas</a></li>
                         <li><a href="perfiles-eliminados.php"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Perfiles Eliminados</a></li>
                     </ul>
-                </div> 
-            </div>   
+                </div>
+            </div>
 
         </nav>
 
@@ -36,12 +36,12 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
             <div class="col-md-9 col-sm-9 col-xs-9">
                 <h4 style="color: white"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Nuevas Solicitudes</h4>
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-3 ">   
+            <div class="col-md-3 col-sm-3 col-xs-3 ">
 
                 <div class="inner-addon right-addon">
-                    <i class="glyphicon glyphicon-search"></i>      
+                    <i class="glyphicon glyphicon-search"></i>
                     <input type="search" class="form-control" id="search">
-                </div>                                                       
+                </div>
             </div>
         </div>
 
@@ -68,7 +68,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <div class="modal" id="Modal1" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -88,13 +88,13 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
 
-            </div>                    
+            </div>
         </div>
         <script src="../js/jquery-2.2.4.min.js"></script>
         <script type="text/javascript">
-    
+
             $(document).on("ready", function () { loadData(); });
             /**********************************************************************************************
                  *            FUNCIÓN PARA BUSCAR ENTRE LOS PERFILES
@@ -118,6 +118,26 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
              /**********************************************************************************************
                  *            FUNCIÓN AJAX PARA MOSTRAR LAS SOLICITUDES
                  **********************************************************************************************/
+                var aceptarSolicitud = function(id_contacto) {
+
+                  $.ajax({
+                    type:'POST',
+                    url: '../WebServices/aceptarSolicitud.php',
+                    data: {'cto':  id_contacto  ,
+                    'tkn':"<?php echo $_SESSION['token'] ?>"}
+                  });
+
+                  };
+
+                  var rechazarSolicitud = function(id_contacto) {
+                    $.ajax({
+                      type:'POST',
+                      url: '../WebServices/rechazarSolicitud.php',
+                      data: {'cto':  id_contacto  ,
+                      'tkn': "<?php echo $_SESSION['token'] ?>"}
+                    });
+                  };
+
             var loadData = function () {
                 $.ajax({
                     type: "post",
@@ -149,8 +169,8 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                         '<p>Usuario Propietario:</p>' +
                                         '<p>' + perfiles[i].nombre_usuario + '</p>' +
                                         '<input type="hidden" id="id" name="id" value=' + perfiles[i].id_contacto + '/>' +
-                                        '<button type="button" id="aceptar" onclick="javascript:(function() { $.ajax({type:\'POST\',url: \'../WebServices/aceptarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + ',\'tkn\':"<?php echo $_SESSION['token'] ?>"},success:function(){}}); })()" data-toggle="modal" data-target="#Modal" class="btn btn-primary">Aceptar</button>'+
-                                        '<button type="button" id="rechazar" onclick="javascript:(function() { $.ajax({type:\'POST\',url: \'../WebServices/rechazarSolicitud.php\',data: {\'cto\':' + perfiles[i].id_contacto + ',\'tkn\':"<?php echo $_SESSION['token'] ?>"},success:function(){}}); })()" data-toggle="modal" data-target="#Modal1" class="btn btn-secondary">Rechazar</button>' +
+                                        '<button type="button" id="ok" onclick="aceptarSolicitud('+ perfiles[i].id_contacto+')" data-toggle="modal" data-target="#Modal" class="btn btn-primary">Aceptar</button>'+
+                                        '<button type="button" id="cancel" onclick="rechazarSolicitud('+perfiles[i].id_contacto+')" data-toggle="modal" data-target="#Modal1" class="btn btn-secondary">Rechazar</button>' +
                                         '</div>' +
                                         '</div>' +
                                         '<hr style="margin-left:140px"/>' +
@@ -173,7 +193,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                 });
             };
 
-        </script>   
+        </script>
 
         <?php
         include_once '../plantillas/documento-cierre.inc.php';
@@ -186,4 +206,3 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
     header('Location: /webaeo');
 }
 ?>
-
