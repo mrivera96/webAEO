@@ -20,7 +20,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                         </div>
 
                         <div class="panel-body">
-                            <form id="formularioEditar" name="formularioEditar" role="form" method="post" action="../WebServices/actualizarPerfil.php" target="formDestination">
+                            <form id="formularioEditar" name="formularioEditar" role="form" method="post" target="formDestination">
                                 <div class="form-group text-center">
                                     <img style="width: 250px; height: 250px" class="img-circle img-circle" id="imganenOrg">
                                 </div><br><br>
@@ -210,7 +210,8 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
         <!--<script type="text/javascript" src="../js/vrcontactoaeditar.js"></script>-->
         <script>
                                                     $(document).on("ready", function () {
-                                                        loadData(); });
+                                                        loadData();
+                                                    });
 
 
                                                     function $_GET(param) {
@@ -256,7 +257,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                                         $.ajax({
                                                             type: "POST",
                                                             url: "../WebServices/consultarDatosDePerfilParaEditar.php",
-                                                            data: {'cto': <?php echo $_GET['cto']?>,'tkn':"<?php echo $_SESSION['token'] ?>"}
+                                                            data: {'cto': <?php echo $_GET['cto'] ?>, 'tkn': "<?php echo $_SESSION['token'] ?>"}
                                                         }).done(function (data) {
 
                                                             var perfiles = JSON.parse(data);
@@ -295,7 +296,7 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                                         $.ajax({
                                                             type: "POST",
                                                             url: "../WebServices/eliminarPerfil.php",
-                                                            data: {'cto':<?php echo $_GET['cto']?>,'tkn':"<?php echo $_SESSION['token'] ?>" }
+                                                            data: {'cto':<?php echo $_GET['cto'] ?>, 'tkn': "<?php echo $_SESSION['token'] ?>"}
                                                         });
 
                                                         window.location.href = '/webaeo/Vistas/contactosUsuario.php';
@@ -431,9 +432,35 @@ if (isset($_SESSION['token']) && !empty($_SESSION['token'])) {
                                                                 error_desc === false &&
                                                                 error_reg === false &&
                                                                 error_cat === false) {
-                                                            document.formularioEditar.submit();
-                                                            $("#Modal1").modal('show');
 
+                                                            $.ajax({
+                                                                type: "POST",
+                                                                url: "../WebServices/actualizarPerfil.php",
+                                                                data: {
+                                                                    'tkn': "<?php echo $_SESSION['token'] ?>",
+                                                                    'lat_rec': document.formularioEditar.lat_rec.value,
+                                                                    'longitud_rec': document.formularioEditar.longitud_rec.value,
+                                                                    'nomborg_rec': document.formularioEditar.nomborg_rec.value,
+                                                                    'email_rec': document.formularioEditar.email_rec.value,
+                                                                    'numtel_rec': document.formularioEditar.numtel_rec.value,
+                                                                    'numcel_rec': document.formularioEditar.numcel_rec.value,
+                                                                    'direccion_rec': document.formularioEditar.direccion_rec.value,
+                                                                    'desc_rec': document.formularioEditar.desc_rec.value,
+                                                                    'id_region': document.formularioEditar.id_region.value,
+                                                                    'id_categoria': document.formularioEditar.id_categoria.value,
+                                                                    'cto': document.formularioEditar.cto.value
+                                                                }
+
+                                                            }).done(function (data) {
+                                                                var resp = JSON.parse(data);
+                                                                if (resp == "El token recibido NO existe en la base de datos." || resp == "El Token ya expiró.") {
+                                                                    document.getElementById("colorIniciosecion").click();
+                                                                } else {
+                                                                    $("#Modal1").modal('show');
+                                                                }
+
+
+                                                            });
                                                             return;
                                                         }
                                                     }
